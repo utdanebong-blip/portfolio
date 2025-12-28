@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
+    "homepage": "https://utdanebong-blip.github.io/utibe-3d-portfolio",
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
