@@ -11,6 +11,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { BASE_URL } from "./lib/utils";
 
 const App = () => (
   <TooltipProvider>
@@ -19,13 +20,13 @@ const App = () => (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/gallery/:id" element={<ProjectDetail />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/portfolio" element={<Home />} />
+        <Route path={`/${BASE_URL}/about`} element={<About />} />
+        <Route path={`/${BASE_URL}/gallery`} element={<Gallery />} />
+        <Route path={`/${BASE_URL}/gallery/:id`} element={<ProjectDetail />} />
+        <Route path={`/${BASE_URL}/blog`} element={<Blog />} />
+        <Route path={`/${BASE_URL}/blog/:id`} element={<BlogPost />} />
+        <Route path={`/${BASE_URL}/contact`} element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
