@@ -10,7 +10,7 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "start": "react-scripts start"
