@@ -165,7 +165,7 @@ export default function Gallery() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map((project) => (
                   <div key={project.id} className="group rounded-lg overflow-hidden border border-border bg-card hover-glow relative">
-                    <Link to={`/gallery/${project.id}`} className="block">
+                    <Link to={`/portfolio/gallery/${project.id}`} className="block">
                       <div className="aspect-video overflow-hidden relative">
                         <img
                           src={project.thumbnail}

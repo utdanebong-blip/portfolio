@@ -120,9 +120,9 @@ export default function About() {
       <section className="py-16 relative">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <StatCard icon={Calendar} value={5} label="Years Experience" suffix="+" />
-            <StatCard icon={Folder} value={50} label="Projects Completed" suffix="+" />
-            <StatCard icon={Users} value={30} label="Happy Clients" suffix="+" />
+            <StatCard icon={Calendar} value={6} label="Years Experience" suffix="+" />
+            <StatCard icon={Folder} value={100} label="Projects Completed" suffix="+" />
+            <StatCard icon={Users} value={60} label="Happy Clients" suffix="+" />
             <StatCard icon={Award} value={12} label="Awards Won" />
           </div>
         </div>
@@ -254,7 +254,7 @@ export default function About() {
               <TabsContent value="resume" className="space-y-8 animate-fade-in">
                 {/* Download Resume Button */}
                     <div className="flex justify-end">
-                      <a href="/assets/resume.pdf" download className="inline-block">
+                      <a href="/portfolio/assets/resume.pdf" download className="inline-block">
                         <Button className="group gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-display">
                           <Download size={18} className="group-hover:animate-bounce" />
                           Download Resume

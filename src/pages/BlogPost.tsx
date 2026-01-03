@@ -3,6 +3,7 @@ import { Layout } from '@/components/layout';
 import { getPost, posts } from '@/hooks/usePortfolioData';
 import { Calendar, Tag, ArrowLeft, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { BASE_URL } from '@/lib/utils';
 
 export default function BlogPost() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ export default function BlogPost() {
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="font-display text-3xl font-bold mb-4">Post Not Found</h1>
           <p className="text-muted-foreground mb-8">The blog post you're looking for doesn't exist.</p>
-          <Link to="/blog">
+          <Link to={`/${BASE_URL}/blog`}>
             <Button>Back to Blog</Button>
           </Link>
         </div>
@@ -35,7 +36,7 @@ export default function BlogPost() {
     <Layout>
       <article className="container mx-auto px-4 py-20 max-w-4xl">
         {/* Back Link */}
-        <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 transition-colors">
+        <Link to={`/${BASE_URL}/blog`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 transition-colors">
           <ArrowLeft size={16} />
           <span className="font-body">Back to Blog</span>
         </Link>

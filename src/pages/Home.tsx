@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap } from 'lucide-react';
 import { projects, plugins, posts } from '@/hooks/usePortfolioData';
 import { useEffect, useRef, useState } from 'react';
+import { BASE_URL } from '@/lib/utils';
 
 function TypingQuote() {
   const quote = '“Every polygon tells a story. Every texture holds a memory. I create worlds one asset at a time.”';
@@ -129,12 +130,12 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Link to="/gallery">
+            <Link to={`/${BASE_URL}/gallery`}>
               <Button size="lg" className="font-display gap-3 px-8 py-6 text-base glow-green">
                 Explore Portfolio <ArrowRight size={18} />
               </Button>
             </Link>
-            <Link to="/about">
+            <Link to={`/${BASE_URL}/about`}>
               <Button size="lg" variant="outline" className="font-display gap-3 px-8 py-6 text-base border-border/50 hover:bg-card/50">
                 Learn My Story
               </Button>
@@ -175,7 +176,7 @@ export default function Home() {
                 Featured <span className="text-primary">Gallery</span>
               </h2>
             </div>
-            <Link to="/gallery">
+            <Link to={`/${BASE_URL}/gallery`}>
               <Button variant="ghost" className="font-body gap-2 text-muted-foreground hover:text-primary">
                 View Complete Collection <ArrowRight size={16} />
               </Button>
@@ -186,7 +187,7 @@ export default function Home() {
             {featuredProjects.map((project, index) => (
               <Link
                 key={project.id}
-                to={`/gallery/${project.id}`}
+                to={`/${BASE_URL}/gallery/${project.id}`}
                 className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 animate-fade-in"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
@@ -266,7 +267,7 @@ export default function Home() {
                   Sharing knowledge through in-depth breakdowns, workflow tips, and industry perspectives.
                 </p>
               </div>
-              <Link to="/blog">
+              <Link to={`/${BASE_URL}/blog`}>
                 <Button variant="ghost" className="font-body gap-2 text-muted-foreground hover:text-primary">
                   Browse All Articles <ArrowRight size={16} />
                 </Button>
@@ -277,7 +278,7 @@ export default function Home() {
               {/* Featured Article */}
               {latestPosts[0] && (
                 <Link
-                  to={`/blog/${latestPosts[0].id}`}
+                  to={`/${BASE_URL}/blog/${latestPosts[0].id}`}
                   className="group relative rounded-2xl overflow-hidden border border-border/50 bg-card hover:border-primary/30 transition-all duration-500 animate-fade-in"
                 >
                   <div className="aspect-[16/10] overflow-hidden">
@@ -316,7 +317,7 @@ export default function Home() {
                 {latestPosts.slice(1, 3).map((post, index) => (
                   <Link
                     key={post.id}
-                    to={`/blog/${post.id}`}
+                    to={`/${BASE_URL}/blog/${post.id}`}
                     className="group flex gap-6 p-4 bg-card/50 border border-border/30 rounded-xl hover:border-primary/30 hover:bg-card transition-all duration-500 animate-fade-in"
                     style={{ animationDelay: `${(index + 1) * 0.15}s` }}
                   >
@@ -350,7 +351,7 @@ export default function Home() {
                     <p className="font-body text-muted-foreground text-sm mb-4">
                       Explore tutorials, breakdowns, and creative insights
                     </p>
-                    <Link to="/blog">
+                    <Link to={`/${BASE_URL}/blog`}>
                       <Button variant="outline" size="sm" className="gap-2">
                         View All Posts <ArrowRight size={14} />
                       </Button>
@@ -412,12 +413,12 @@ export default function Home() {
               Have a project in mind? I'd love to hear about it and explore how we can bring your vision to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
+              <Link to={`/${BASE_URL}/contact`}>
                 <Button size="lg" className="font-display gap-3 px-10 py-6 text-base glow-green">
                   Start a Conversation <ArrowRight size={18} />
                 </Button>
               </Link>
-              <Link to="/about">
+              <Link to={`/${BASE_URL}/about`}>
                 <Button size="lg" variant="outline" className="font-display px-10 py-6 text-base border-border/50">
                   About Me
                 </Button>

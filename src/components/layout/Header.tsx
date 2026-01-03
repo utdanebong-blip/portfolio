@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link 
-            to="/" 
+            to="/portfolio" 
             className="flex items-center gap-2 group"
           >
             <div className="w-10 h-10 rounded border border-primary flex items-center justify-center glow-green">
