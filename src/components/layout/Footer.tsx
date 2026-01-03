@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
-import { BASE_URL } from '@/lib/utils';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,7 +28,7 @@ export function Footer() {
               {['Home', 'About', 'Gallery', 'Blog', 'Contact'].map((link) => (
                 <Link
                   key={link}
-                  to={`/${link.toLowerCase() === 'home' ? '/' : `${BASE_URL}/${link.toLowerCase()}`}`}
+                  to={link.toLowerCase() === 'home' ? '/' : `/${link.toLowerCase()}`}
                   className="text-muted-foreground hover:text-primary transition-colors font-body text-sm"
                 >
                   {link}

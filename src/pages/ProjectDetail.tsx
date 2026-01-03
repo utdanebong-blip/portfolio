@@ -5,7 +5,6 @@ import { getProject } from '@/hooks/usePortfolioData';
 import { ModelViewerPlaceholder } from '@/components/3d';
 import { ArrowLeft, Box, Layers, Grid3X3, RotateCcw, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { BASE_URL } from '@/lib/utils';
 
 type ViewMode = 'rendered' | 'wireframe' | 'uv' | '3d';
 
@@ -19,7 +18,7 @@ export default function ProjectDetail() {
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="font-display text-2xl mb-4">Project not found</h1>
-          <Link to={`/${BASE_URL}/gallery`}><Button>Back to Gallery</Button></Link>
+          <Link to={`/gallery`}><Button>Back to Gallery</Button></Link>
         </div>
       </Layout>
     );
@@ -46,7 +45,7 @@ export default function ProjectDetail() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-20">
-        <Link to={`/${BASE_URL}/gallery`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 font-body">
+        <Link to={`/gallery`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 font-body">
           <ArrowLeft size={16} /> Back to Gallery
         </Link>
 

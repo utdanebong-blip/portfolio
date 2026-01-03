@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { posts } from '@/hooks/usePortfolioData';
 import { Calendar, Tag, ArrowRight, BookOpen, Clock, Sparkles } from 'lucide-react';
-import { BASE_URL } from '@/lib/utils';
 
 export default function Blog() {
   const featuredPost = posts[0];
@@ -127,7 +126,7 @@ export default function Blog() {
             {otherPosts.map((post, index) => (
               <Link
                 key={post.id}
-                to={`/${BASE_URL}/blog/${post.id}`}
+                to={`/blog/${post.id}`}
                 className="group flex flex-col sm:flex-row gap-5 p-4 rounded-xl bg-card/50 border border-border hover:border-primary/50 hover:bg-card transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >

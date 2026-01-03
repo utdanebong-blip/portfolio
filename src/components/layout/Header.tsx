@@ -1,15 +1,15 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X, Home, User, Image, Mail, BookOpen } from 'lucide-react';
-import { BASE_URL, cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 
 const navItems = [
-  { path: `/${BASE_URL}`, label: 'Home', icon: Home },
-  { path: `/${BASE_URL}/about`, label: 'About', icon: User },
-  { path: `/${BASE_URL}/gallery`, label: 'Gallery', icon: Image },
-  { path: `/${BASE_URL}/blog`, label: 'Blog', icon: BookOpen },
-  { path: `/${BASE_URL}/contact`, label: 'Contact', icon: Mail },
+  { path: '/', label: 'Home', icon: Home },
+  { path: '/about', label: 'About', icon: User },
+  { path: '/gallery', label: 'Gallery', icon: Image },
+  { path: '/blog', label: 'Blog', icon: BookOpen },
+  { path: '/contact', label: 'Contact', icon: Mail },
 ];
 
 export function Header() {
@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link 
-            to="/portfolio" 
+            to="/" 
             className="flex items-center gap-2 group"
           >
             <div className="w-10 h-10 rounded border border-primary flex items-center justify-center glow-green">
