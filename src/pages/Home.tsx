@@ -181,7 +181,8 @@ function HeroText() {
       }`}
       style={{ transitionDelay: '180ms' }}
     >
-      Crafting forms in <span className="inline-block text-2xl md:text-4xl lg:text-2xl font-semibold text-primary text-glow-green mx-2 align-middle">3 DIMENSION.</span> 
+      Crafting forms in
+      <span className="block text-2xl md:text-4xl lg:text-2xl font-semibold text-primary text-glow-green mx-2">3 DIMENSION.</span>
     </p>
   );
 }
@@ -310,7 +311,7 @@ export default function Home() {
               <FadeIn key={project.id} delay={index * 100}>
               <Link
                 to={`/gallery/${project.id}`}
-                className="group relative rounded-lg overflow-hidden bg-card border border-border/50 hover:border-primary/50 transition-all duration-500"
+                className="group relative rounded-lg overflow-hidden bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 flex flex-col h-full"
               >
                 {/* Top HUD bar */}
                 <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-2 bg-gradient-to-b from-background/90 to-transparent">
@@ -321,7 +322,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="aspect-[4/3] overflow-hidden relative">
+                <div className="aspect-[4/3] overflow-hidden relative flex-shrink-0">
                   <img
                     src={project.thumbnail}
                     alt={project.title}
@@ -337,7 +338,7 @@ export default function Home() {
                 </div>
                 
                 {/* Bottom info panel */}
-                <div className="p-4 border-t border-border/50">
+                <div className="p-4 border-t border-border/50 mt-auto">
                   <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
@@ -462,7 +463,7 @@ export default function Home() {
             ].map((skill, index) => (
               <div 
                 key={skill.title}
-                className="group relative text-center p-8 rounded-2xl border border-border/30 bg-card/30 hover:bg-card/60 hover:border-primary/30 transition-all duration-500 animate-fade-in overflow-hidden"
+                className="group relative text-center p-8 rounded-2xl border border-border/30 bg-card/30 hover:bg-card/60 hover:border-primary/30 transition-all duration-500 animate-fade-in overflow-hidden hover:animate-bounce hover:scale-105 will-change-transform"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
