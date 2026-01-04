@@ -11,9 +11,10 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
-import { ScrollToTop } from "./components/ScrollToTop";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
+
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

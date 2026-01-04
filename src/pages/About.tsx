@@ -254,7 +254,7 @@ export default function About() {
               <TabsContent value="resume" className="space-y-8 animate-fade-in">
                 {/* Download Resume Button */}
                     <div className="flex justify-end">
-                      <a href="/portfolio/assets/resume.pdf" download className="inline-block">
+                      <a href="/assets/resume.pdf" download className="inline-block">
                         <Button className="group gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-display">
                           <Download size={18} className="group-hover:animate-bounce" />
                           Download Resume
