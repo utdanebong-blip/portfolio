@@ -166,44 +166,83 @@ export default function Gallery() {
 
           <TabsContent value="projects" className="animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {projects.map((project) => (
-                  <div key={project.id} className="group rounded-lg overflow-hidden border border-border bg-card hover-glow relative">
-                    <Link to={`/gallery/${project.id}`} className="block">
-                      <div className="aspect-video overflow-hidden relative">
-                        <img
-                          src={project.thumbnail}
-                          alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-display text-lg font-semibold text-foreground mb-2">{project.title}</h3>
-                        <p className="font-body text-sm text-muted-foreground line-clamp-2 mb-3">{project.description}</p>
-                        <div className="flex items-center justify-between text-xs font-mono">
-                          <span className="flex items-center gap-1 text-primary">
-                            <Box size={12} /> {project.specs.polyCount.toLocaleString()} polys
-                          </span>
-                          <span className="text-muted-foreground">{project.specs.textureResolution}</span>
-                        </div>
-                      </div>
-                    </Link>
-
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const url = project.images?.rendered || project.thumbnail;
-                        if (url) setViewer({ url, title: project.title });
-                      }}
-                      className="absolute top-3 right-3 bg-background/80 text-foreground px-3 py-1 rounded opacity-90 hover:opacity-100 z-10"
-                    >
-                      View Render
-                    </button>
+              {projects.map((project) => (
+                <Link
+                  key={project.id}
+                  to={`/gallery/${project.id}`}
+                  className="group relative rounded-lg overflow-hidden bg-card border border-border/50 hover:border-primary/50 transition-all duration-500"
+                >
+                  {/* Top HUD bar */}
+                  <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-2.5 bg-gradient-to-b from-background/95 to-transparent">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                      <span className="font-mono text-[10px] text-primary uppercase tracking-wider">{project.category}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-card/50 backdrop-blur-sm rounded px-2 py-0.5">
+                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+                      <span className="font-mono text-[10px] text-green-400">GAME READY</span>
+                    </div>
                   </div>
-                ))}
-              </div>
+                  
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                    
+                    {/* Scan line effect */}
+                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent animate-pulse" />
+                    </div>
+                    
+                    {/* Corner brackets */}
+                    <div className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  
+                  {/* Bottom info panel - Game UI style */}
+                  <div className="p-4 bg-card border-t border-border/50">
+                    <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="font-body text-xs text-muted-foreground line-clamp-2 mb-4">{project.description}</p>
+                    
+                    {/* Stats grid */}
+                    <div className="grid grid-cols-4 gap-2 font-mono text-[10px]">
+                      <div className="bg-secondary/50 border border-border/30 rounded px-2 py-2 text-center">
+                        <span className="text-muted-foreground block mb-0.5">POLYS</span>
+                        <span className="text-primary font-bold text-sm">{(project.specs.polyCount / 1000).toFixed(1)}K</span>
+                      </div>
+                      <div className="bg-secondary/50 border border-border/30 rounded px-2 py-2 text-center">
+                        <span className="text-muted-foreground block mb-0.5">VERTS</span>
+                        <span className="text-primary font-bold text-sm">{(project.specs.vertexCount / 1000).toFixed(1)}K</span>
+                      </div>
+                      <div className="bg-secondary/50 border border-border/30 rounded px-2 py-2 text-center">
+                        <span className="text-muted-foreground block mb-0.5">TEX</span>
+                        <span className="text-primary font-bold text-sm">{project.specs.textureResolution}</span>
+                      </div>
+                      <div className="bg-secondary/50 border border-border/30 rounded px-2 py-2 text-center">
+                        <span className="text-muted-foreground block mb-0.5">MATS</span>
+                        <span className="text-primary font-bold text-sm">{project.specs.materialSlots}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Software tags */}
+                    <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-border/30">
+                      {project.software.slice(0, 3).map((sw) => (
+                        <span key={sw} className="text-[9px] font-mono text-muted-foreground bg-background/50 px-2 py-0.5 rounded">
+                          {sw}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </TabsContent>
 
           <TabsContent value="showreel" className="animate-fade-in">

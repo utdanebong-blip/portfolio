@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap } from 'lucide-react';
+import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, Building2 } from 'lucide-react';
 import { projects, plugins, posts } from '@/hooks/usePortfolioData';
 import { useEffect, useRef, useState } from 'react';
 
@@ -105,51 +105,61 @@ export default function Home() {
     <Layout>
       {/* Hero Section - Elegant & Artistic */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Artistic background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-border/20 rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-border/10 rounded-full" />
-        </div>
+        {/* Animated background grid */}
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+        {/* Floating orbs */}
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+         {/* Geometric lines */}
+        <div className="absolute top-20 left-0 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+        <div className="absolute bottom-20 right-0 w-1/3 h-px bg-gradient-to-l from-transparent via-accent/50 to-transparent" />
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-primary/20 bg-card/50 backdrop-blur-sm mb-8 animate-fade-in">
-            <span className="font-mono text-sm tracking-widest text-muted-foreground uppercase">3D Prop Artist & Digital Craftsman</span>
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm mb-8 animate-fade-in">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="font-mono text-sm tracking-widest text-primary uppercase">Available for Projects</span>
           </div>
-
+          
           <TypingName />
           
-          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
             Transforming imagination into tangible digital experiences through meticulous craftsmanship and artistic vision.
           </p>
           
-          <p className="font-mono text-xs text-primary/60 tracking-wider mb-12 animate-fade-in" style={{ animationDelay: '0.25s' }}>
-            BLENDER • SUBSTANCE PAINTER • UNREAL ENGINE
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Link to={`/gallery`}>
-              <Button size="lg" className="font-display gap-3 px-8 py-6 text-base glow-green">
-                Explore Portfolio <ArrowRight size={18} />
-              </Button>
-            </Link>
-            <Link to={`/about`}>
-              <Button size="lg" variant="outline" className="font-display gap-3 px-8 py-6 text-base border-border/50 hover:bg-card/50">
-                Learn My Story
-              </Button>
-            </Link>
+           <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-xs text-muted-foreground mb-12 animate-fade-in" style={{ animationDelay: '0.25s' }}>
+            <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/50 border border-border/50">
+              <Gamepad2 size={14} className="text-primary" /> Game Props
+            </span>
+            <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/50 border border-border/50">
+              <Building2 size={14} className="text-primary" /> Archviz
+            </span>
+            <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/50 border border-border/50">
+              <Zap size={14} className="text-primary" /> Real-time
+            </span>
           </div>
           
-          {/* Scroll indicator */}
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
-              <div className="w-1 h-2 bg-primary rounded-full" />
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <Link to="/gallery">
+              <Button size="lg" className="font-display gap-3 px-8 py-6 text-base glow-green">
+                Explore Work <ArrowRight size={18} />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="font-display gap-3 px-8 py-6 text-base border-border/50 hover:bg-card/50 hover:border-primary/50">
+                Start a Project
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
-
+      {/* Scroll indicator */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+                <div className="flex flex-col items-center gap-2 animate-bounce">
+                  <span className="font-mono text-xs text-muted-foreground tracking-widest">SCROLL</span>
+                  <div className="w-px h-8 bg-gradient-to-b from-primary to-transparent" />
+                </div>
+              </div>
       {/* Philosophy Statement */}
       <section className="py-32 relative border-t border-border/30">
         <div className="container mx-auto px-4">
@@ -158,88 +168,124 @@ export default function Home() {
             <TypingQuote />
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-border" />
-              <span className="font-mono text-xs text-muted-foreground tracking-widest uppercase">CAPTIONSTUDIO</span>
+              <span className="font-mono text-xs text-muted-foreground tracking-widest uppercase">TODAY - 2026</span>
               <div className="h-px w-12 bg-border" />
             </div>
           </div>
         </div>
       </section>
+      
 
-      {/* Featured Projects - Gallery Style */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      
+ {/* Game Props Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 grid-dots opacity-20" />
+        <div className="container mx-auto px-4 relative">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <span className="font-mono text-xs text-primary tracking-widest uppercase mb-4 block">Selected Works</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-primary/10 border border-primary/30">
+                  <Gamepad2 className="w-5 h-5 text-primary" />
+                </div>
+                <span className="font-mono text-xs text-primary tracking-widest uppercase">Game Assets</span>
+              </div>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
-                Featured <span className="text-primary">Gallery</span>
+                3D <span className="text-primary text-glow-green">Props</span>
               </h2>
+              <p className="font-body text-muted-foreground mt-3 max-w-lg">
+                Game-ready assets optimized for real-time rendering with AAA quality texturing.
+              </p>
             </div>
-            <Link to={`/gallery`}>
-              <Button variant="ghost" className="font-body gap-2 text-muted-foreground hover:text-primary">
-                View Complete Collection <ArrowRight size={16} />
+            <Link to="/gallery">
+              <Button variant="ghost" className="font-mono gap-2 text-muted-foreground hover:text-primary uppercase text-xs tracking-wider">
+                View All Props <ArrowRight size={14} />
               </Button>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredProjects.map((project, index) => (
               <Link
                 key={project.id}
                 to={`/gallery/${project.id}`}
-                className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 animate-fade-in"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="group relative rounded-lg overflow-hidden bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                {/* Top HUD bar */}
+                <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-2 bg-gradient-to-b from-background/90 to-transparent">
+                  <span className="font-mono text-[10px] text-primary uppercase tracking-wider">{project.category}</span>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                    <span className="font-mono text-[10px] text-muted-foreground">GAME READY</span>
+                  </div>
+                </div>
+                
+                <div className="aspect-[4/3] overflow-hidden relative">
                   <img
                     src={project.thumbnail}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                  
+                  {/* Corner brackets */}
+                  <div className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="flex items-center gap-2 text-xs font-mono text-primary mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Box size={12} />
-                    <span>{project.specs.polyCount.toLocaleString()} polygons</span>
+                
+                {/* Bottom info panel */}
+                <div className="p-4 border-t border-border/50">
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="grid grid-cols-3 gap-2 font-mono text-[10px]">
+                    <div className="bg-secondary/50 rounded px-2 py-1.5 text-center">
+                      <span className="text-muted-foreground block">POLYS</span>
+                      <span className="text-primary font-bold">{(project.specs.polyCount / 1000).toFixed(1)}K</span>
+                    </div>
+                    <div className="bg-secondary/50 rounded px-2 py-1.5 text-center">
+                      <span className="text-muted-foreground block">TEX</span>
+                      <span className="text-primary font-bold">{project.specs.textureResolution}</span>
+                    </div>
+                    <div className="bg-secondary/50 rounded px-2 py-1.5 text-center">
+                      <span className="text-muted-foreground block">MATS</span>
+                      <span className="text-primary font-bold">{project.specs.materialSlots}</span>
+                    </div>
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-foreground">{project.title}</h3>
-                  <p className="font-body text-sm text-muted-foreground mt-1 line-clamp-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
-                    {project.description}
-                  </p>
                 </div>
-                {/* Corner accent */}
-                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/50 transition-colors duration-500" />
-                <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/50 transition-colors duration-500" />
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+
       {/* Skills Overview */}
-      <section className="py-24 bg-gradient-to-b from-card/30 to-background border-y border-border/30">
+      <section className="py-24 border-y border-border/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="font-mono text-xs text-primary tracking-widest uppercase mb-4 block">Expertise</span>
+            <span className="font-mono text-xs text-primary tracking-widest uppercase mb-4 block">Core Expertise</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
-              Crafted With <span className="text-primary">Precision</span>
+              What I <span className="text-primary">Deliver</span>
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { icon: Layers, title: '3D Modeling', desc: 'High-fidelity game-ready assets with optimized topology for real-time rendering' },
-              { icon: Palette, title: 'Texturing', desc: 'PBR workflows delivering photorealistic materials that breathe life into every surface' },
-              { icon: Lightbulb, title: 'Art Direction', desc: 'Cohesive visual storytelling that elevates projects from concept to completion' },
+              { icon: Layers, title: 'Game-Ready Assets', desc: 'Optimized 3D props with clean topology, efficient UVs, and PBR materials ready for any game engine' },
+              { icon: Building2, title: 'Archviz Renders', desc: 'Photorealistic architectural visualizations that bring designs to life before construction begins' },
+              { icon: Lightbulb, title: 'Creative Direction', desc: 'From concept to completion, providing cohesive visual storytelling across all deliverables' },
             ].map((skill, index) => (
               <div 
                 key={skill.title}
-                className="group text-center p-8 rounded-2xl border border-border/30 bg-card/30 hover:bg-card/60 hover:border-primary/20 transition-all duration-500 animate-fade-in"
+                className="group relative text-center p-8 rounded-2xl border border-border/30 bg-card/30 hover:bg-card/60 hover:border-primary/30 transition-all duration-500 animate-fade-in overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <skill.icon className="w-7 h-7 text-primary" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
+                  <skill.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">{skill.title}</h3>
                 <p className="font-body text-muted-foreground text-sm leading-relaxed">{skill.desc}</p>
@@ -398,28 +444,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background to-card/30" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Let's Create <span className="text-primary text-glow-green">Together</span>
+            <Sparkles className="w-10 h-10 text-primary mx-auto mb-6" />
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Ready to Bring Your <span className="text-primary text-glow-green">Vision</span> to Life?
             </h2>
-            <p className="font-body text-lg text-muted-foreground mb-10">
-              Have a project in mind? I'd love to hear about it and explore how we can bring your vision to life.
+            <p className="font-body text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+              Whether you need game-ready props, architectural visualization, or creative consultation — let's create something extraordinary together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to={`/contact`}>
-                <Button size="lg" className="font-display gap-3 px-10 py-6 text-base glow-green">
+              <Link to="/contact">
+                <Button size="lg" className="font-display gap-3 px-8 py-6 text-base glow-green">
                   Start a Conversation <ArrowRight size={18} />
                 </Button>
               </Link>
-              <Link to={`/about`}>
-                <Button size="lg" variant="outline" className="font-display px-10 py-6 text-base border-border/50">
-                  About Me
+              <Link to="/about">
+                <Button size="lg" variant="outline" className="font-display gap-3 px-8 py-6 text-base border-border/50 hover:bg-card/50">
+                  Learn More
                 </Button>
               </Link>
             </div>

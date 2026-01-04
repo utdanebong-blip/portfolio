@@ -91,6 +91,12 @@ function StatCard({ icon: Icon, value, label, suffix = '' }: { icon: any; value:
 export default function About() {
   const about = aboutData;
   const resume = resumeData;
+   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
 
   return (
     <Layout>
@@ -101,7 +107,7 @@ export default function About() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         
-        <div className={`container mx-auto px-4 text-center relative z-10 transition-all duration-1000 opacity-100 translate-y-0`}>
+         <div className={`container mx-auto px-4 text-center relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-6">
             <span className="px-4 py-2 bg-primary/10 border border-primary/30 rounded-full font-mono text-sm text-primary">
               Creative Professional
@@ -183,7 +189,7 @@ export default function About() {
           </div>
 
           {/* Main Content */}
-          <div className={`lg:col-span-2 transition-all duration-1000 delay-500 opacity-100 translate-x-0`}>
+          <div className={`lg:col-span-2 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <Tabs defaultValue="about" className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-8 bg-card/50 backdrop-blur-sm border border-border/50 p-1 rounded-xl">
                 <TabsTrigger value="about" className="font-display rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all">About</TabsTrigger>
