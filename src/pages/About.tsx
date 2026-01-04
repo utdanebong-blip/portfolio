@@ -2,7 +2,8 @@ import { Layout } from '@/components/layout';
 import { aboutData, resumeData } from '@/hooks/usePortfolioData';
 import { Briefcase, Award, GraduationCap, BadgeCheck, Download, Calendar, Folder, Users } from 'lucide-react';
 import { useCountUp } from '@/hooks/useCountUp';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import useInView from '@/hooks/useInView';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import React from 'react';
@@ -91,11 +92,8 @@ function StatCard({ icon: Icon, value, label, suffix = '' }: { icon: any; value:
 export default function About() {
   const about = aboutData;
   const resume = resumeData;
-   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const { ref: heroRef, inView: heroInView } = useInView();
+  const { ref: mainRef, inView: mainInView } = useInView();
 
 
   return (
@@ -107,7 +105,7 @@ export default function About() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         
-         <div className={`container mx-auto px-4 text-center relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+         <div ref={heroRef as any} className={`container mx-auto px-4 text-center relative z-10 transition-all duration-1000 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-6">
             <span className="px-4 py-2 bg-primary/10 border border-primary/30 rounded-full font-mono text-sm text-primary">
               Creative Professional
@@ -189,7 +187,7 @@ export default function About() {
           </div>
 
           {/* Main Content */}
-          <div className={`lg:col-span-2 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          <div ref={mainRef as any} className={`lg:col-span-2 transition-all duration-1000 delay-500 ${mainInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <Tabs defaultValue="about" className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-8 bg-card/50 backdrop-blur-sm border border-border/50 p-1 rounded-xl">
                 <TabsTrigger value="about" className="font-display rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all">About</TabsTrigger>
@@ -259,14 +257,38 @@ export default function About() {
 
               <TabsContent value="resume" className="space-y-8 animate-fade-in">
                 {/* Download Resume Button */}
-                    <div className="flex justify-end">
-                      <a href="/assets/resume.pdf" download className="inline-block">
-                        <Button className="group gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-display">
-                          <Download size={18} className="group-hover:animate-bounce" />
-                          Download Resume
-                        </Button>
-                      </a>
-                    </div>
+                          <div className="flex justify-end">
+                            <div className="inline-block">
+                              <Button
+                                className="group gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-display"
+                                onClick={async () => {
+                                  try {
+                                    const url = '/assets/resume.pdf';
+                                    const res = await fetch(url, { method: 'GET', cache: 'no-cache' });
+                                    if (!res.ok) {
+                                      alert('Resume PDF not found. To generate it locally run:\n\nnpm run generate-resume\n\nThis will create public/assets/resume.pdf for download.');
+                                      return;
+                                    }
+                                    const blob = await res.blob();
+                                    const blobUrl = window.URL.createObjectURL(blob);
+                                    const a = document.createElement('a');
+                                    a.href = blobUrl;
+                                    a.download = 'resume.pdf';
+                                    document.body.appendChild(a);
+                                    a.click();
+                                    a.remove();
+                                    window.URL.revokeObjectURL(blobUrl);
+                                  } catch (err) {
+                                    console.error(err);
+                                    alert('Unable to download resume. Check console for details.');
+                                  }
+                                }}
+                              >
+                                <Download size={18} className="group-hover:animate-bounce" />
+                                Download Resume
+                              </Button>
+                            </div>
+                          </div>
 
                 {/* Education */}
                 <section>

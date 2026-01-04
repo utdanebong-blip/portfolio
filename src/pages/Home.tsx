@@ -4,12 +4,22 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, Building2, MapPin } from 'lucide-react';
 import { projects, plugins, posts, archvizProjects } from '@/hooks/usePortfolioData';
 import { useEffect, useRef, useState } from 'react';
+import useInView from '@/hooks/useInView';
 
 function TypingQuote() {
-  const quote = '“Every polygon tells a story. Every texture holds a memory. I create worlds one asset at a time.”';
+  const quotes = [
+    '“Every polygon tells a story. Every texture holds a memory. I create worlds one asset at a time.”',
+    '“Design is not what it looks like, it’s how it performs; I sculpt pixels to perform beautifully.”',
+    '“Lighting reveals the soul of a scene. I chase it until the moment feels alive.”',
+    '“Good art balances purpose with restraint, detail is meaningful, not busywork.”',
+    '“I make assets that play nice in engines and look breathtaking in stills.”',
+  ];
+
   const [text, setText] = useState('');
+  const [index, setIndex] = useState(0);
   const refEl = useRef<HTMLElement | null>(null);
-  const startedRef = useRef(false);
+  const [started, setStarted] = useState(false);
+  const timeouts = useRef<number[]>([]);
 
   useEffect(() => {
     const el = refEl.current;
@@ -17,17 +27,9 @@ function TypingQuote() {
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !startedRef.current) {
-            startedRef.current = true;
-            let i = 0;
-            const type = () => {
-              if (i <= quote.length) {
-                setText(quote.slice(0, i));
-                i++;
-                setTimeout(type, 28);
-              }
-            };
-            type();
+          if (entry.isIntersecting) {
+            setStarted(true);
+            setIndex(0);
             obs.disconnect();
           }
         });
@@ -37,6 +39,45 @@ function TypingQuote() {
 
     obs.observe(el);
     return () => obs.disconnect();
+  }, []);
+
+  // Type the current quote, then advance index after a pause
+  useEffect(() => {
+    if (!started) return;
+    const q = quotes[index % quotes.length];
+    let i = 0;
+
+    function clearAll() {
+      timeouts.current.forEach((t) => clearTimeout(t));
+      timeouts.current = [];
+    }
+
+    function typeChar() {
+      if (i <= q.length) {
+        setText(q.slice(0, i));
+        i += 1;
+        timeouts.current.push(window.setTimeout(typeChar, 30));
+      } else {
+        // Hold the full quote, then clear and advance
+        timeouts.current.push(window.setTimeout(() => {
+          setText('');
+          setIndex((prev) => (prev + 1) % quotes.length);
+        }, 2000));
+      }
+    }
+
+    clearAll();
+    typeChar();
+
+    return () => clearAll();
+  }, [index, started]);
+
+  // cleanup on unmount
+  useEffect(() => {
+    return () => {
+      timeouts.current.forEach((t) => clearTimeout(t));
+      timeouts.current = [];
+    };
   }, []);
 
   return (
@@ -97,6 +138,34 @@ function TypingName() {
   );
 }
 
+function HeroText() {
+  const { ref, inView } = useInView();
+  return (
+    <p
+      ref={ref as any}
+      className={`font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed transition-all duration-700 ${
+        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      }`}
+      style={{ transitionDelay: '180ms' }}
+    >
+      Transforming imagination into tangible digital experiences through meticulous craftsmanship and artistic vision.
+    </p>
+  );
+}
+
+function FadeIn({ children, delay = 0 }: { children: any; delay?: number }) {
+  const { ref, inView } = useInView();
+  return (
+    <div
+      ref={ref as any}
+      className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Home() {
   const featuredProjects = projects.slice(0, 3);
   const latestPosts = posts.slice(0, 3);
@@ -124,9 +193,7 @@ export default function Home() {
           
           <TypingName />
           
-          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            Transforming imagination into tangible digital experiences through meticulous craftsmanship and artistic vision.
-          </p>
+          <HeroText />
           
            <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-xs text-muted-foreground mb-12 animate-fade-in" style={{ animationDelay: '0.25s' }}>
             <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/50 border border-border/50">
@@ -207,11 +274,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredProjects.map((project, index) => (
+              <FadeIn key={project.id} delay={index * 100}>
               <Link
-                key={project.id}
                 to={`/gallery/${project.id}`}
-                className="group relative rounded-lg overflow-hidden bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group relative rounded-lg overflow-hidden bg-card border border-border/50 hover:border-primary/50 transition-all duration-500"
               >
                 {/* Top HUD bar */}
                 <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-2 bg-gradient-to-b from-background/90 to-transparent">
@@ -258,10 +324,12 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
+
 
 {/* Archviz Section */}
       <section className="py-24 relative bg-gradient-to-b from-card/30 via-background to-background">
@@ -341,6 +409,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
 
       {/* Skills Overview */}
       <section className="py-24 border-y border-border/30">

@@ -19,7 +19,7 @@ export default function ArchvizProjectDetail() {
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="font-display text-2xl mb-4">Project not found</h1>
-          <Link to="/gallery"><Button>Back to Gallery</Button></Link>
+          <Link to="/gallery?tab=archviz"><Button>Back to Gallery</Button></Link>
         </div>
       </Layout>
     );
@@ -46,7 +46,7 @@ export default function ArchvizProjectDetail() {
         
         {/* Back Button */}
         <Link 
-          to="/gallery" 
+            to="/gallery?tab=archviz" 
           className="absolute top-8 left-8 inline-flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors backdrop-blur-sm bg-background/20 px-4 py-2 rounded-full border border-border/30"
         >
           <ArrowLeft size={16} /> Back to Gallery

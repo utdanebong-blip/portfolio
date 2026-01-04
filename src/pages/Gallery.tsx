@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { projects, showreel, archvizProjects } from '@/hooks/usePortfolioData';
 import { Box, Play, Film, MapPin, Maximize } from 'lucide-react';
@@ -44,6 +44,40 @@ const showreelVideos = (showreel && showreel.length > 0)
   : defaultShowreel;
 
 export default function Gallery() {
+  const location = useLocation();
+  const [tab, setTab] = useState(() => {
+    // prefer query param `tab`, fall back to hash
+    try {
+      const params = new URLSearchParams(location.search);
+      return params.get('tab') || (location.hash ? location.hash.replace('#', '') : 'projects');
+    } catch (e) {
+      return location.hash ? location.hash.replace('#', '') : 'projects';
+    }
+  });
+
+  useEffect(() => {
+    // update tab when location changes (search or hash)
+    try {
+      const params = new URLSearchParams(location.search);
+      const t = params.get('tab') || (location.hash ? location.hash.replace('#', '') : 'projects');
+      if (t && t !== tab) setTab(t);
+    } catch (e) {
+      const h = location.hash ? location.hash.replace('#', '') : '';
+      if (h && h !== tab) setTab(h);
+    }
+  }, [location.search, location.hash]);
+
+  // keep URL in sync when tab changes (use hash-router friendly query param)
+  useEffect(() => {
+    if (!tab) return;
+    try {
+      const base = window.location.pathname || '/';
+      const newHash = `#/gallery?tab=${encodeURIComponent(tab)}`;
+      window.history.replaceState(null, '', newHash);
+    } catch (e) {
+      window.location.hash = `gallery?tab=${tab}`;
+    }
+  }, [tab]);
   // `projects` is imported directly from demo data (read-only)
   const [viewer, setViewer] = useState<{ url: string; title?: string } | null>(null);
 
@@ -154,7 +188,7 @@ export default function Gallery() {
         </h1>
         <p className="font-body text-muted-foreground mb-12">A collection of 3D props, game assets, and showreels</p>
 
-        <Tabs defaultValue="projects" className="w-full">
+          <Tabs value={tab} onValueChange={(v) => setTab(v)} className="w-full">
           <TabsList className="mb-8 bg-card border border-border">
             <TabsTrigger value="projects" className="gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               <Box size={16} /> Projects

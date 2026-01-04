@@ -178,17 +178,19 @@
       }
     ],
     "skills": [
-      { "id": "1", "name": "3Ds Max", "level": 95, "category": "software" },
-      { "id": "2", "name": "3D Modeling for Games and ArchViz", "level": 95, "category": "software" },
+      { "id": "1", "name": "3Ds Max", "level": 98, "category": "software" },
+      { "id": "2", "name": "3D Modeling for Games and ArchViz", "level": 98, "category": "software" },
       { "id": "3", "name": "Substance Painter", "level": 90, "category": "software" },
       { "id": "4", "name": "Maya", "level": 75, "category": "software" },
       { "id": "5", "name": "Marmoset Toolbag", "level": 80, "category": "software" },
-      { "id": "6", "name": "UV Mapping", "level": 90, "category": "skill" },
+      { "id": "6", "name": "UV Mapping", "level": 95, "category": "skill" },
       { "id": "7", "name": "PBR Texturing", "level": 92, "category": "skill" },
       { "id": "8", "name": "Hard Surface Modeling", "level": 88, "category": "skill" },
       { "id": "9", "name": "Team Leadership", "level": 82, "category": "skill" }
     ],
     "certifications": [
+      "Civil Engineering Degree",
+      "Architecture Degree",
       "Unreal Engine Certified Developer",
       "Substance Painter Masterclass Certificate",
       "CGMA Hard Surface Modeling"
@@ -307,9 +309,9 @@
       "process": "Sculpted wood grain details in ZBrush, retopologized in Blender for optimal game performance, hand-painted wear and tear details in Substance Painter."
     },
     {
-      "id": "4",
+      "id": "3",
       "title": "Water Drum",
-      "description": "Gas Cylinder: This game prop model is a highly detailed 3D representation of a worn-out and old gas cylinder. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The model features realistic markings and embellishments that bring it to life. Cooking Pot: This game prop model is a 3D representation of a worn-out and old cooking pot. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The pot's handle and lid are functional and can be moved and posed for added realism. The model features realistic markings and embellishments that bring it to life.",
+      "description": "The Water Drum is a meticulously crafted and highly detailed game-ready prop, created using industry-leading software such as 3ds Max and Substance 3D Painter. Its purpose is to enrich the visual appeal of game environments, whether they are being developed in Unity, Unreal Engine, or any other engine. Its realistic design, with texturing and lighting that has been optimized for game engines, makes it perfect for virtual worlds of any genre. Its versatility makes the Water Drum an easy fit into any project.",
       "thumbnail": "https://cdnb.artstation.com/p/marketplace/presentation_assets/002/919/435/large/file.jpg?1691515244",
       "images": {
         "rendered": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/430/large/file.jpg?1691515139",
@@ -345,20 +347,20 @@
       },
         "glb": "/assets/models/project-3-cyberpunk-vending-machine.glb",
       "specs": {
-        "polyCount": 1900,
-        "vertexCount": 200,
+        "polyCount": 1000,
+        "vertexCount": 500,
         "texelDensity": "768 px/m",
-        "materialSlots": 4,
+        "materialSlots": 2,
         "textureResolution": "4K",
-        "fileSize": "62 MB"
+        "fileSize": "15 MB"
       },
       "software": ["3Ds Max", "Substance Painter", "Vray"],
       "category": "Props",
       "createdAt": "2024-03-10",
-      "process": "Hard-surface modeled in Blender using boolean operations, created custom decals and holographic materials, added emissive maps for neon lighting effects."
+      "process": "Hard-surface modeled in 3ds max no boolean operations, created custom decals and holographic materials, added emissive maps effects."
     },
     {
-      "id": "3",
+      "id": "4",
       "title": "Gas Cylinder and Cooking Pot",
       "description": "Gas Cylinder: This game prop model is a highly detailed 3D representation of a worn-out and old gas cylinder. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The model features realistic markings and embellishments that bring it to life. Cooking Pot: This game prop model is a 3D representation of a worn-out and old cooking pot. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The pot's handle and lid are functional and can be moved and posed for added realism. The model features realistic markings and embellishments that bring it to life.",
       "thumbnail": "https://cdna.artstation.com/p/assets/images/images/065/847/998/small/caption-gascylinder-arnoldpsd.jpg?1691400463=crop",

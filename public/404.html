@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0;url=/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Redirecting…</title>
+    <script>
+      // If a user hits a path like /archviz/a1 on static hosting (GH Pages),
+      // redirect to the hash-based route so the SPA router can handle it.
+      (function () {
+        try {
+          var p = window.location.pathname;
+          var s = window.location.search || '';
+          var h = window.location.hash || '';
+          // If already a hash route, just go home
+          if (h && h.indexOf('#/') === 0) return;
+          var target = '/#' + p + s + h;
+          // Use replace to avoid adding extra history entry
+          window.location.replace(target);
+        } catch (e) {
+          // fallback to index
+          window.location.replace('/');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting…
+    <a href="/">Return home</a>
+  </body>
+</html>
