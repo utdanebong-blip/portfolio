@@ -153,13 +153,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Scroll indicator */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-                <div className="flex flex-col items-center gap-2 animate-bounce">
-                  <span className="font-mono text-xs text-muted-foreground tracking-widest">SCROLL</span>
-                  <div className="w-px h-8 bg-gradient-to-b from-primary to-transparent" />
-                </div>
-              </div>
+      
       {/* Philosophy Statement */}
       <section className="py-32 relative border-t border-border/30">
         <div className="container mx-auto px-4">
@@ -173,6 +167,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* Scroll indicator */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+                <div className="flex flex-col items-center gap-2 animate-bounce">
+                  <span className="font-mono text-xs text-muted-foreground tracking-widest">SCROLL</span>
+                  <div className="w-px h-8 bg-gradient-to-b from-primary to-transparent" />
+                </div>
+              </div>
       </section>
       
 

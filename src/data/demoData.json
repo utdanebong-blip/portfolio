@@ -95,6 +95,15 @@
         "startDate": "2018",
         "endDate": "2022",
         "description": "Specialized Building Calculations, Design and art with honors"
+      },
+      {
+        "id": "1",
+        "degree": "Bachelor in Architecture",
+        "institution": "University of Uyo",
+        "location": "Uyo, Nigeria",
+        "startDate": "2010",
+        "endDate": "2014",
+        "description": "Specialized Building Designs, Devlope plans and querry functionality"
       }
     ],
     "experiences": [
@@ -343,7 +352,7 @@
         "fileSize": "62 MB"
       },
       "software": ["3Ds Max", "Substance Painter", "Vray"],
-      "category": "Environment",
+      "category": "Props",
       "createdAt": "2024-03-10",
       "process": "Hard-surface modeled in Blender using boolean operations, created custom decals and holographic materials, added emissive maps for neon lighting effects."
     }
@@ -364,22 +373,6 @@
       "icon": "📦",
       "downloadUrl": "https://fileaxa.com/54qb0tk0i2rl",
       "category": "Maya 2022-2025"
-    },
-    {
-      "id": "3",
-      "name": "Batch Exporter Pro",
-      "description": "Export multiple objects with custom naming and format options.",
-      "icon": "📦",
-      "downloadUrl": "https://example.com/downloads/batch-exporter-pro.zip",
-      "category": "Blender"
-    },
-    {
-      "id": "4",
-      "name": "Edge Flow Optimizer",
-      "description": "Automatically optimize edge flow for better deformation and topology.",
-      "icon": "📦",
-      "downloadUrl": "https://example.com/downloads/edge-flow-optimizer.zip",
-      "category": "3ds Max"
     }
   ],
   "posts": [
