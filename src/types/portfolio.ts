@@ -9,11 +9,20 @@ export interface Project {
     uv: string;
     // Optional array of extra rendered images with optional direct links
     renderedExtras?: Array<{
+    // Optional fields used by archviz projects
+    status?: string;
+    location?: string;
+    area?: string;
+    type?: string;
+    style?: string;
+    year?: string;
       src: string;
       link?: string;
     }>;
   };
   glb?: string;
+  // Optional concept used by some archviz entries
+  concept?: string;
   modelUrl?: string;
   specs: {
     polyCount: number;

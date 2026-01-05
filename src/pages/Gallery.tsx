@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { projects, showreel, archvizProjects } from '@/hooks/usePortfolioData';
-import { Box, Play, Film, MapPin, Maximize } from 'lucide-react';
+import { Box, Play, Film, MapPin, Maximize, ArrowRight } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useEffect, useState, useRef } from 'react';
 
@@ -182,12 +182,28 @@ export default function Gallery() {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-20">
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
-          Project <span className="text-primary">Gallery</span>
-        </h1>
-        <p className="font-body text-muted-foreground mb-12">A collection of 3D props, Archviz projects, and showreels</p>
+      <div className="relative overflow-hidden py-20 bg-gradient-to-b from-primary/5 via-background to-background">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="inline-flex items-center gap-2 text-primary font-mono text-sm mb-4 bg-primary/10 px-4 py-2 rounded-full">
+              <Box size={16} /> All Projects
+            </span>
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <TypewriterGallery />
+              <span className="block text-primary">Gallery</span>
+            </h1>
+            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+              A collection of 3D props, Archviz projects, and showreels
+            </p>
+          </div>
+        </div>
+      </div>
 
+      <div className="container mx-auto px-4 pb-20">
           <Tabs value={tab} onValueChange={(v) => setTab(v)} className="w-full">
           <TabsList className="mb-8 bg-card border border-border">
             <TabsTrigger value="projects" className="gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
@@ -283,44 +299,96 @@ export default function Gallery() {
           </TabsContent>
 
           <TabsContent value="archviz" className="animate-fade-in">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {archvizProjects.map(project => <Link key={project.id} to={`/archviz/${project.id}`} className="group relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-card to-card/50 transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5">
-                  <div className="aspect-[16/10] overflow-hidden relative">
-                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
+            {/* Elegant masonry-style grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {archvizProjects.map((project, index) => (
+                <Link 
+                  key={project.id} 
+                  to={`/archviz/${project.id}`} 
+                  className={`group relative overflow-hidden rounded-2xl bg-card transition-all duration-700 hover:shadow-2xl hover:shadow-accent/10 animate-fade-in ${
+                    index === 0 ? 'md:col-span-2 md:row-span-2' : ''
+                  }`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className={`overflow-hidden relative ${index === 0 ? 'aspect-[16/12]' : 'aspect-[4/3]'}`}>
+                    <img 
+                      src={project.thumbnail} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" 
+                    />
                     
-                    {/* Status Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${project.specs.status === 'Completed' ? 'bg-green-500/20 text-green-300 border border-green-500/30' : project.specs.status === 'In Development' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-primary/20 text-primary border border-primary/30'}`}>
-                        {project.specs.status}
-                      </span>
+                    {/* Elegant gradient overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    
+                    {/* Subtle border glow on hover */}
+                    <div className="absolute inset-0 border border-accent/0 group-hover:border-accent/20 rounded-2xl transition-all duration-500" />
+                  </div>
+                  
+                  {/* Status Badge - Refined */}
+                  <div className="absolute top-5 left-5">
+                    <span className={`px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-md transition-all duration-300 ${
+                      (project.specs as any).status === 'Completed' 
+                        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
+                        : (project.specs as any).status === 'In Development'
+                        ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
+                        : 'bg-accent/10 text-accent border border-accent/20'
+                    }`}>
+                      {(project.specs as any).status}
+                    </span>
+                  </div>
+                  
+                  {/* Year Badge */}
+                  <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <span className="px-3 py-1.5 rounded-full text-xs font-mono text-foreground/70 backdrop-blur-md bg-background/30 border border-border/20">
+                      {(project.specs as any).year}
+                    </span>
+                  </div>
+                  
+                  {/* Content Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    {/* Location with icon */}
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground/80 mb-3">
+                      <MapPin size={12} className="text-accent" />
+                      <span className="font-light tracking-wide">{(project.specs as any).location}</span>
                     </div>
                     
-                    {/* Overlay Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-                        <MapPin size={12} />
-                        <span>{project.specs.location}</span>
-                      </div>
-                      <h3 className="font-display text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="font-body text-sm text-muted-foreground line-clamp-2 mb-4">
+                    {/* Title */}
+                    <h3 className={`font-display font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-500 ${
+                      index === 0 ? 'text-3xl' : 'text-xl'
+                    }`}>
+                      {project.title}
+                    </h3>
+                    
+                    {/* Description - only on larger cards */}
+                    {index === 0 && (
+                      <p className="font-body text-sm text-muted-foreground line-clamp-2 mb-4 opacity-80">
                         {project.description}
                       </p>
-                      <div className="flex items-center gap-4 text-xs">
-                        <span className="flex items-center gap-1.5 text-foreground/70">
-                          <Maximize size={12} />
-                          {project.specs.area}
-                        </span>
-                        <span className="text-foreground/50">•</span>
-                        <span className="text-foreground/70">{project.specs.type}</span>
-                        <span className="text-foreground/50">•</span>
-                        <span className="text-foreground/70">{project.specs.style}</span>
-                      </div>
+                    )}
+                    
+                    {/* Specs row */}
+                    <div className="flex items-center gap-4 text-xs font-light">
+                      <span className="text-foreground/60 flex items-center gap-1.5">
+                        <Maximize size={11} className="text-accent/70" />
+                        {(project.specs as any).area}
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-border" />
+                      <span className="text-foreground/60">{(project.specs as any).type}</span>
+                      <span className="w-1 h-1 rounded-full bg-border" />
+                      <span className="text-foreground/60">{(project.specs as any).style}</span>
+                    </div>
+                    
+                    {/* View button - appears on hover */}
+                    <div className="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                      <span className="inline-flex items-center gap-2 text-sm text-accent font-medium">
+                        View Project
+                        <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                      </span>
                     </div>
                   </div>
-                </Link>)}
+                </Link>
+              ))}
             </div>
           </TabsContent>
 
@@ -437,5 +505,57 @@ export default function Gallery() {
         )}
       </div>
     </Layout>
+  );
+}
+
+function TypewriterGallery() {
+  const words = ['Projects', 'Props', 'Archviz', 'Showreels'];
+  return <Typewriter words={words} loop={true} pause={1400} />;
+}
+
+function Typewriter({ words, loop = true, pause = 1200, typeSpeed = 80, deleteSpeed = 40 }: { words: string[]; loop?: boolean; pause?: number; typeSpeed?: number; deleteSpeed?: number }) {
+  const [index, setIndex] = useState(0);
+  const [display, setDisplay] = useState('');
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    let timer: number | undefined;
+    const word = words[index % words.length];
+
+    if (typing) {
+      if (display.length < word.length) {
+        timer = window.setTimeout(() => setDisplay(word.slice(0, display.length + 1)), typeSpeed);
+      } else {
+        timer = window.setTimeout(() => setTyping(false), pause);
+      }
+    } else {
+      if (display.length > 0) {
+        timer = window.setTimeout(() => setDisplay(display.slice(0, display.length - 1)), deleteSpeed);
+      } else {
+        setTyping(true);
+        setIndex((i) => i + 1);
+      }
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [display, typing, index, words, pause, typeSpeed, deleteSpeed]);
+
+  const longest = words.reduce((a, b) => (a.length >= b.length ? a : b), '');
+  return (
+    <span className="block text-center mb-2">
+      <span className="relative inline-block mx-auto">
+        {/* invisible widest word reserves the width and centers itself */}
+        <span className="invisible block font-display font-bold leading-tight">{longest}</span>
+
+        {/* overlay the visible typed text centered over the reserved width */}
+        <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span className="font-display font-bold leading-tight">{display}</span>
+          <span className="inline-block w-1 h-7 bg-primary ml-3 animate-blink" />
+        </span>
+      </span>
+      <style>{`.animate-blink{animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}`}</style>
+    </span>
   );
 }

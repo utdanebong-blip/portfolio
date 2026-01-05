@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, Building2, MapPin } from 'lucide-react';
+import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, MapPin } from 'lucide-react';
 import { projects, plugins, posts, archvizProjects } from '@/hooks/usePortfolioData';
 import { useEffect, useRef, useState } from 'react';
 import useInView from '@/hooks/useInView';
@@ -216,7 +216,6 @@ export default function Home() {
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
          {/* Geometric lines */}
-        <div className="absolute top-20 left-0 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         <div className="absolute bottom-20 right-0 w-1/3 h-px bg-gradient-to-l from-transparent via-accent/50 to-transparent" />
         
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -410,13 +409,13 @@ export default function Home() {
                   {/* Status badge */}
                   <div className="absolute top-6 right-6">
                     <span className={`px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm ${
-                      project.specs.status === 'Completed' 
+                      (project.specs as any).status === 'Completed' 
                         ? 'bg-green-500/20 text-green-300 border border-green-500/30' 
-                        : project.specs.status === 'In Development'
+                        : (project.specs as any).status === 'In Development'
                         ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                         : 'bg-accent/20 text-accent border border-accent/30'
                     }`}>
-                      {project.specs.status}
+                      {(project.specs as any).status}
                     </span>
                   </div>
                 </div>
@@ -424,9 +423,9 @@ export default function Home() {
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                     <MapPin size={12} className="text-accent" />
-                    <span>{project.specs.location}</span>
+                    <span>{(project.specs as any).location}</span>
                     <span className="text-border">•</span>
-                    <span>{project.specs.area}</span>
+                    <span>{(project.specs as any).area}</span>
                   </div>
                   <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                     {project.title}

@@ -216,33 +216,7 @@
       "images": {
         "rendered": "https://cdna.artstation.com/p/assets/images/images/065/870/484/small/caption-full-render4.jpg?1691444715",
         "wireframe": "https://cdnb.artstation.com/p/assets/images/images/065/870/491/small/caption-wireframe.jpg?1691444736",
-        "uv": "https://cdna.artstation.com/p/assets/images/images/065/870/496/small/caption-uv-02.jpg?1691444748",
-        "renderedExtras": [
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/065/870/481/small/caption-full-render3.jpg?1691444707",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/065/870/479/small/caption-full-render2.jpg?1691444700",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/065/870/486/small/caption-override-mat.jpg?1691444726",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/065/870/493/small/caption-uv-01.jpg?1691444743",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/065/870/497/small/caption-uv-03.jpg?1691444752",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/065/870/474/small/caption-armor.jpg?1691444687",
-            "link": ""
-          }
-        ]
+        "uv": "https://cdna.artstation.com/p/assets/images/images/065/870/496/small/caption-uv-02.jpg?1691444748"
       },
         "glb": "/assets/models/project-1-viking-helmet.glb",
       "specs": {
@@ -252,6 +226,13 @@
         "materialSlots": 3,
         "textureResolution": "4K",
         "fileSize": "45 MB"
+      ,
+        "status": "Completed",
+        "location": "Lagos, Nigeria",
+        "area": "N/A",
+        "type": "Props",
+        "style": "Realistic",
+        "year": "2024"
       },
       "software": ["3Ds Max", "Substance Painter", "Marmoset Toolbag"],
       "category": "Props",
@@ -266,33 +247,7 @@
       "images": {
         "rendered": "https://cdnb.artstation.com/p/assets/images/images/048/770/383/small/caption-side.jpg?1650905520=crop",
         "wireframe": "https://cdna.artstation.com/p/assets/images/images/048/776/512/small/caption-1.jpg?1650914871=crop",
-        "uv": "https://cdnb.artstation.com/p/assets/images/images/048/770/329/small/caption-front-full.jpg?1650905441=crop",
-        "renderedExtras": [
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/048/770/329/small/caption-front-full.jpg?1650905441=crop",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/048/770/279/small/caption-front-side.jpg?1650905367",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/048/770/307/small/caption-front.jpg?1650905396",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/048/770/383/small/caption-side.jpg?1650905520",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/048/770/360/small/caption-side-full.jpg?1650905481",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/048/770/258/small/caption-close-up.jpg?1650905339",
-            "link": ""
-          }
-        ]
+        "uv": "https://cdnb.artstation.com/p/assets/images/images/048/770/329/small/caption-front-full.jpg?1650905441=crop"
       },
         "glb": "/assets/models/project-2-old-decaying-skull.glb",
       "specs": {
@@ -302,6 +257,13 @@
         "materialSlots": 2,
         "textureResolution": "4K",
         "fileSize": "28 MB"
+      ,
+        "status": "Completed",
+        "location": "Remote",
+        "area": "N/A",
+        "type": "Props",
+        "style": "Realistic",
+        "year": "2024"
       },
       "software": ["ZBrush", "3Ds Max", "Substance Painter", "Vray"],
       "category": "Props",
@@ -316,34 +278,7 @@
       "images": {
         "rendered": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/430/large/file.jpg?1691515139",
         "wireframe": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/434/large/file.jpg?1691515224",
-        "uv": "https://cdnb.artstation.com/p/marketplace/presentation_assets/002/919/429/large/file.jpg?1691515122",
-        "renderedExtras": [
-          {
-            "src": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/432/large/file.jpg?1691515188",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/marketplace/presentation_assets/002/919/431/large/file.jpg?1691515170",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/430/large/file.jpg?1691515139",
-            "link": ""
-          },
-          {
-            "src": "https://cdnb.artstation.com/p/marketplace/presentation_assets/002/919/435/large/file.jpg?1691515244",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/436/large/file.jpg?1691515260",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/438/large/file.jpg?1691515295",
-            "link": ""
-          }
-          
-        ]
+        "uv": "https://cdnb.artstation.com/p/marketplace/presentation_assets/002/919/429/large/file.jpg?1691515122"
       },
         "glb": "/assets/models/project-3-cyberpunk-vending-machine.glb",
       "specs": {
@@ -353,48 +288,60 @@
         "materialSlots": 2,
         "textureResolution": "4K",
         "fileSize": "15 MB"
+      ,
+        "status": "Completed",
+        "location": "Beijing, China",
+        "area": "N/A",
+        "type": "Props",
+        "style": "Stylized",
+        "year": "2024"
       },
       "software": ["3Ds Max", "Substance Painter", "Vray"],
       "category": "Props",
       "createdAt": "2024-03-10",
       "process": "Hard-surface modeled in 3ds max no boolean operations, created custom decals and holographic materials, added emissive maps effects."
     },
+    
     {
       "id": "4",
+      "title": "Daily Jornal- Little More",
+      "description": "A subtle storytelling asset designed for games, films, and immersive scenes. With a minimalist aesthetic and thoughtfully structured pages for reflections, priorities, and personal notes, this journal adds depth and realism to environments where character growth, memory, or introspection matters. Whether placed on a desk, held in a cutscene, or discovered as part of environmental storytelling, it communicates quiet intention: a little more meaning, a little more story, a little more life.",
+      "thumbnail": "https://cdna.artstation.com/p/assets/images/images/090/217/788/small/caption-book-rendered-13.jpg?1753264532=crop",
+      "images": {
+        "rendered": "https://cdna.artstation.com/p/assets/images/images/090/217/806/small/caption-book-rendered-15.jpg?1753264595=crop",
+        "wireframe": "https://cdnb.artstation.com/p/assets/images/images/090/217/847/small/caption-book-rendered-1.jpg?1753264691=crop",
+        "uv": "https://cdnb.artstation.com/p/assets/images/images/090/217/889/small/caption-book-rendered-2.jpg?1753264753=crop"
+      },
+        "glb": "/assets/models/project-3-cyberpunk-vending-machine.glb",
+      "specs": {
+        "polyCount": 400,
+        "vertexCount": 140,
+        "texelDensity": "568 px/m",
+        "materialSlots": 0,
+        "textureResolution": "4K",
+        "fileSize": "37 MB"
+      ,
+        "status": "Done",
+        "location": "Shenzen, China",
+        "area": "N/A",
+        "type": "Props",
+        "style": "Realistic",
+        "year": "2024"
+      },
+      "software": ["3Ds Max", "Substance Painter", "Vray"],
+      "category": "Props",
+      "createdAt": "2024-03-10",
+      "process": "The prop was modeled in 3ds Max, starting from simple primitives and refined with a focus on clean topology and correct proportions. Geometry was optimized to remain lightweight while preserving visual detail, making the asset suitable for both real-time and cinematic use. Materials were carefully developed to ensure accurate surface response under different lighting conditions. Final shading, lighting, and rendering were completed in V-Ray, providing controlled reflections, realistic shadows, and a balanced overall look. The asset is optimized for use in games, films, and environment scenes."
+    },
+    {
+      "id": "5",
       "title": "Gas Cylinder and Cooking Pot",
       "description": "Gas Cylinder: This game prop model is a highly detailed 3D representation of a worn-out and old gas cylinder. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The model features realistic markings and embellishments that bring it to life. Cooking Pot: This game prop model is a 3D representation of a worn-out and old cooking pot. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The pot's handle and lid are functional and can be moved and posed for added realism. The model features realistic markings and embellishments that bring it to life.",
       "thumbnail": "https://cdna.artstation.com/p/assets/images/images/065/847/998/small/caption-gascylinder-arnoldpsd.jpg?1691400463=crop",
       "images": {
         "rendered": "https://cdna.artstation.com/p/assets/images/images/065/847/974/small/caption-gascylinder-arnold-view2.jpg?1691400429=crop",
         "wireframe": "https://cdna.artstation.com/p/assets/images/images/065/847/990/small/caption-gascylinder-arnold-view2-nomat.jpg?1691400452=crop",
-        "uv": "https://cdna.artstation.com/p/assets/images/images/065/848/004/small/caption-pot.jpg?1691400472=crop",
-        "renderedExtras": [
-          {
-            "src": "https://cdnb.artstation.com/p/assets/images/images/065/847/965/small/caption-gascylinder-arnold-nomat.jpg?1691400418",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/065/847/952/small/caption-gascylinder-arnold-ba.jpg?1691400410",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/065/847/990/small/caption-gascylinder-arnold-view2-nomat.jpg?1691400452",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/065/847/982/small/caption-gascylinder-arnold-view2-dual.jpg?1691400437",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/065/848/018/small/caption-pot-nomat.jpg?1691400494",
-            "link": ""
-          },
-          {
-            "src": "https://cdna.artstation.com/p/assets/images/images/065/848/014/small/caption-pot-ba.jpg?1691400483",
-            "link": ""
-          }
-          
-        ]
+        "uv": "https://cdna.artstation.com/p/assets/images/images/065/848/004/small/caption-pot.jpg?1691400472=crop"
       },
         "glb": "/assets/models/project-3-cyberpunk-vending-machine.glb",
       "specs": {
@@ -404,6 +351,13 @@
         "materialSlots": 4,
         "textureResolution": "4K",
         "fileSize": "62 MB"
+      ,
+        "status": "In Development",
+        "location": "Shenzen, China",
+        "area": "N/A",
+        "type": "Props",
+        "style": "Realistic",
+        "year": "2024"
       },
       "software": ["3Ds Max", "Substance Painter", "Vray"],
       "category": "Props",
@@ -418,6 +372,7 @@
       "title": "Coastal Family Residence",
       "description": "A modern coastal residence balancing warm materials and expansive glazing to capture ocean views. The project focuses on daylight performance and material tactility.",
       "thumbnail": "https://cdnb.artstation.com/p/assets/images/images/065/751/823/large/caption-bamboo-houserendered-mat.jpg?1691123035",
+      "category": "Archviz",
       "images": {
         "exterior": "https://cdna.artstation.com/p/assets/images/images/065/751/814/large/caption-bamboo-house-uv.jpg?1691123015",
         "interior": "https://images.unsplash.com/photo-1523911272850-6b0e9fca8b5d?w=1600&q=80",
@@ -425,7 +380,7 @@
         "detail": "https://cdna.artstation.com/p/assets/images/images/065/751/820/large/caption-bamboo-houserendered.jpg?1691123023"
       },
       "specs": {
-        "status": "Not Completed",
+        "status": "Completed",
         "location": "Fushun, China",
         "area": "320 m²",
         "type": "Residential",
@@ -441,6 +396,7 @@
       "title": "Minimal Urban Loft",
       "description": "An industrial loft conversion prioritizing material honesty and neutral palettes. Focused on spatial sequencing and natural light.",
       "thumbnail": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80",
+      "category": "Archviz",
       "images": {
         "exterior": "https://images.unsplash.com/photo-1505691723518-36a0b43f3b7c?w=1600&q=80",
         "interior": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1600&q=80",

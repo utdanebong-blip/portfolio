@@ -17,6 +17,6 @@ export const demoShowreel = (demo.showreel || []) as Array<{
   poster?: string;
 }>;
 
-export const demoArchvizProjects: Project[] = (demo.archvizProjects || []) as Project[];
+export const demoArchvizProjects: Project[] = (demo.archvizProjects || []) as unknown as Project[];
 
 export const ADMIN_PASSCODE = 'admin123';

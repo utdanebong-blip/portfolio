@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { posts } from '@/hooks/usePortfolioData';
 import { Calendar, Tag, ArrowRight, BookOpen, Clock, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export const hashLink = (path: string) => `#${path}`;
 
@@ -40,7 +41,7 @@ export default function Blog() {
                 <BookOpen size={16} /> Knowledge Hub
               </span>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                Learn, Create,
+                <TypewriterWrapper />
                 <span className="block text-primary">Master 3D Art</span>
               </h1>
               <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -186,5 +187,49 @@ export default function Blog() {
         </div>
       </div>
     </Layout>
+  );
+}
+
+function TypewriterWrapper() {
+  const words = ['Learn', 'Read', 'Create', 'Master'];
+  return <Typewriter words={words} loop={true} pause={1500} />;
+}
+
+function Typewriter({ words, loop = true, pause = 1200, typeSpeed = 80, deleteSpeed = 40 }: { words: string[]; loop?: boolean; pause?: number; typeSpeed?: number; deleteSpeed?: number }) {
+  const [index, setIndex] = useState(0);
+  const [display, setDisplay] = useState('');
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    let timer: number | undefined;
+    const word = words[index % words.length];
+
+    if (typing) {
+      if (display.length < word.length) {
+        timer = window.setTimeout(() => setDisplay(word.slice(0, display.length + 1)), typeSpeed);
+      } else {
+        timer = window.setTimeout(() => setTyping(false), pause);
+      }
+    } else {
+      if (display.length > 0) {
+        timer = window.setTimeout(() => setDisplay(display.slice(0, display.length - 1)), deleteSpeed);
+      } else {
+        setTyping(true);
+        setIndex((i) => i + 1);
+      }
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [display, typing, index, words, pause, typeSpeed, deleteSpeed]);
+
+  return (
+    <span className="block">
+      <span>{display}</span>
+      <span className="inline-block w-1 h-7 align-middle bg-primary ml-2 animate-blink" />
+      <style>{`.animate-blink{animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}`}</style>
+      <span className="inline">,</span>
+    </span>
   );
 }
