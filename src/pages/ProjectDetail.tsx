@@ -19,8 +19,9 @@ export default function ProjectDetail() {
   const location = useLocation();
 
   const goBack = () => {
-    if ((location.state as any)?.from) {
-      navigate(-1);
+    const from = (location.state as any)?.from;
+    if (from) {
+      navigate(from, { replace: true });
       return;
     }
     navigate('/gallery?tab=props', { replace: true });

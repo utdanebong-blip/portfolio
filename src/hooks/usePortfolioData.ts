@@ -1,5 +1,5 @@
 import { Project, AboutData, ResumeData, ContactInfo, Plugin, BlogPost } from '@/types/portfolio';
-import { demoProjects, demoAboutData, demoResumeData, demoContactInfo, demoPlugins, demoBlogPosts, demoShowreel, demoArchvizProjects } from '@/data/demoData';
+import { demoProjects, demoAboutData, demoResumeData, demoContactInfo, demoPlugins, demoBlogPosts, demoShowreel, demoArchvizProjects, demoProductVizProjects } from '@/data/demoData';
 
 export const projects: Project[] = demoProjects;
 export const aboutData: AboutData = demoAboutData;
@@ -10,6 +10,7 @@ export const posts: BlogPost[] = demoBlogPosts;
 export const showreel = demoShowreel;
 
 export const archvizProjects: Project[] = demoArchvizProjects;
+export const productVizProjects: Project[] = demoProductVizProjects;
 
 export function useArchvizProjects() {
   function getProject(id: string) {
@@ -17,6 +18,14 @@ export function useArchvizProjects() {
   }
 
   return { archvizProjects, getProject };
+}
+
+export function useProductVizProjects() {
+  function getProject(id: string) {
+    return productVizProjects.find((p) => p.id === id);
+  }
+
+  return { projects: productVizProjects, getProject };
 }
 
 export function getProject(id: string) {

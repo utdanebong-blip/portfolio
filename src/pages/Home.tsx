@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, MapPin } from 'lucide-react';
-import { projects, plugins, posts, archvizProjects } from '@/hooks/usePortfolioData';
+import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, MapPin, Briefcase, Package, Star } from 'lucide-react';
+import { projects, plugins, posts, archvizProjects, productVizProjects } from '@/hooks/usePortfolioData';
 import { useEffect, useRef, useState } from 'react';
 import useInView from '@/hooks/useInView';
 
@@ -113,8 +113,8 @@ function TypingQuote() {
 }
 
 function TypingName() {
-  const first = 'UTIBE';
-  const second = 'EBONG';
+  const first = 'Digital';
+  const second = 'Craftsman';
   const [top, setTop] = useState('');
   const [bottom, setBottom] = useState('');
   const [cursor, setCursor] = useState(true);
@@ -204,6 +204,7 @@ export default function Home() {
   const featuredProjects = projects.slice(0, 3);
   const latestPosts = posts.slice(0, 3);
   const featuredArchviz = archvizProjects.slice(0, 2);
+  const featuredProductViz = productVizProjects.slice(0, 3);
 
   return (
     <Layout>
@@ -310,6 +311,7 @@ export default function Home() {
               <FadeIn key={project.id} delay={index * 100}>
               <Link
                 to={`/gallery/${project.id}`}
+                state={{ from: '/gallery?tab=props' }}
                 className="group relative rounded-lg overflow-hidden bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 flex flex-col h-full"
               >
                 {/* Top HUD bar */}
@@ -390,6 +392,7 @@ export default function Home() {
           {featuredArchviz[0] && (
             <Link 
               to={`/archviz/${featuredArchviz[0].id}`}
+              state={{ from: '/gallery?tab=archviz' }}
               className="group block mb-8 relative"
             >
               <div className="relative rounded-3xl overflow-hidden">
@@ -463,6 +466,7 @@ export default function Home() {
               <Link
                 key={project.id}
                 to={`/archviz/${project.id}`}
+                state={{ from: '/gallery?tab=archviz' }}
                 className="group relative rounded-2xl overflow-hidden border border-border/30 hover:border-accent/30 transition-all duration-500 animate-fade-in"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
@@ -517,6 +521,73 @@ export default function Home() {
         </div>
       </section>
       
+      {/* ProductViz Section - NEW */}
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-amber-500/[0.02] to-background" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+        
+        <div className="container mx-auto px-4 relative">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-12 gap-4 md:gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-amber-500/20 bg-amber-500/5 backdrop-blur-sm mb-3 md:mb-4">
+                <Package className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-400" />
+                <span className="font-mono text-[10px] md:text-xs text-amber-400 tracking-widest uppercase">Product Viz</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+                Product <span className="text-amber-400">Visualization</span>
+              </h2>
+              <p className="font-body text-sm md:text-base text-muted-foreground mt-2 md:mt-3 max-w-lg">
+                Premium product renders that elevate brands and drive sales.
+              </p>
+            </div>
+            <Link to="/gallery">
+              <Button variant="ghost" className="font-mono gap-2 text-muted-foreground hover:text-amber-400 uppercase text-[10px] md:text-xs tracking-wider">
+                View All <ArrowRight size={14} />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {featuredProductViz.map((project, index) => (
+              <Link
+                key={project.id}
+                to={`/productviz/${project.id}`}
+                state={{ from: '/gallery?tab=productviz' }}
+                className="group relative rounded-xl md:rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-amber-500/50 transition-all duration-500 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] md:text-xs font-medium bg-amber-500/20 text-amber-400 border border-amber-500/30 backdrop-blur-xl">
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-3 md:p-5">
+                  <div className="flex items-center gap-2 text-[10px] md:text-xs text-muted-foreground mb-1.5">
+                    <Briefcase className="w-3 h-3 text-amber-400" />
+                    <span>{project.specs.client}</span>
+                  </div>
+                  <h3 className="font-display text-sm md:text-lg font-semibold text-foreground group-hover:text-amber-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.highlights && (
+                    <div className="flex flex-wrap gap-1.5 mt-2 md:mt-3">
+                      {project.highlights.slice(0, 2).map((h) => (
+                        <span key={h} className="flex items-center gap-1 text-[9px] md:text-[10px] text-muted-foreground bg-muted/50 px-1.5 md:px-2 py-0.5 rounded">
+                          <Star className="w-2.5 h-2.5 text-amber-400" />{h}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Skills Overview */}
       <section className="py-24 border-y border-border/30">

@@ -304,37 +304,6 @@
     
     {
       "id": "4",
-      "title": "Daily Jornal- Little More",
-      "description": "A subtle storytelling asset designed for games, films, and immersive scenes. With a minimalist aesthetic and thoughtfully structured pages for reflections, priorities, and personal notes, this journal adds depth and realism to environments where character growth, memory, or introspection matters. Whether placed on a desk, held in a cutscene, or discovered as part of environmental storytelling, it communicates quiet intention: a little more meaning, a little more story, a little more life.",
-      "thumbnail": "https://cdna.artstation.com/p/assets/images/images/090/217/788/small/caption-book-rendered-13.jpg?1753264532=crop",
-      "images": {
-        "rendered": "https://cdna.artstation.com/p/assets/images/images/090/217/806/small/caption-book-rendered-15.jpg?1753264595=crop",
-        "wireframe": "https://cdnb.artstation.com/p/assets/images/images/090/217/847/small/caption-book-rendered-1.jpg?1753264691=crop",
-        "uv": "https://cdnb.artstation.com/p/assets/images/images/090/217/889/small/caption-book-rendered-2.jpg?1753264753=crop"
-      },
-        "glb": "/assets/models/project-3-cyberpunk-vending-machine.glb",
-      "specs": {
-        "polyCount": 400,
-        "vertexCount": 140,
-        "texelDensity": "568 px/m",
-        "materialSlots": 0,
-        "textureResolution": "4K",
-        "fileSize": "37 MB"
-      ,
-        "status": "Done",
-        "location": "Shenzen, China",
-        "area": "N/A",
-        "type": "Props",
-        "style": "Realistic",
-        "year": "2024"
-      },
-      "software": ["3Ds Max", "Substance Painter", "Vray"],
-      "category": "Props",
-      "createdAt": "2024-03-10",
-      "process": "The prop was modeled in 3ds Max, starting from simple primitives and refined with a focus on clean topology and correct proportions. Geometry was optimized to remain lightweight while preserving visual detail, making the asset suitable for both real-time and cinematic use. Materials were carefully developed to ensure accurate surface response under different lighting conditions. Final shading, lighting, and rendering were completed in V-Ray, providing controlled reflections, realistic shadows, and a balanced overall look. The asset is optimized for use in games, films, and environment scenes."
-    },
-    {
-      "id": "5",
       "title": "Gas Cylinder and Cooking Pot",
       "description": "Gas Cylinder: This game prop model is a highly detailed 3D representation of a worn-out and old gas cylinder. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The model features realistic markings and embellishments that bring it to life. Cooking Pot: This game prop model is a 3D representation of a worn-out and old cooking pot. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The pot's handle and lid are functional and can be moved and posed for added realism. The model features realistic markings and embellishments that bring it to life.",
       "thumbnail": "https://cdna.artstation.com/p/assets/images/images/065/847/998/small/caption-gascylinder-arnoldpsd.jpg?1691400463=crop",
@@ -414,6 +383,132 @@
       "software": ["Blender", "Cycles", "Substance Painter"],
       "concept": "Resurrect raw industrial elements with refined minimal interventions.",
       "createdAt": "2025-01-10"
+    }
+  ],
+
+  "productvizProjects": [
+    {
+      "id": "p1",
+      "title": "Sleek Utility Sunglasses Case – Black Zipline Edition",
+      "description": "Keep your shades safe and stylish with this durable sunglasses case, designed for life on the move. Featuring a bold yellow zipline for a pop of color and quick access, this case also includes a secure hook that easily clips onto your belt loop, bag, or pants for hands-free convenience. The semi-hard shell offers solid protection against bumps and scratches, while the compact, lightweight design makes it perfect for travel, outdoor adventures, or daily commutes.",
+      "thumbnail": "https://cdna.artstation.com/p/assets/images/images/090/216/016/large/caption-test-blue-44.jpg?1753260272=80",
+      "category": "ProductViz",
+      "images": {
+        "front": "https://cdna.artstation.com/p/assets/images/images/090/216/016/large/caption-test-blue-44.jpg?1753260272=80",
+        "top": "https://cdna.artstation.com/p/assets/images/images/090/216/024/large/caption-test-blue-51.jpg?1753260297=80",
+        "side": "https://cdna.artstation.com/p/assets/images/images/090/216/020/large/caption-test-blue-49.jpg?1753260287=80",
+        "3dperspective": "https://cdna.artstation.com/p/assets/images/images/090/216/022/large/caption-test-blue-50.jpg?1753260291=80"
+      },
+      "specs": {
+        "status": "Completed",
+        "location": "Onsite, China",
+        "client": "BP",
+        "deliverables": "Renders, Lifestyle Mockups",
+        "year": "2025"
+      },
+      "software": ["3Ds Max", "Substance Painter", "Marmoset Toolbag"],
+      "highlights": ["Studio lighting setup", "Physically-based materials", "Composited lifestyle shots"],
+      "createdAt": "2025-01-01"
+    }
+    ,
+    {
+      "id": "p2",
+      "title": "SHD Smoke Detectors - Modern Home Safety Solution",
+      "description": "Stay safe with SHD Smoke Detectors, engineered for fast, reliable fire detection in homes, offices, and commercial spaces. Using advanced photoelectric sensing technology, SHD detectors quickly identify smoke from slow-burning and smoldering fires, giving you critical extra time to respond. Designed for easy installation and low maintenance, each unit features a loud, 85dB alarm and optional interconnectivity for enhanced coverage across multiple rooms.",
+      "thumbnail": "https://cdnb.artstation.com/p/assets/images/images/090/217/421/large/caption-composition2.jpg?1753263638=80",
+      "category": "ProductViz",
+      "images": {
+        "front": "https://cdnb.artstation.com/p/assets/images/images/090/217/171/large/caption-idea-front.jpg?1753262928=80",
+        "top": "https://cdnb.artstation.com/p/assets/images/images/090/217/203/large/caption-ebc-close-up.jpg?1753263046=80",
+        "side": "https://cdna.artstation.com/p/assets/images/images/090/217/688/large/caption-product-with-magnet.jpg?1753264300=80",
+        "3dperspective": "https://cdnb.artstation.com/p/assets/images/images/090/217/401/large/caption-composition2.jpg?1753263608=80"
+      },
+      "specs": {
+        "status": "Completed",
+        "location": "Onsite, Germany",
+        "client": "BBG",
+        "deliverables": "Hero Renders, Lifestyle Mockups",
+        "year": "2025",
+        "industry": "Consumer Electronics"
+      },
+      "software": ["3Ds Max", "Substance Painter", "Photobashing"],
+      "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
+      "createdAt": "2023-04-12"
+    }
+    ,
+    {
+      "id": "p3",
+      "title": "Nordic Trekking Sticks - Aluminum Alloy Set",
+      "description": "Conquer any terrain with confidence using this Nordic hiking stick, crafted for stability, endurance, and comfort. Lightweight yet durable, it features an ergonomic handle for a natural grip, adjustable height for personalized support, and a shock-absorbing tip for smooth movement across rugged paths. Whether you're powering through mountain trails or enjoying a casual nature walk, this stick enhances balance, reduces joint strain, and keeps your rhythm steady.",
+      "thumbnail": "https://cdnb.artstation.com/p/assets/images/images/090/216/931/large/caption-new-scene.jpg?1753262339=80",
+      "category": "ProductViz",
+      "images": {
+        "front": "https://cdnb.artstation.com/p/assets/images/images/090/216/883/large/caption-main-closeups.jpg?1753262280=80",
+        "top": "https://cdnb.artstation.com/p/assets/images/images/090/216/935/large/caption-1.jpg?1753262344=80",
+        "side": "https://cdnb.artstation.com/p/assets/images/images/090/216/923/large/caption-meir.jpg?1753262328=80",
+        "3dperspective": "https://cdnb.artstation.com/p/assets/images/images/090/216/953/large/caption-compo-2-blackstick.jpg?1753262371=80"
+      },
+      "specs": {
+        "status": "Completed",
+        "location": "Onsite, Germany",
+        "client": "BBG",
+        "deliverables": "Hero Renders, Lifestyle Mockups",
+        "year": "2025",
+        "industry": "Consumer Electronics"
+      },
+      "software": ["3Ds Max", "Substance Painter", "Photobashing"],
+      "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
+      "createdAt": "2023-02-12"
+    }
+    ,
+    {
+      "id": "p4",
+      "title": "Carrier Sunglasses case Product Render - Yellow Zipline Edition",
+      "description": "Keep your shades safe and stylish with this durable sunglasses case, designed for life on the move. Featuring a bold yellow zipline for a pop of color and quick access, this case also includes a secure hook that easily clips onto your belt loop, bag, or pants for hands-free convenience. The semi-hard shell offers solid protection against bumps and scratches, while the compact, lightweight design makes it perfect for travel, outdoor adventures, or daily commutes.",
+      "thumbnail": "https://cdna.artstation.com/p/assets/images/images/090/215/672/large/caption-carrier-top-side-197.jpg?1753259484=80",
+      "category": "ProductViz",
+      "images": {
+        "front": "https://cdna.artstation.com/p/assets/images/images/090/215/672/large/caption-carrier-top-side-197.jpg?1753259484=80",
+        "top": "https://cdnb.artstation.com/p/assets/images/images/090/215/663/large/caption-carrier-top-196.jpg?1753259470=80",
+        "side": "https://cdna.artstation.com/p/assets/images/images/090/215/704/large/caption-carrier-top-side-2-198.jpg?1753259552=80",
+        "3dperspective": "https://cdna.artstation.com/p/assets/images/images/090/215/666/large/caption-carrier-top-1-202.jpg?1753259477=80"
+      },
+      "specs": {
+        "status": "Completed",
+        "location": "Onsite, China",
+        "client": "BP",
+        "deliverables": "Hero Renders, Lifestyle Mockups",
+        "year": "2025",
+        "industry": "Consumer Electronics"
+      },
+      "software": ["3Ds Max", "Substance Painter", "Photobashing"],
+      "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
+      "createdAt": "2025-02-12"
+    }
+    ,
+    {
+      "id": "p5",
+      "title": "Daily Jornal- Little More",
+      "description": "Capture your thoughts, goals, and reflections with the Little More Daily Journal — a minimalist companion designed to help you stay mindful, focused, and intentional. With a clean layout and guided sections for daily gratitude, priorities, and personal reflections, this journal encourages you to do a little more each day: more clarity, more growth, more you.",
+      "thumbnail": "https://cdna.artstation.com/p/assets/images/images/090/217/788/large/caption-book-rendered-13.jpg?1753264532=80",
+      "category": "ProductViz",
+      "images": {
+        "front": "https://cdnb.artstation.com/p/assets/images/images/090/217/889/large/caption-book-rendered-2.jpg?1753264753=80",
+        "top": "https://cdna.artstation.com/p/assets/images/images/090/217/806/large/caption-book-rendered-15.jpg?1753264595=80",
+        "side": "https://cdnb.artstation.com/p/assets/images/images/090/217/847/large/caption-book-rendered-1.jpg?1753264691=80",
+        "3dperspective": "https://cdna.artstation.com/p/assets/images/images/090/217/788/large/caption-book-rendered-13.jpg?1753264532=80"
+      },
+      "specs": {
+        "status": "Completed",
+        "location": "Onsite, China",
+        "client": "BBG",
+        "deliverables": "Hero Renders, Lifestyle Mockups",
+        "year": "2025",
+        "industry": "Books & Stationery"
+      },
+      "software": ["3Ds Max", "Substance Painter", "Photobashing"],
+      "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
+      "createdAt": "2022-02-12"
     }
   ],
   "plugins": [

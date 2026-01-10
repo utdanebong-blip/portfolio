@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 export interface Project {
+  highlights: any;
   id: string;
   title: string;
   description: string;
@@ -27,17 +28,21 @@ export interface Project {
   concept?: string;
   modelUrl?: string;
   specs: {
-    status: string;
-    year: number;
-    location: ReactNode;
-    area: number;
-    type: string;
-    polyCount: number;
-    vertexCount: number;
-    texelDensity: string;
-    materialSlots: number;
-    textureResolution: string;
-    fileSize: string;
+    status?: string;
+    year?: string | number;
+    location?: string | ReactNode;
+    area?: string | number;
+    type?: string;
+    polyCount?: number;
+    vertexCount?: number;
+    texelDensity?: string;
+    materialSlots?: number;
+    textureResolution?: string;
+    fileSize?: string;
+    client?: string;
+    deliverables?: string;
+    industry?: string;
+    [key: string]: any;
   };
   software: string[];
   category: string;

@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import ProjectDetail from "./pages/ProjectDetail";
 import ArchvizProjectDetail from "./pages/ArchvizProjectDetail";
+import ProductDetailViz from "./pages/ProductDetailViz";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/gallery/:id" element={<ProjectDetail />} />
+          <Route path="/productviz/:id" element={<ProductDetailViz />} />
           <Route path="/archviz/:id" element={<ArchvizProjectDetail />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
