@@ -467,9 +467,9 @@ export default function Home() {
                 key={project.id}
                 to={`/archviz/${project.id}`}
                 state={{ from: '/gallery?tab=archviz' }}
-                className="group relative rounded-2xl overflow-hidden border border-border/30 hover:border-accent/30 transition-all duration-500 animate-fade-in"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
+                  className="group relative rounded-2xl overflow-hidden border border-border/30 hover:border-accent/30 transition-all duration-500 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
                 <div className="aspect-[16/10] overflow-hidden relative">
                   <img
                     src={project.thumbnail}
@@ -511,7 +511,7 @@ export default function Home() {
 
           {/* View All CTA */}
           <div className="text-center mt-12">
-            <Link to="/gallery">
+            <Link to={{ pathname: '/gallery', search: '?tab=archviz' }}>
               <Button variant="outline" size="lg" className="font-display gap-3 border-accent/30 text-accent hover:bg-accent/10 hover:border-accent/50 group">
                 Explore All Projects
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -540,7 +540,7 @@ export default function Home() {
                 Premium product renders that elevate brands and drive sales.
               </p>
             </div>
-            <Link to="/gallery">
+            <Link to={{ pathname: '/gallery', search: '?tab=productviz' }}>
               <Button variant="ghost" className="font-mono gap-2 text-muted-foreground hover:text-amber-400 uppercase text-[10px] md:text-xs tracking-wider">
                 View All <ArrowRight size={14} />
               </Button>
@@ -553,9 +553,9 @@ export default function Home() {
                 key={project.id}
                 to={`/productviz/${project.id}`}
                 state={{ from: '/gallery?tab=productviz' }}
-                className="group relative rounded-xl md:rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-amber-500/50 transition-all duration-500 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+                  className="group relative rounded-xl md:rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-amber-500/50 transition-all duration-500 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />

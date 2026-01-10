@@ -68,14 +68,39 @@ export default function Gallery() {
     { id: 'showreel' as TabType, label: 'Showreel', icon: Film, count: showreelVideos.length }
   ];
 
-  // Respect `?tab=` query param so returning from detail pages restores the tab
+  // Respect `?tab=` from multiple sources so navigation works with HashRouter and state
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const tab = params.get('tab') as TabType | null;
-    if (tab && ['props', 'productviz', 'archviz', 'showreel'].includes(tab)) {
-      setActiveTab(tab as TabType);
+    const allowed = ['props', 'productviz', 'archviz', 'showreel'];
+
+    const getTabFromSearch = (search: string | null) => {
+      if (!search) return null;
+      const params = new URLSearchParams(search);
+      return params.get('tab') as TabType | null;
+    };
+
+    let tab: TabType | null = getTabFromSearch(location.search);
+
+    // If HashRouter encoded the query into the hash (e.g. #/gallery?tab=productviz)
+    if (!tab && location.hash) {
+      const qIndex = location.hash.indexOf('?');
+      if (qIndex !== -1) {
+        tab = getTabFromSearch(location.hash.slice(qIndex));
+      }
     }
-  }, [location.search]);
+
+    // Also accept a `from` string passed via location.state (e.g. '/gallery?tab=archviz')
+    if (!tab && (location.state as any)?.from) {
+      try {
+        const from = (location.state as any).from as string;
+        const q = from.split('?')[1] || '';
+        if (q) tab = new URLSearchParams('?' + q).get('tab') as TabType | null;
+      } catch (e) {
+        // ignore
+      }
+    }
+
+    if (tab && allowed.includes(tab)) setActiveTab(tab as TabType);
+  }, [location]);
 
   return (
     <Layout>

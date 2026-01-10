@@ -1,8 +1,12 @@
+import React, { Suspense, lazy, useState } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 import { Layout } from '@/components/layout';
 import { getProject } from '@/hooks/usePortfolioData';
-import { ModelViewerPlaceholder } from '@/components/3d';
+import ModelViewerPlaceholder from '@/components/3d/ModelViewerPlaceholder';
+import SuspenseLoader from '@/components/ui/SuspenseLoader';
+
+// Lazy-load the heavy 3D viewer only when the user selects the 3D view.
+const ModelViewer = lazy(() => import('@/components/3d/ModelViewer').then((m) => ({ default: m.ModelViewer })));
 import { ArrowLeft, Box, Layers, Grid3X3, RotateCcw, ExternalLink, Cpu, Package, Palette, HardDrive, Download, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -111,7 +115,9 @@ export default function ProjectDetail() {
             {/* Image/3D Display */}
             <div className="relative aspect-video md:aspect-[16/10] rounded-xl md:rounded-2xl overflow-hidden border border-border/30 bg-card/50 shadow-2xl shadow-primary/5">
               {viewMode === '3d' ? (
-                <ModelViewerPlaceholder className="w-full h-full" />
+                <Suspense fallback={<div className="w-full h-full"><SuspenseLoader message="Loading 3D viewer..." /></div>}>
+                  <ModelViewer modelUrl={project.glb} className="w-full h-full" />
+                </Suspense>
               ) : (
                 <img
                   src={viewMode === 'rendered' ? project.images.rendered : viewMode === 'wireframe' ? project.images.wireframe : project.images.uv}
