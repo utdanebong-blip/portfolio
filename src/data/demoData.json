@@ -389,7 +389,7 @@
   "productvizProjects": [
     {
       "id": "p1",
-      "title": "Sleek Utility Sunglasses Case – Black Zipline Edition",
+      "title": "Sleek Sunglasses Case",
       "description": "Keep your shades safe and stylish with this durable sunglasses case, designed for life on the move. Featuring a bold yellow zipline for a pop of color and quick access, this case also includes a secure hook that easily clips onto your belt loop, bag, or pants for hands-free convenience. The semi-hard shell offers solid protection against bumps and scratches, while the compact, lightweight design makes it perfect for travel, outdoor adventures, or daily commutes.",
       "thumbnail": "https://cdna.artstation.com/p/assets/images/images/090/216/016/large/caption-test-blue-44.jpg?1753260272=80",
       "category": "ProductViz",
@@ -401,10 +401,12 @@
       },
       "specs": {
         "status": "Completed",
-        "location": "Onsite, China",
+        "location": "China",
         "client": "BP",
         "deliverables": "Renders, Lifestyle Mockups",
-        "year": "2025"
+        "year": "2025",
+        "industry": "Consumer Product"
+        
       },
       "software": ["3Ds Max", "Substance Painter", "Marmoset Toolbag"],
       "highlights": ["Studio lighting setup", "Physically-based materials", "Composited lifestyle shots"],

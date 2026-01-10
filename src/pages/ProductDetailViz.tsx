@@ -209,7 +209,7 @@ export default function ProductDetailViz() {
           />
 
           {/* Controls & Activation Toggle - center-right */}
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30">
+          <div className="absolute right-4 top-16 md:top-1/2 md:-translate-y-1/2 flex flex-col items-center gap-3 z-30">
             <button
               onClick={() => setControlsActive((v) => !v)}
               aria-pressed={controlsActive}
