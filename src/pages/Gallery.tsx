@@ -21,7 +21,8 @@ import {
   LayoutGrid,
   Package,
   Briefcase,
-  Star
+  Star,
+  Video
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -438,8 +439,22 @@ export default function Gallery() {
                     <p className="text-xs md:text-sm text-muted-foreground">{productVizProjects.length} campaigns</p>
                   </div>
                 </div>
+                  <div className="flex items-center gap-2 self-end sm:self-auto">
+                    <button
+                      onClick={() => setShowTimeline(v => !v)}
+                      className={`p-2 rounded-lg transition-colors ${showTimeline ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}
+                      title="Toggle timeline"
+                    >
+                      <Clock className="w-4 h-4" />
+                    </button>
+                  </div>
               </div>
-
+              {/* Product Timeline (moved above featured) */}
+              {showTimeline && (
+                <div className="mb-8 animate-fade-in">
+                  <ProjectTimeline projects={productVizProjects} />
+                </div>
+              )}
               {/* Featured Product */}
               {productVizProjects[0] && (
                 <Link to={`/productviz/${productVizProjects[0].id}`} state={{ from: '/gallery?tab=productviz' }} className="group mb-6 md:mb-8 relative rounded-xl md:rounded-3xl overflow-hidden">
@@ -501,6 +516,8 @@ export default function Gallery() {
                 </Link>
               )}
 
+              
+
               {/* Product Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {productVizProjects.slice(1).map((project, index) => (
@@ -529,7 +546,7 @@ export default function Gallery() {
                       
                       {/* View button */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow cursor-pointer" onClick={(e) => { e.preventDefault(); e.stopPropagation(); openVideoModal(video); }}>
+                      <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow cursor-pointer" onClick={(e) => { e.preventDefault(); e.stopPropagation(); openVideoModal(Video); }}>
                         <Play className="w-4 h-4 text-primary-foreground" />
                       </div>
                     </div>
@@ -572,8 +589,22 @@ export default function Gallery() {
                     <p className="text-xs md:text-sm text-muted-foreground">{archvizProjects.length} projects</p>
                   </div>
                 </div>
+                  <div className="flex items-center gap-2 self-end sm:self-auto">
+                    <button
+                      onClick={() => setShowTimeline(v => !v)}
+                      className={`p-2 rounded-lg transition-colors ${showTimeline ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}
+                      title="Toggle timeline"
+                    >
+                      <Clock className="w-4 h-4" />
+                    </button>
+                  </div>
               </div>
-
+              {/* Archviz Timeline (moved above featured) */}
+              {showTimeline && (
+                <div className="mb-8 animate-fade-in">
+                  <ProjectTimeline projects={archvizProjects} />
+                </div>
+              )}
               {/* Featured Project */}
               {archvizProjects[0] && (
                 <Link 
@@ -634,6 +665,8 @@ export default function Gallery() {
                   </div>
                 </Link>
               )}
+
+              
 
               {/* Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">

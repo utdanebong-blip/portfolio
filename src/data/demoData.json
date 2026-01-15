@@ -367,6 +367,9 @@
       "software": ["3Ds Max", "Vray Renderer", "Photoshop"],
       "concept": "Merge indoor and outdoor living through large operable glazing and layered terraces.",
       "createdAt": "2024-08-01"
+        ,
+        "startDate": "2023-09-01",
+        "completedAt": "2024-08-01"
     },
     {
       "id": "a2",
@@ -390,7 +393,9 @@
       },
       "software": ["Blender", "Cycles", "Substance Painter"],
       "concept": "Resurrect raw industrial elements with refined minimal interventions.",
-      "createdAt": "2025-01-10"
+      "createdAt": "2025-01-10",
+      "startDate": "2024-06-01",
+      "completedAt": "2025-01-10"
     }
   ],
 
@@ -419,6 +424,9 @@
       "software": ["3Ds Max", "Substance Painter", "Marmoset Toolbag"],
       "highlights": ["Studio lighting setup", "Physically-based materials", "Composited lifestyle shots"],
       "createdAt": "2025-01-01"
+      ,
+      "startDate": "2024-11-15",
+      "completedAt": "2025-01-01"
     }
     ,
     {
@@ -443,7 +451,9 @@
       },
       "software": ["3Ds Max", "Substance Painter", "Photobashing"],
       "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
-      "createdAt": "2023-04-12"
+      "createdAt": "2023-04-12",
+      "startDate": "2023-02-15",
+      "completedAt": "2023-04-12"
     }
     ,
     {
@@ -468,7 +478,9 @@
       },
       "software": ["3Ds Max", "Substance Painter", "Photobashing"],
       "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
-      "createdAt": "2023-02-12"
+      "createdAt": "2023-02-12",
+      "startDate": "2022-12-20",
+      "completedAt": "2023-02-12"
     }
     ,
     {
@@ -493,7 +505,9 @@
       },
       "software": ["3Ds Max", "Substance Painter", "Photobashing"],
       "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
-      "createdAt": "2025-02-12"
+      "createdAt": "2025-02-12",
+      "startDate": "2025-01-15",
+      "completedAt": "2025-02-12"
     }
     ,
     {
@@ -518,7 +532,9 @@
       },
       "software": ["3Ds Max", "Substance Painter", "Photobashing"],
       "highlights": ["Studio composite", "Shadow catchers", "Color variants"],
-      "createdAt": "2022-02-12"
+      "createdAt": "2022-02-12",
+      "startDate": "2021-12-01",
+      "completedAt": "2022-02-12"
     }
   ],
   "plugins": [

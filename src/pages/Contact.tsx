@@ -60,6 +60,65 @@ export default function Contact() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
+  // Booking state
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [useGoogleMeet, setUseGoogleMeet] = useState(true);
+
+  const demoTimeSlots = [
+    { time: '09:00', available: true },
+    { time: '10:00', available: false },
+    { time: '11:00', available: true },
+    { time: '14:00', available: true },
+    { time: '15:00', available: false },
+    { time: '16:00', available: true },
+  ];
+
+  const isPast = (date: Date) => { const t = new Date(); t.setHours(0,0,0,0); return date < t; };
+  const isToday = (d: Date) => new Date().toDateString() === d.toDateString();
+
+  const generateCalendarDays = () => {
+    const y = currentMonth.getFullYear();
+    const m = currentMonth.getMonth();
+    const first = new Date(y, m, 1);
+    const last = new Date(y, m + 1, 0);
+    const pad = first.getDay();
+    const days: (Date | null)[] = [];
+    for (let i = 0; i < pad; i++) days.push(null);
+    for (let d = 1; d <= last.getDate(); d++) days.push(new Date(y, m, d));
+    return days;
+  };
+
+  const fmtUTC = (d: Date) => {
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
+  };
+
+  const handleBookMeeting = async () => {
+    if (!selectedDate || !selectedTime) { toast.error('Select a date and time'); return; }
+    const [hh, mm] = selectedTime.split(':');
+    const start = new Date(selectedDate); start.setHours(parseInt(hh,10), parseInt(mm||'0',10),0,0);
+    const end = new Date(start.getTime() + 30*60*1000);
+    const title = `30-min call with ${name || 'Client'}`;
+    const details = `Booked via website by ${name || 'Client'} (${email || 'no-email-provided'}).`;
+    const owner = contactInfo.email || 'ebongutibe@gmail.com';
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+    const gcal = `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(title)}&dates=${fmtUTC(start)}/${fmtUTC(end)}&details=${encodeURIComponent(details)}${useGoogleMeet ? `&location=${encodeURIComponent('Google Meet')}` : ''}&ctz=${encodeURIComponent(timeZone)}&add=${encodeURIComponent(owner)}`;
+
+    try {
+      const g = window.open(gcal, '_blank', 'noopener');
+      const ownerMailto = `mailto:${owner}?subject=${encodeURIComponent(`New booking: ${selectedDate.toLocaleDateString()} ${selectedTime}`)}&body=${encodeURIComponent(`A booking was made on ${selectedDate.toLocaleDateString()} at ${selectedTime} by ${name || 'Guest'} (${email || 'no-email-provided'}).`)}`;
+      const m = window.open(ownerMailto, '_blank', 'noopener');
+      if (!g) {
+        const fallback = `Event: ${title}\nWhen: ${selectedDate.toDateString()} ${selectedTime}\nDuration: 30 min\nDetails: ${details}`;
+        try { await navigator.clipboard.writeText(fallback); toast.error('Popup blocked — event copied to clipboard. Paste into Google Calendar.'); } catch { toast.error('Popup blocked and clipboard unavailable.'); }
+      } else toast.success('Google Calendar opened.');
+      if (!m) try { window.location.href = ownerMailto; } catch {}
+      setSelectedDate(null); setSelectedTime(null);
+    } catch { toast.error('Unable to open booking links'); }
+  };
+
   const isMobile = (): boolean => /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent || '');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -199,6 +258,43 @@ export default function Contact() {
                     <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                   </a>
                 )}
+              </div>
+
+              <div className="mt-8 bg-card/50 backdrop-blur-sm border border-border/30 rounded-3xl p-6 md:p-8">
+                <h2 className="font-display text-2xl font-bold mb-2">Book a Meeting</h2>
+                <p className="text-muted-foreground mb-4">Schedule a 30-minute Google Meet call.</p>
+
+                <div className="mb-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-semibold">{currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h3>
+                    <div className="flex gap-2">
+                      <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))} className="w-8 h-8 rounded-lg bg-muted/20 flex items-center justify-center">‹</button>
+                      <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))} className="w-8 h-8 rounded-lg bg-muted/20 flex items-center justify-center">›</button>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-7 gap-1 mb-2 text-xs text-muted-foreground">{['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=> <div key={d} className="text-center py-2">{d}</div>)}</div>
+
+                  <div className="grid grid-cols-7 gap-1">{generateCalendarDays().map((d,i)=> (
+                    <button key={i} disabled={!d || isPast(d as Date)} onClick={()=> d && !isPast(d as Date) && setSelectedDate(d)} className={`aspect-square rounded-lg text-sm ${!d ? 'invisible' : isPast(d as Date) ? 'text-muted-foreground/40 cursor-not-allowed' : (selectedDate && d && selectedDate.toDateString()===d.toDateString()) ? 'bg-primary text-primary-foreground' : isToday(d as Date) ? 'bg-accent/20 text-accent' : 'hover:bg-muted/50'}`}>{d?.getDate()}</button>
+                  ))}</div>
+                </div>
+
+                {selectedDate && (
+                  <div className="mb-4">
+                    <h4 className="font-semibold mb-2">Available Times for {selectedDate.toLocaleDateString()}</h4>
+                    <div className="grid grid-cols-3 gap-2">{demoTimeSlots.map(slot=> (
+                      <button key={slot.time} disabled={!slot.available} onClick={()=> slot.available && setSelectedTime(slot.time)} className={`py-2 rounded-xl ${!slot.available ? 'bg-muted/20 text-muted-foreground/50 line-through' : selectedTime===slot.time ? 'bg-primary text-primary-foreground' : 'bg-muted/50 hover:bg-muted'}`}>{slot.time}</button>
+                    ))}</div>
+                  </div>
+                )}
+
+                <div className="flex items-center gap-3 mb-4">
+                  <input id="meetToggle" type="checkbox" checked={useGoogleMeet} onChange={(e)=>setUseGoogleMeet(e.target.checked)} className="w-4 h-4" />
+                  <label htmlFor="meetToggle" className="text-sm text-muted-foreground">Open as Google Meet event</label>
+                </div>
+
+                <Button onClick={handleBookMeeting} disabled={!selectedDate || !selectedTime} size="lg" className="w-full">{selectedDate && selectedTime ? `Book ${selectedTime} on ${selectedDate.toLocaleDateString()}` : 'Select a date & time'}</Button>
               </div>
             </div>
 
