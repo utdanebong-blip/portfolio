@@ -7,6 +7,10 @@ export interface Project {
   description: string;
   thumbnail: string;
   images: {
+    lifestyle: any;
+    detail: any;
+    hero: any;
+    packaging: any;
     rendered: string;
     wireframe: string;
     uv: string;

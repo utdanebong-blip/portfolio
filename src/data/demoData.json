@@ -413,7 +413,11 @@
         "front": "https://cdna.artstation.com/p/assets/images/images/090/216/016/large/caption-test-blue-44.jpg?1753260272=80",
         "top": "https://cdna.artstation.com/p/assets/images/images/090/216/024/large/caption-test-blue-51.jpg?1753260297=80",
         "side": "https://cdna.artstation.com/p/assets/images/images/090/216/020/large/caption-test-blue-49.jpg?1753260287=80",
-        "3dperspective": "https://cdna.artstation.com/p/assets/images/images/090/216/022/large/caption-test-blue-50.jpg?1753260291=80"
+        "3dperspective": "https://cdna.artstation.com/p/assets/images/images/090/216/022/large/caption-test-blue-50.jpg?1753260291=80",
+        "hero": "https://cdna.artstation.com/p/assets/images/images/090/216/016/large/caption-test-blue-44.jpg?1753260272=80",
+        "lifestyle": "https://cdna.artstation.com/p/assets/images/images/090/216/022/large/caption-test-blue-50.jpg?1753260291=80",
+        "detail": "https://cdna.artstation.com/p/assets/images/images/090/216/020/large/caption-test-blue-49.jpg?1753260287=80",
+        "packaging": "https://cdna.artstation.com/p/assets/images/images/090/216/024/large/caption-test-blue-51.jpg?1753260297=80"
       },
       "specs": {
         "status": "Completed",
@@ -442,7 +446,11 @@
         "front": "https://cdnb.artstation.com/p/assets/images/images/090/217/171/large/caption-idea-front.jpg?1753262928=80",
         "top": "https://cdnb.artstation.com/p/assets/images/images/090/217/203/large/caption-ebc-close-up.jpg?1753263046=80",
         "side": "https://cdna.artstation.com/p/assets/images/images/090/217/688/large/caption-product-with-magnet.jpg?1753264300=80",
-        "3dperspective": "https://cdnb.artstation.com/p/assets/images/images/090/217/401/large/caption-composition2.jpg?1753263608=80"
+        "3dperspective": "https://cdnb.artstation.com/p/assets/images/images/090/217/401/large/caption-composition2.jpg?1753263608=80",
+        "hero": "https://cdnb.artstation.com/p/assets/images/images/090/217/171/large/caption-idea-front.jpg?1753262928=80",
+        "lifestyle": "https://cdnb.artstation.com/p/assets/images/images/090/217/401/large/caption-composition2.jpg?1753263608=80",
+        "detail": "https://cdna.artstation.com/p/assets/images/images/090/217/688/large/caption-product-with-magnet.jpg?1753264300=80",
+        "packaging": "https://cdnb.artstation.com/p/assets/images/images/090/217/203/large/caption-ebc-close-up.jpg?1753263046=80"
       },
       "specs": {
         "status": "Completed",
@@ -468,8 +476,12 @@
       "images": {
         "front": "https://cdnb.artstation.com/p/assets/images/images/090/216/883/large/caption-main-closeups.jpg?1753262280=80",
         "top": "https://cdnb.artstation.com/p/assets/images/images/090/216/935/large/caption-1.jpg?1753262344=80",
-        "side": "https://cdnb.artstation.com/p/assets/images/images/090/216/923/large/caption-meir.jpg?1753262328=80",
-        "3dperspective": "https://cdnb.artstation.com/p/assets/images/images/090/216/953/large/caption-compo-2-blackstick.jpg?1753262371=80"
+        "side": "https://cdna.artstation.com/p/assets/images/images/090/216/923/large/caption-meir.jpg?1753262328=80",
+        "3dperspective": "https://cdnb.artstation.com/p/assets/images/images/090/216/953/large/caption-compo-2-blackstick.jpg?1753262371=80",
+        "hero": "https://cdnb.artstation.com/p/assets/images/images/090/216/883/large/caption-main-closeups.jpg?1753262280=80",
+        "lifestyle": "https://cdnb.artstation.com/p/assets/images/images/090/216/953/large/caption-compo-2-blackstick.jpg?1753262371=80",
+        "detail": "https://cdna.artstation.com/p/assets/images/images/090/216/923/large/caption-meir.jpg?1753262328=80",
+        "packaging": "https://cdnb.artstation.com/p/assets/images/images/090/216/935/large/caption-1.jpg?1753262344=80"
       },
       "specs": {
         "status": "Completed",
@@ -496,7 +508,11 @@
         "front": "https://cdna.artstation.com/p/assets/images/images/090/215/672/large/caption-carrier-top-side-197.jpg?1753259484=80",
         "top": "https://cdnb.artstation.com/p/assets/images/images/090/215/663/large/caption-carrier-top-196.jpg?1753259470=80",
         "side": "https://cdna.artstation.com/p/assets/images/images/090/215/704/large/caption-carrier-top-side-2-198.jpg?1753259552=80",
-        "3dperspective": "https://cdna.artstation.com/p/assets/images/images/090/215/666/large/caption-carrier-top-1-202.jpg?1753259477=80"
+        "3dperspective": "https://cdna.artstation.com/p/assets/images/images/090/215/666/large/caption-carrier-top-1-202.jpg?1753259477=80",
+        "hero": "https://cdna.artstation.com/p/assets/images/images/090/215/672/large/caption-carrier-top-side-197.jpg?1753259484=80",
+        "lifestyle": "https://cdna.artstation.com/p/assets/images/images/090/215/666/large/caption-carrier-top-1-202.jpg?1753259477=80",
+        "detail": "https://cdna.artstation.com/p/assets/images/images/090/215/704/large/caption-carrier-top-side-2-198.jpg?1753259552=80",
+        "packaging": "https://cdnb.artstation.com/p/assets/images/images/090/215/663/large/caption-carrier-top-196.jpg?1753259470=80"
       },
       "specs": {
         "status": "Completed",
@@ -572,7 +588,7 @@
       "title": "Optimizing Game Props: A Deep Dive into LOD Techniques",
       "excerpt": "Learn how to create efficient LOD chains that maintain visual quality while dramatically improving performance.",
       "content": "Level of Detail (LOD) is crucial for game performance. In this post, I'll share my workflow for creating LOD chains that maintain visual fidelity while optimizing for real-time rendering.\n\n## Why LODs Matter\n\nWhen rendering a scene with hundreds of props, each polygon counts. LODs allow the engine to swap high-detail models for simpler versions as objects move further from the camera.\n\n## My LOD Workflow\n\n1. Start with the highest detail - Create your hero model with all the details you need for close-up shots.\n2. Use decimation wisely - Tools like Blender's Decimate modifier can help, but manual retopology often yields better results.\n3. Preserve silhouettes - The outline of your object is what the eye notices first at distance.\n4. Bake details to textures - Normal maps can maintain the illusion of detail on lower poly models.\n\n## Results\n\nFollowing this workflow, I've been able to reduce poly counts by 80% on LOD2 while maintaining 90% of the visual quality at typical viewing distances.",
-      "coverImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
+      "coverImage": "/assets/Optimizing-Game-Props-A-Deep-Dive-into-LOD-Techniques.png",
       "category": "Tutorial",
       "tags": ["optimization", "LOD", "game-art"],
       "publishedAt": "2024-03-15"
@@ -582,21 +598,65 @@
       "title": "My Substance Painter Smart Material Library",
       "excerpt": "Building a reusable material library has transformed my texturing workflow. Here is how I organize mine.",
       "content": "After years of texturing props, I have built up a library of smart materials that I reuse across projects. Let me share how I organize and create these materials.\n\n## The Power of Smart Materials\n\nSmart materials react to mesh data like curvature, ambient occlusion, and world space position. This means they adapt automatically to new meshes.\n\n## Categories I Use\n\n- Metals - Steel, iron, copper, gold variations\n- Woods - Aged, painted, varnished, weathered\n- Fabrics - Leather, cloth, canvas\n- Wear & Damage - Edge wear, scratches, dirt\n\n## Tips for Creating Reusable Materials\n\n1. Use anchor points for flexibility\n2. Expose key parameters for easy customization\n3. Name layers clearly for future reference\n4. Test on multiple meshes before finalizing",
-      "coverImage": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop",
+      "coverImage": "/assets/smartlib.png",
       "category": "Workflow",
       "tags": ["substance-painter", "texturing", "materials"],
-      "publishedAt": "2024-02-28"
+      "publishedAt": "2026-02-28"
     },
     {
       "id": "3",
       "title": "Breaking Down AAA Game Props",
       "excerpt": "What makes AAA game props stand out? I analyzed props from recent releases to find common patterns.",
       "content": "I spent a week analyzing props from recent AAA releases to understand what makes them work. Here are my findings.\n\n## Common Patterns\n\n### Material Complexity\nMost hero props use 2-4 material slots with carefully planned texture atlases.\n\n### Detail Distribution\nHigh-frequency details are concentrated in areas players interact with or look at closely.\n\n### Color Theory\nSuccessful props use limited color palettes with strategic accent colors.\n\n## What I Learned\n\nThe best props tell micro-stories through wear patterns and design choices. A weapon isn't just a weapon - it's a history of battles.",
-      "coverImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=400&fit=crop",
+      "coverImage": "/assets/breaking.png",
       "category": "Analysis",
       "tags": ["AAA", "game-art", "study"],
-      "publishedAt": "2024-01-20"
+      "publishedAt": "2026-01-20"
+    },
+    {
+      "id": "4",
+      "title": "Steps to Follow to Start an ArchViz Render in 3ds Max",
+      "excerpt": "A practical step-by-step guide to setting up your first architectural visualization render in 3ds Max.",
+      "content": "Architectural visualization (ArchViz) is all about realism—materials, lighting, composition, and mood. Before you even hit the Render button in 3ds Max, there are essential steps you must follow to set your project up correctly.\n\nThis guide walks you through the core steps to start an ArchViz render in 3ds Max, whether you’re a beginner or refining your workflow.\n\n## 1. Plan Your Scene Before Opening 3ds Max\n\nGood ArchViz starts outside the software.\n\nBefore modeling or rendering:\n- Study architectural references (real photos, ArchDaily, Behance)\n- Decide the style (modern, classic, minimal, luxury)\n- Choose the time of day (morning, sunset, night)\n- Decide whether it’s an interior or exterior render\n\nClear planning gives your render direction and saves time later.\n\n## 2. Set Up Your Project Properly\n\nOnce inside 3ds Max, correct setup is critical.\n\n### Units Setup\nGo to Customize → Units Setup and set system units to centimeters or meters. Correct scale ensures realistic lighting, materials, and camera behavior.\n\n## 3. Model with Clean Geometry\n\nClean geometry improves realism and render performance.\n\nBest practices include:\n- Use real architectural dimensions\n- Avoid unnecessary polygons\n- Separate walls, floors, and ceilings\n- Add chamfers or bevels to sharp edges\n\n## 4. Import or Create Architectural Details\n\nDetails sell realism.\n\nAdd elements like doors, windows, furniture, lighting fixtures, and props. You can model simple assets yourself or import high-quality assets, ensuring proper scale and placement.\n\n## 5. Assign Correct Materials\n\nMaterials play a huge role in ArchViz quality.\n\nUse PBR-based materials and avoid pure black or white colors. Always include diffuse, roughness or glossiness, and normal or bump maps. If using V-Ray or Corona, stick to their native material systems.\n\n## 6. Set Up the Camera\n\nNever render from the perspective view.\n\nUse a proper camera and:\n- Set realistic camera height\n- Choose appropriate focal length\n- Enable vertical tilt correction\n- Compose using the safe frame\n\n## 7. Create Realistic Lighting\n\nLighting is the heart of ArchViz.\n\nFor interiors, combine Sun & Sky systems, HDRIs, and artificial lights. For exteriors, focus on sun position, sky balance, and natural shadows. Start simple and refine gradually.\n\n## 8. Configure Render Settings\n\nBefore final rendering:\n- Select the correct render engine\n- Enable global illumination\n- Use low resolution for test renders\n- Activate denoising for previews\n\nAvoid high-quality settings until the scene is fully refined.\n\n## 9. Do Test Renders and Adjust\n\nTest renders help identify lighting issues, material problems, and exposure errors. This is where most improvements happen.\n\n## 10. Prepare for Final Render\n\nOnce satisfied:\n- Increase resolution\n- Raise render quality\n- Optimize the scene\n- Save a final version before rendering\n\n## Conclusion\n\nStarting an ArchViz render in 3ds Max requires structure, patience, and attention to detail. When these steps are followed, your renders become more realistic, professional, and visually compelling.",
+      "coverImage": "/assets/steps-to-follow-to-start-an-archviz-render-in-3ds-max_cover.png",
+      "category": "ArchViz",
+      "tags": ["3ds-max", "archviz", "rendering", "workflow"],
+      "publishedAt": "2026-01-20"
+    },
+    {
+  "id": "5",
+  "title": "Proper UV Mapping and Common Mistakes Beginners Make",
+  "excerpt": "UV mapping is one of the most misunderstood parts of 3D. Learn how to create clean UVs and avoid the mistakes most beginners make.",
+  "content": "UV mapping is a critical step in 3D workflows, especially for ArchViz, game assets, and product visualization. Even with great models and textures, poor UVs can completely ruin the final result.\n\nThis article explains what proper UVs are, why they matter, and the most common mistakes beginners make when unwrapping their models.\n\n## What Are Proper UVs?\n\nUVs define how a 2D texture is projected onto a 3D model. Proper UVs ensure textures appear clean, consistent, and free of stretching or distortion.\n\nGood UVs should be:\n- Non-overlapping (unless intentionally tiled)\n- Properly scaled\n- Cleanly packed\n- Free of stretching\n\n## Why UV Mapping Is Important\n\nUVs directly affect:\n- Texture quality\n- Material realism\n- Render performance\n- Workflow efficiency\n\nIn ArchViz and game art, bad UVs often result in blurry textures, visible seams, or inconsistent material scale.\n\n## Common UV Mapping Mistakes Beginners Make\n\n### 1. Ignoring Real-World Scale\n\nOne of the biggest mistakes is unwrapping without considering scale. This causes textures like wood, tiles, or bricks to look too large or too small compared to real life.\n\nAlways ensure UV scale matches real-world proportions.\n\n### 2. Excessive Texture Stretching\n\nStretching happens when UVs are unevenly scaled or poorly relaxed.\n\nSigns of stretching include:\n- Blurry textures\n- Distorted patterns\n- Uneven texel density\n\nUse checker maps to identify and fix stretching early.\n\n### 3. Overlapping UVs by Accident\n\nOverlapping UVs can cause texture artifacts, especially with baked maps or lightmaps.\n\nWhile overlapping is sometimes acceptable for tiling materials, beginners often overlap unintentionally, leading to shading and texture errors.\n\n### 4. Poor UV Seams Placement\n\nBad seam placement creates visible texture breaks.\n\nCommon seam mistakes:\n- Seams in highly visible areas\n- Random or unnecessary cuts\n\nAlways place seams in hidden or natural break areas like edges, corners, or underneath objects.\n\n### 5. Inconsistent Texel Density\n\nTexel density refers to how much texture detail each object receives.\n\nBeginners often give small objects too much texture space and large objects too little, resulting in inconsistent detail across the scene.\n\nKeep texel density consistent for similar objects.\n\n### 6. Not Using a Checker Texture\n\nSkipping checker textures is a common beginner habit.\n\nChecker maps instantly reveal:\n- Stretching\n- Scaling issues\n- Distortion\n\nAlways check UVs with a checker before applying final textures.\n\n### 7. Overcomplicating Simple Objects\n\nNot every object needs complex UVs.\n\nBeginners often over-unwrap simple geometry when basic box mapping or planar mapping would work better. This wastes time and adds unnecessary complexity.\n\n## Best Practices for Clean UVs\n\nTo improve your UV workflow:\n- Use real-world scale\n- Keep UV islands straight when possible\n- Minimize seams\n- Pack UVs efficiently\n- Check UVs before texturing\n\nClean UVs make texturing faster and results more professional.\n\n## Conclusion\n\nProper UV mapping is a foundational skill in 3D that separates beginners from professionals. By avoiding common mistakes and following clean UV practices, your textures will look sharper, more realistic, and easier to manage across any project.\n\nMastering UVs may take time, but it pays off in every render you create.",
+  "coverImage": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=400&fit=crop",
+  "category": "3D Fundamentals",
+  "tags": ["uv-mapping", "beginners", "3d-modeling", "texturing"],
+  "publishedAt": "2026-01-22"
+  },
+  {
+  "id": "6",
+  "title": "Common Mistakes Beginners Make When Getting Into 3D as an Art",
+  "excerpt": "Starting out in 3D can be overwhelming. These are the most common artistic and mindset mistakes beginners make—and how to avoid them.",
+  "content": "Getting into 3D as an art form is exciting, but it can also be overwhelming. Many beginners focus heavily on software features while ignoring the artistic fundamentals that make 3D work visually compelling.\n\nThis article highlights the most common mistakes beginners make when learning 3D as an art—and how to avoid them early.\n\n## 1. Focusing Too Much on Software, Not Art\n\nOne of the biggest mistakes beginners make is believing that mastering a specific software automatically makes them good artists.\n\n3D tools are just tools. Without understanding composition, lighting, color, and form, even the most advanced software won’t produce great results.\n\n## 2. Skipping Fundamentals\n\nMany beginners rush into complex scenes without learning the basics.\n\nCommonly skipped fundamentals include:\n- Scale and proportion\n- Basic lighting principles\n- Color theory\n- Composition\n\nStrong fundamentals make every future project easier.\n\n## 3. Comparing Yourself to Professionals Too Early\n\nSocial media exposes beginners to polished, high-end work daily.\n\nComparing your early work to artists with years of experience often leads to frustration and burnout. Progress in 3D is gradual and requires patience.\n\n## 4. Trying to Learn Everything at Once\n\n3D has many disciplines: modeling, texturing, lighting, animation, rendering, and more.\n\nBeginners often try to learn everything simultaneously, leading to shallow understanding and slow progress. It’s better to focus on one area at a time.\n\n## 5. Ignoring Reference Images\n\nWorking without references is a major beginner mistake.\n\nReferences help with:\n- Proportions\n- Materials\n- Lighting mood\n- Real-world realism\n\nEven professional artists rely heavily on references.\n\n## 6. Expecting Instant Results\n\n3D art has a steep learning curve.\n\nBeginners often expect quick results and become discouraged when progress feels slow. Improvement comes from consistent practice, not speed.\n\n## 7. Overloading Scenes With Detail\n\nAdding too many details too early often makes scenes messy rather than impressive.\n\nGood 3D art is about controlled detail and clear visual focus, not complexity for its own sake.\n\n## 8. Avoiding Feedback and Critique\n\nMany beginners hesitate to share their work.\n\nConstructive feedback helps identify blind spots and accelerates learning. Avoiding critique slows growth.\n\n## 9. Not Finishing Projects\n\nStarting many projects but finishing none is extremely common.\n\nFinished projects teach far more than abandoned ones—even if the result isn’t perfect.\n\n## 10. Giving Up Too Early\n\n3D is challenging, and frustration is part of the process.\n\nMost beginners quit not because they lack talent, but because they underestimate how long improvement takes.\n\n## Conclusion\n\nGetting into 3D as an art requires patience, discipline, and a willingness to learn fundamentals. By avoiding these common mistakes, beginners can build stronger skills, improve faster, and enjoy the creative process more.\n\nConsistency and curiosity matter more than perfection.",
+  "coverImage": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?w=800&h=400&fit=crop",
+  "category": "3D Art",
+  "tags": ["beginners", "3d-art", "learning", "workflow"],
+  "publishedAt": "2026-01-24"
+    },
+    {
+  "id": "7",
+  "title": "How to Land a 3D Job Without Focusing on Money",
+  "excerpt": "Chasing money too early can slow your growth as a 3D artist. Here’s how focusing on skill, value, and learning helps you land real opportunities.",
+  "content": "When entering the 3D industry, many artists focus heavily on money—rates, salaries, and quick income. While earning a living is important, prioritizing money too early often holds artists back from landing real opportunities.\n\nThis article explains how shifting your focus away from money and toward value, skill, and growth can help you land a job in any 3D niche.\n\n## Why Focusing on Money Too Early Is a Mistake\n\nMoney follows value, not the other way around.\n\nWhen beginners prioritize income before skill, they often:\n- Rush learning fundamentals\n- Accept work they aren’t ready for\n- Deliver inconsistent quality\n- Damage their confidence and reputation\n\nEarly in your career, experience and skill growth are more valuable than short-term pay.\n\n## 1. Choose Skill Over Salary\n\nYour first 3D job doesn’t need to pay well—it needs to teach you.\n\nWorking on real projects exposes you to deadlines, feedback, revisions, and professional expectations. These experiences build skills that no tutorial can replace.\n\n## 2. Build a Portfolio That Solves Problems\n\nStudios don’t hire potential—they hire proof.\n\nA strong portfolio:\n- Shows finished work\n- Focuses on quality, not quantity\n- Matches the niche you want (ArchViz, games, VFX, product, etc.)\n- Demonstrates problem-solving, not just visuals\n\nOne strong project is better than ten average ones.\n\n## 3. Treat Every Opportunity as a Learning Investment\n\nEarly opportunities—internships, junior roles, small freelance jobs—are investments in your growth.\n\nInstead of asking “How much does this pay?”, ask:\n- What will I learn?\n- Who will I work with?\n- Will this improve my portfolio?\n\nThese factors compound over time.\n\n## 4. Be Easy to Work With\n\nTechnical skill gets attention. Professional behavior gets hired.\n\nStudios value artists who:\n- Communicate clearly\n- Take feedback well\n- Meet deadlines\n- Stay calm under pressure\n\nBeing reliable often matters more than being exceptionally talented.\n\n## 5. Focus on One Niche First\n\nTrying to be good at everything slows progress.\n\nPick one niche and go deep:\n- ArchViz\n- Game art\n- Environment art\n- Product visualization\n- Motion graphics\n\nSpecialists are easier to hire than generalists—especially at junior levels.\n\n## 6. Learn to Take Critique Without Ego\n\nFeedback is not a personal attack—it’s a shortcut to improvement.\n\nArtists who grow fastest are those who listen, adapt, and improve without defensiveness. This mindset makes you valuable in team environments.\n\n## 7. Network by Adding Value, Not Asking for Jobs\n\nMost jobs come through people, not applications.\n\nInstead of asking for work:\n- Share progress\n- Ask smart questions\n- Help others when possible\n- Be visible and consistent\n\nRelationships built this way lead to opportunities naturally.\n\n## 8. Understand That Low Pay Is Temporary\n\nAlmost every successful 3D artist started underpaid or unpaid.\n\nThe difference between those who succeed and those who quit is understanding that early sacrifice is temporary. Skill growth compounds, and better opportunities follow.\n\n## Conclusion\n\nLanding a job as a 3D artist isn’t about chasing money—it’s about building value. When you focus on skill, learning, professionalism, and consistency, money becomes a byproduct, not the goal.\n\nThink long-term. Invest in your craft. The career will follow.",
+  "coverImage": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=400&fit=crop",
+  "category": "Career",
+  "tags": ["3d-career", "jobs", "beginners", "mindset"],
+  "publishedAt": "2026-01-26"
     }
+
+
+
+
   ],
   "showreel": [
     {

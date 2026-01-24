@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g2)"/>
+  <g fill="#F59E0B" opacity="0.9">
+    <rect x="36" y="36" width="328" height="328" rx="18"/>
+    <path d="M120 260 C150 180, 250 180, 280 260" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="50%" y="92%" font-size="18" fill="#92400E" text-anchor="middle">Matched Image</text>
+</svg>

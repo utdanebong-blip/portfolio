@@ -14,6 +14,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const ArchvizProjectDetail = lazy(() => import("./pages/ArchvizProjectDetail"));
 const ProductDetailViz = lazy(() => import("./pages/ProductDetailViz"));
+const AIRenderEnhancer = lazy(() => import("./pages/AIRenderEnhancer"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/gallery/:id" element={<ProjectDetail />} />
             <Route path="/productviz/:id" element={<ProductDetailViz />} />
+            <Route path="/ai-render-enhancer" element={<AIRenderEnhancer />} />
             <Route path="/archviz/:id" element={<ArchvizProjectDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />

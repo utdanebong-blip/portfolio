@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, ExternalLink, MapPin, Sparkles, Mail, Instagram } from 'lucide-react';
-import { contactInfo } from '@/hooks/usePortfolioData';
+import { Github, Linkedin, Twitter, ExternalLink, Mail, MapPin, Sparkles, Download } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,15 +12,12 @@ export function Footer() {
     { name: 'Contact', path: '/contact' },
   ];
 
-  const social = ((contactInfo && contactInfo.social) as Record<string, string | undefined>) || {};
-
   const socialLinks = [
-    social.artstation && { icon: ExternalLink, href: social.artstation, label: 'ArtStation' },
-    social.instagram && { icon: Instagram, href: social.instagram, label: 'Instagram' },
-    social.linkedin && { icon: Linkedin, href: social.linkedin, label: 'LinkedIn' },
-    social.twitter && { icon: Twitter, href: social.twitter, label: 'Twitter' },
-    social.github && { icon: Github, href: social.github, label: 'GitHub' },
-  ].filter(Boolean) as { icon: any; href: string; label: string }[];
+    { icon: ExternalLink, href: 'https://artstation.com', label: 'ArtStation' },
+    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com', label: 'GitHub' },
+  ];
 
   return (
     <footer className="relative mt-auto overflow-hidden">
@@ -36,8 +32,8 @@ export function Footer() {
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             
-            {/* Brand Section - Takes more space */}
-            <div className="lg:col-span-5 space-y-6">
+            {/* Brand Section */}
+            <div className="lg:col-span-4 space-y-6">
               <div className="flex items-center gap-3 group">
                 <div className="relative">
                   <div className="w-14 h-14 rounded-lg border border-primary/50 flex items-center justify-center bg-gradient-to-br from-primary/20 to-transparent group-hover:border-primary transition-colors duration-300">
@@ -52,7 +48,7 @@ export function Footer() {
               </div>
               
               <p className="text-muted-foreground font-body text-sm leading-relaxed max-w-sm">
-                Crafting 3D Models with passion and precision. Transforming concepts into 
+                Crafting immersive game assets with passion and precision. Transforming concepts into 
                 stunning 3D realities that bring virtual worlds to life.
               </p>
 
@@ -74,7 +70,7 @@ export function Footer() {
             </div>
 
             {/* Navigation */}
-            <div className="lg:col-span-3 space-y-6">
+            <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center gap-2">
                 <Sparkles size={14} className="text-primary" />
                 <h4 className="font-display text-sm text-foreground uppercase tracking-widest">Explore</h4>
@@ -95,8 +91,30 @@ export function Footer() {
               </nav>
             </div>
 
+            {/* AI Enhancer Promo */}
+            <div className="lg:col-span-3 space-y-4">
+              <div className="flex items-center gap-2">
+                <Sparkles size={14} className="text-primary" />
+                <h4 className="font-display text-sm text-foreground uppercase tracking-widest">Free Tool</h4>
+              </div>
+              
+              <Link to="/ai-render-enhancer" className="group block">
+                <div className="p-4 rounded-2xl border border-border/50 bg-gradient-to-br from-primary/5 to-neon-cyan/5 hover:border-primary/30 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <img src="/assets/archviz-enhancer-logo.png" alt="Archviz Enhancer" className="h-10" />
+                  </div>
+                  <p className="text-sm text-foreground font-medium mb-1">AI Render Enhancer</p>
+                  <p className="text-xs text-muted-foreground mb-3">Enhance your archviz renders with AI</p>
+                  <div className="flex items-center gap-2 text-primary text-xs font-mono">
+                    <Download size={12} />
+                    <span>Download Free</span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
             {/* Social & Connect */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="lg:col-span-3 space-y-6">
               <div className="flex items-center gap-2">
                 <Sparkles size={14} className="text-primary" />
                 <h4 className="font-display text-sm text-foreground uppercase tracking-widest">Connect</h4>

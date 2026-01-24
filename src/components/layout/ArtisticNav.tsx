@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Home, User, Image, Mail, BookOpen, Menu, X, Library } from 'lucide-react';
+import { Home, User, Image, Mail, BookOpen, Menu, X, Library, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
   { path: '/', label: 'Home', icon: Home, accent: 'primary' },
   { path: '/gallery', label: 'Gallery', icon: Image, accent: 'neon-orange' },
+  { path: '/ai-render-enhancer', label: 'Enhancer', icon: Sparkles, accent: 'neon-green' },
   { path: '/about', label: 'About', icon: User, accent: 'accent' },
   { path: '/blog', label: 'Blog', icon: BookOpen, accent: 'neon-cyan' },
   { path: '/contact', label: 'Contact', icon: Mail, accent: 'primary' },
