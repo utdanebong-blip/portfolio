@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Archviz Render Enhancer Pro Documentation</title>
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f1115;
+    color: #e6e6e6;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #161a22;
+    padding: 30px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    color: #7aa2f7;
+}
+nav {
+    background: #11141a;
+    padding: 15px;
+}
+nav a {
+    color: #9aa5ce;
+    margin-right: 15px;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #7aa2f7;
+}
+section {
+    padding: 40px;
+    border-bottom: 1px solid #1e2330;
+}
+h2 {
+    color: #7aa2f7;
+}
+h3 {
+    color: #9aa5ce;
+}
+ul {
+    margin-left: 20px;
+}
+code, pre {
+    background: #1b1f2a;
+    padding: 10px;
+    display: block;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #161a22;
+    color: #777;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Archviz Render Enhancer Pro</h1>
+    <p>Professional Documentation</p>
+</header>
+
+<nav>
+    <a href="#getting-started">Getting Started</a>
+    <a href="#ui-tour">UI Tour</a>
+    <a href="#workflows">Tutorials</a>
+    <a href="#features">Feature Reference</a>
+    <a href="#technical">Technical Reference</a>
+    <a href="#troubleshooting">Troubleshooting</a>
+    <a href="#faq">FAQ</a>
+    <a href="#best-practices">Best Practices</a>
+</nav>
+
+<section id="getting-started">
+<h2>1. Getting Started</h2>
+<h3>Installation</h3>
+<pre>
+Python 3.8+ required
+
+pip install -r requirements.txt
+
+Optional:
+pip install cupy
+pip install imageio
+pip install advance_match
+</pre>
+
+<h3>Launching the Application</h3>
+<pre>
+Download from Website.exe (Windows) or .app (Mac).
+</pre>
+<p>On first launch, the application initializes GPU detection, loads saved configuration, and opens in Dark Mode.</p>
+</section>
+
+<section id="ui-tour">
+<h2>2. User Interface Tour</h2>
+
+<h3>Header</h3>
+<ul>
+<li>Load Image</li>
+<li>Save Image</li>
+<li>Batch Processing</li>
+<li>Settings</li>
+<li>About</li>
+</ul>
+
+<h3>Left Control Panel</h3>
+<ul>
+<li>Preset Selection</li>
+<li>Intensity Slider (0–100%)</li>
+<li>Vibrance Control (0–200%)</li>
+<li>Sharpening Control (0–200%)</li>
+<li>Processing Mode Selector</li>
+<li>Tonemapping Options</li>
+<li>Watermark Controls</li>
+</ul>
+
+<h3>Right Panel – Comparison View</h3>
+<ul>
+<li>Split View with draggable divider</li>
+<li>Zoom / Pan</li>
+<li>Fit to Window</li>
+</ul>
+
+<h3>Status Bar</h3>
+<ul>
+<li>Progress Indicator</li>
+<li>ETA</li>
+<li>GPU Status</li>
+<li>Memory Usage</li>
+</ul>
+</section>
+
+<section id="workflows">
+<h2>3. Step-by-Step Tutorials</h2>
+
+<h3>Single Image Enhancement</h3>
+<ol>
+<li>Load image</li>
+<li>Select preset</li>
+<li>Adjust intensity, vibrance, sharpening</li>
+<li>Preview in real time</li>
+<li>Save enhanced image</li>
+</ol>
+
+<h3>Custom Preset (Reference Matching)</h3>
+<ol>
+<li>Load target image</li>
+<li>Select Custom preset</li>
+<li>Choose reference image</li>
+<li>Adjust matching strength</li>
+<li>Apply and preview</li>
+</ol>
+
+<h3>Batch Processing</h3>
+<ol>
+<li>Select input folder</li>
+<li>Select output folder</li>
+<li>Choose preset and adjustments</li>
+<li>Enable watermark if needed</li>
+<li>Start batch processing</li>
+</ol>
+</section>
+
+<section id="features">
+<h2>4. Feature Reference</h2>
+
+<h3>Presets</h3>
+<ul>
+<li><b>Smart:</b> AI-driven automatic enhancement</li>
+<li><b>Interior:</b> Warm tones and balanced lighting</li>
+<li><b>Night Mode:</b> Cooler tones and shadow emphasis</li>
+<li><b>Custom:</b> Reference image matching</li>
+</ul>
+
+<h3>Processing Modes</h3>
+<ul>
+<li>Conservative Mode</li>
+<li>Aggressive Mode</li>
+</ul>
+
+<h3>Tonemapping Operators</h3>
+<ul>
+<li>ACES Filmic</li>
+<li>Reinhard</li>
+<li>Filmic</li>
+<li>Drago</li>
+<li>Mantiuk</li>
+</ul>
+
+<h3>Watermark System</h3>
+<ul>
+<li>PNG transparency support</li>
+<li>Position presets</li>
+<li>Scale 5–30%</li>
+<li>Opacity 10–90%</li>
+</ul>
+</section>
+
+<section id="technical">
+<h2>5. Technical Reference</h2>
+
+<h3>Architecture</h3>
+<ul>
+<li>Frontend: PyQt6</li>
+<li>Backend: OpenCV + NumPy</li>
+<li>Parallel Processing: ThreadPoolExecutor</li>
+<li>GPU Acceleration: CuPy (optional)</li>
+</ul>
+
+<h3>Key Classes</h3>
+<ul>
+<li>ParallelImageEnhancer</li>
+<li>AdvancedTonemapping</li>
+<li>GPUAccelerator</li>
+<li>ErrorHandler</li>
+<li>ComparisonView</li>
+<li>AIEnhancerApp</li>
+</ul>
+
+<h3>Image Processing Pipeline</h3>
+<ol>
+<li>Load image</li>
+<li>Analyze image</li>
+<li>Apply preset</li>
+<li>Vibrance adjustment</li>
+<li>Sharpening</li>
+<li>Tonemapping</li>
+<li>Watermarking</li>
+<li>Save output</li>
+</ol>
+</section>
+
+<section id="troubleshooting">
+<h2>6. Troubleshooting</h2>
+<ul>
+<li><b>GPU not detected:</b> Install CUDA and CuPy</li>
+<li><b>Custom preset unavailable:</b> Install advance_match module</li>
+<li><b>HDR looks flat:</b> Try different tonemapping operator</li>
+<li><b>Slow batch processing:</b> Enable GPU acceleration</li>
+</ul>
+</section>
+
+<section id="faq">
+<h2>7. FAQ</h2>
+<ul>
+<li><b>Is the workflow non-destructive?</b> Yes, all previews are real-time and non-destructive.</li>
+<li><b>Can I process EXR files?</b> Yes, full HDR support is included.</li>
+<li><b>Does it support batch folders?</b> Yes, folder structure is preserved.</li>
+</ul>
+</section>
+
+<section id="best-practices">
+<h2>8. Best Practices</h2>
+<ul>
+<li>Use Smart preset as a baseline</li>
+<li>Use Conservative mode for client work</li>
+<li>Use reference matching for project consistency</li>
+<li>Batch process final deliverables</li>
+<li>Always preview sharpening at 100% zoom</li>
+</ul>
+</section>
+
+<footer>
+<p>Archviz Render Enhancer Pro © 2026</p>
+</footer>
+
+</body>
+</html>
