@@ -279,19 +279,19 @@ const featuredBooks = [
   {
     id: '1',
     title: 'Optimizing game props: A deep dive into LOD techniques',
-    cover: '/assets/Optimizing-Game-Props-A-Deep-Dive-into-LOD-Techniques.png',
+    cover: `${import.meta.env.BASE_URL}assets/Optimizing-Game-Props-A-Deep-Dive-into-LOD-Techniques.png`,
     category: '3D Art',
   },
   {
     id: '2',
     title: 'My substance painter smart library.',
-    cover: '/assets/smartlib.png',
+    cover: `${import.meta.env.BASE_URL}assets/smartlib.png`,
     category: 'Game Dev',
   },
   {
     id: '3',
     title: 'Breaking down AA games props',
-    cover: '/assets/breaking.png',
+    cover: `${import.meta.env.BASE_URL}assets/breaking.png`,
     category: 'Sculpting',
   },
 ];
@@ -938,7 +938,7 @@ function AIEnhancerPromoSection() {
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/30 bg-muted/30 mb-6">
                 {/* Background photo (replace URL with your image) */}
                 <img
-                  src="/assets/comparison-bg.png"
+                  src={`${import.meta.env.BASE_URL}assets/comparison-bg.png`}
                   alt="comparison background"
                   className="absolute inset-0 w-full h-full object-cover z-0"
                 />

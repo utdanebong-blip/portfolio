@@ -248,7 +248,7 @@ export default function About() {
 
                 {/* Quick action buttons */}
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                    <a href="/assets/UTIBE%20DANIEL%20EBONG%20CV.pdf" download="UTIBE DANIEL EBONG CV.pdf" className="inline-block">
+                    <a href={`${import.meta.env.BASE_URL}assets/UTIBE%20DANIEL%20EBONG%20CV.pdf`} download="UTIBE DANIEL EBONG CV.pdf" className="inline-block">
                       <Button className="group gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-display px-6 py-6 rounded-xl">
                         <Download size={18} className="group-hover:animate-bounce" />
                         Download Resume

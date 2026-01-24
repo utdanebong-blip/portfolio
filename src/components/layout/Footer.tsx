@@ -101,7 +101,7 @@ export function Footer() {
               <Link to="/ai-render-enhancer" className="group block">
                 <div className="p-4 rounded-2xl border border-border/50 bg-gradient-to-br from-primary/5 to-neon-cyan/5 hover:border-primary/30 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-3">
-                    <img src="/assets/archviz-enhancer-logo.png" alt="Archviz Enhancer" className="h-10" />
+                    <img src={`${import.meta.env.BASE_URL}assets/archviz-enhancer-logo.png`} alt="Archviz Enhancer" className="h-10" />
                   </div>
                   <p className="text-sm text-foreground font-medium mb-1">AI Render Enhancer</p>
                   <p className="text-xs text-muted-foreground mb-3">Enhance your archviz renders with AI</p>

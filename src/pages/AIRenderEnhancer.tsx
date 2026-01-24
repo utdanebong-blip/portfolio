@@ -117,9 +117,9 @@ export default function AIRenderEnhancer() {
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           {/* Logo */}
           <div className="mb-8">
-            <img 
-              src="/assets/archviz-enhancer-logo.png" 
-              alt="Archviz Enhancer" 
+            <img
+              src={`${import.meta.env.BASE_URL}assets/archviz-enhancer-logo.png`}
+              alt="Archviz Enhancer"
               className="h-32 md:h-40 mx-auto"
             />
           </div>
@@ -155,7 +155,7 @@ export default function AIRenderEnhancer() {
               <Download className="mr-2 group-hover:animate-bounce" size={20} />
               Download Free
             </Button>
-            <a href="/assets/Archviz_Render_Enhancer_Pro_Documentation.html" target="_blank" rel="noopener noreferrer" className="inline-block">
+            <a href={`${import.meta.env.BASE_URL}assets/Archviz_Render_Enhancer_Pro_Documentation.html`} target="_blank" rel="noopener noreferrer" className="inline-block">
               <Button 
                 size="lg" 
                 variant="outline"
@@ -176,7 +176,7 @@ export default function AIRenderEnhancer() {
                 className="absolute inset-0 flex items-center justify-center overflow-hidden"
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
-                <img src="/original.png" alt="before" className="w-full h-full object-cover opacity-95" />
+                <img src={`${import.meta.env.BASE_URL}original.png`} alt="before" className="w-full h-full object-cover opacity-95" />
                 <div className="absolute left-4 bottom-4 px-3 py-1.5 rounded bg-background/70 text-xs font-mono">BEFORE</div>
               </div>
 
@@ -185,7 +185,7 @@ export default function AIRenderEnhancer() {
                 className="absolute inset-0 flex items-center justify-center overflow-hidden"
                 style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
               >
-                <img src="/enhance.png" alt="enhanced" className="w-full h-full object-cover" />
+                <img src={`${import.meta.env.BASE_URL}enhance.png`} alt="enhanced" className="w-full h-full object-cover" />
                 <div className="absolute right-4 bottom-4 px-3 py-1.5 rounded bg-primary/90 text-xs font-mono text-primary-foreground">ENHANCED</div>
               </div>
 
@@ -268,7 +268,7 @@ export default function AIRenderEnhancer() {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: "url('/assets/comparison-bg.png')",
+              backgroundImage: `url('${import.meta.env.BASE_URL}assets/comparison-bg.png')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               opacity: 0.18,
@@ -404,9 +404,9 @@ export default function AIRenderEnhancer() {
                   <div className="aspect-square rounded-xl bg-muted/50 border border-border/30 flex items-center justify-center">
                     <div className="text-center">
                       <img
-                      src="/assets/frames/ref.png"
+                      src={`${import.meta.env.BASE_URL}assets/frames/ref.png`}
                       alt="Reference"
-                      onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/assets/frames/ref.svg'; }}
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).src = import.meta.env.BASE_URL + 'assets/frames/ref.svg'; }}
                       className="w-full h-full object-cover"
                       />
                       <p className="font-mono text-xs text-muted-foreground">Reference</p>
@@ -415,9 +415,9 @@ export default function AIRenderEnhancer() {
                   <div className="aspect-square rounded-xl bg-gradient-to-br from-neon-orange/20 to-primary/20 border border-neon-orange/30 flex items-center justify-center">
                     <div className="text-center">
                       <img
-                      src="/assets/frames/matched.png"
+                      src={`${import.meta.env.BASE_URL}assets/frames/matched.png`}
                       alt="Matched"
-                      onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/assets/frames/matched.svg'; }}
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).src = import.meta.env.BASE_URL + 'assets/frames/matched.svg'; }}
                       className="w-full h-full object-cover"
                       />
                       <p className="font-mono text-xs text-neon-orange">Matched</p>
