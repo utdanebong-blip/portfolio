@@ -12,7 +12,8 @@ export interface Project {
     hero: any;
     packaging: any;
     rendered: string;
-    wireframe: string;
+    rendered2?: string;
+    topology?: string;
     uv: string;
     // Optional array of extra rendered images with optional direct links
     renderedExtras?: Array<{

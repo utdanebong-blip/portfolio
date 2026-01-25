@@ -445,7 +445,7 @@ export default function Home() {
                 </Link>
                 <Link to="/contact">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto font-display gap-3 px-10 py-7 text-base rounded-2xl border-2 border-border/50 hover:border-primary/50 hover:bg-primary/5 backdrop-blur-sm">
-                    Start a Project
+                    Let's Talk
                   </Button>
                 </Link>
               </div>
@@ -916,7 +916,7 @@ function AIEnhancerPromoSection() {
               <Link to="/ai-render-enhancer">
                 <Button size="lg" className="w-full sm:w-auto font-display gap-3 px-8 py-6 text-base rounded-2xl glow-green group">
                   <Download size={18} className="group-hover:animate-bounce" />
-                  Download Now
+                  Try for Free
                 </Button>
               </Link>
               <Link to="/ai-render-enhancer">

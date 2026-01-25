@@ -18,6 +18,9 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
+import { FloatingChat } from '@/components/enhancer/FloatingChat';
+import { FeedbackSection } from '@/components/enhancer/FeedbackSection';
+import { AppUIShowcase } from '@/components/enhancer/AppUIShowcase';
 
 // Feature data
 const features = [
@@ -153,7 +156,7 @@ export default function AIRenderEnhancer() {
               className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg rounded-xl shadow-lg shadow-primary/30"
             >
               <Download className="mr-2 group-hover:animate-bounce" size={20} />
-              Download Free
+              Try Demo
             </Button>
             <a href={`${import.meta.env.BASE_URL}assets/Archviz_Render_Enhancer_Pro_Documentation.html`} target="_blank" rel="noopener noreferrer" className="inline-block">
               <Button 
@@ -321,7 +324,7 @@ export default function AIRenderEnhancer() {
               className="w-full py-7 text-lg rounded-xl bg-neon-green hover:bg-neon-green/90 text-background shadow-lg shadow-neon-green/30"
             >
               <Download className="mr-2" size={22} />
-              Download Now — It's Free
+              Try now It's Free
             </Button>
 
             <p className="text-center mt-6 text-sm text-muted-foreground">
@@ -434,6 +437,12 @@ export default function AIRenderEnhancer() {
         </div>
       </section>
 
+      {/* App UI Showcase Section */}
+      <AppUIShowcase />
+
+      {/* Feedback Section */}
+      <FeedbackSection />
+
       {/* CTA Section */}
       <section className="py-24 px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
@@ -452,7 +461,7 @@ export default function AIRenderEnhancer() {
               className="group bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-7 text-xl rounded-2xl shadow-xl shadow-primary/30"
             >
               <Download className="mr-2 group-hover:animate-bounce" size={24} />
-              Download Now — It's Free
+              Try Demo
             </Button>
           </div>
 
@@ -463,6 +472,8 @@ export default function AIRenderEnhancer() {
       </section>
 
       <Footer />
+      {/* Floating Chat */}
+      <FloatingChat />
     </div>
   );
 }

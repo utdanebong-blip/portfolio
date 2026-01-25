@@ -52,15 +52,15 @@ export default function ProjectDetail() {
   const getCurrentImage = () => {
     switch (viewMode) {
       case 'rendered':
-        return project.images.rendered;
+        return project.images.rendered || project.thumbnail || project.images.uv || project.images.topology;
       case 'rendered2':
-        return project.images.wireframe; // Using wireframe as second render for demo
+        return project.images.rendered2 || project.thumbnail || project.images.rendered || project.images.topology;
       case 'topology':
-        return project.images.wireframe;
+        return project.images.topology || project.images.rendered;
       case 'uv':
-        return project.images.uv;
+        return project.images.uv || project.images.rendered || project.thumbnail;
       default:
-        return project.images.rendered;
+        return project.images.rendered || project.thumbnail;
     }
   };
 
@@ -205,7 +205,15 @@ export default function ProjectDetail() {
                     }`}
                   >
                     <img
-                      src={mode.id === 'rendered' ? project.images.rendered : mode.id === 'rendered2' ? project.images.wireframe : mode.id === 'topology' ? project.images.wireframe : project.images.uv}
+                      src={
+                        mode.id === 'rendered'
+                          ? (project.images.rendered || project.thumbnail)
+                          : mode.id === 'rendered2'
+                          ? (project.images.rendered2 || project.thumbnail || project.images.rendered)
+                          : mode.id === 'topology'
+                          ? (project.images.topology || project.images.rendered)
+                          : (project.images.uv || project.images.rendered)
+                      }
                       alt={mode.label}
                       className="w-full h-full object-cover"
                     />

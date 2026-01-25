@@ -211,22 +211,91 @@
   "projects": [
     {
       "id": "1",
+      "title": "Agent Carlos GAME CHARACTER",
+      "description": "Agent Carlos is a highly skilled and stealthy game character design, equipped with advanced weaponry and an unparalleled knack for undercover work. Tasked with infiltrating a notorious gang of intelligent and elusive criminals, his mission is to gather crucial information, dismantle their operations, and ultimately bring them to justice. With his combination of cutting-edge tech and cunning tactics, Agent Carlos is a force to be reckoned with on the streets.",
+      "thumbnail": "https://cdnb.artstation.com/p/assets/images/images/095/722/219/small/caption-main-man.jpg?1769351798=crop",
+      "images": {
+        "rendered": "https://cdna.artstation.com/p/assets/images/images/065/752/222/small/caption-2023-08-04-05-48-28.jpg?1691124550=crop",
+        "rendered2": "https://cdnb.artstation.com/p/assets/images/images/095/722/219/small/caption-main-man.jpg?1769351798=crop",
+        "topology": "https://cdna.artstation.com/p/assets/images/images/095/722/148/small/caption-man-top.jpg?1769351635=crop",
+        "uv": "https://cdnb.artstation.com/p/assets/images/images/095/722/453/small/caption-caption-screenshot-2023-06-16-132705.jpg?1769352176=crop"
+      },
+          "glb": "/assets/models/project-1-viking-helmet.glb",
+        "startDate": "2025-01-20",
+        "completedAt": "2025-01-25",
+      "specs": {
+        "polyCount": 2000,
+        "vertexCount": 1300,
+        "texelDensity": "1024 px/m",
+        "materialSlots": 1,
+        "textureResolution": "4K",
+        "fileSize": "25 MB"
+      ,
+        "status": "Completed",
+        "location": "Lagos, Nigeria",
+        "area": "N/A",
+        "type": "Characters",
+        "style": "Realistic",
+        "year": "2025"
+      },
+      "software": ["3Ds Max", "Substance Painter", "Marmoset Toolbag"],
+      "category": "Characters",
+      "createdAt": "2024-01-25",
+      "process": "Started with concept sketches, blocked out basic shapes in zbrush, refined topology for game-ready mesh, created high-poly for baking, textured in Substance Painter with custom smart materials."
+    },
+    {
+      "id": "2",
+      "title": "Afrilien the Game",
+      "description": "Afrilien is a game character design inspired by African culture and mythology. This character embodies the strength, wisdom, and resilience of African heritage, blending traditional elements with futuristic aesthetics. Afrilien is equipped with advanced technology and mystical powers, making them a formidable force in the game world. The design incorporates vibrant colors, intricate patterns, and symbolic accessories that pay homage to various African tribes and legends. Afrilien's mission is to protect their homeland from external threats while uncovering ancient secrets that hold the key to their people's survival.",
+      "thumbnail": "https://cdnb.artstation.com/p/assets/images/images/095/722/725/small/caption-hell3.jpg?1769352773=crop",
+      "images": {
+        "rendered": "https://cdna.artstation.com/p/assets/video_clips/images/048/963/990/small/caption-thumb.jpg?1651368667=crop",
+        "rendered2": "https://cdnb.artstation.com/p/assets/images/images/048/883/333/small/caption-5-10.jpg?1651161591=crop",
+        "topology": "https://cdnb.artstation.com/p/assets/images/images/095/722/729/small/caption-topologyyy.jpg?1769352778=crop",
+        "uv": "https://cdnb.artstation.com/p/assets/images/images/048/883/281/small/caption-4.jpg?1651161516=crop"
+      },
+          "glb": "/assets/models/project-1-viking-helmet.glb",
+        "startDate": "2023-01-01",
+        "completedAt": "2023-01-15",
+      "specs": {
+        "polyCount": 1800,
+        "vertexCount": 800,
+        "texelDensity": "1024 px/m",
+        "materialSlots": 1,
+        "textureResolution": "4K",
+        "fileSize": "45 MB"
+      ,
+        "status": "Completed",
+        "location": "Lagos, Nigeria",
+        "area": "N/A",
+        "type": "Characters",
+        "style": "Realistic",
+        "year": "2024"
+      },
+      "software": ["3Ds Max", "Substance Painter", "ZBrush"],
+      "category": "Characters",
+      "createdAt": "2023-01-15",
+      "process": "Started with concept sketches, blocked out basic shapes in zbrush, refined topology for game-ready mesh, created high-poly for baking, textured in Substance Painter with custom smart materials."
+    },
+    {
+      "id": "3",
       "title": "The Viking War Helmet",
       "description": "The Viking War Helmet, an iconic symbol of the fierce Norse warriors, has been faithfully modeled in exquisite detail using the advanced 3D modeling software, 3ds Max. Crafted with meticulous attention to historical accuracy, every curve and intricate embellishment has been carefully recreated to ensure authenticity. The helmet has been textured using the industry-standard Substance Painter, giving it a realistic and ancient look, making it appear as if it had endured countless battles and harsh weather conditions. Its breathtakingly beautiful design is finished off with a highly polished metal sheen, allowing its gleaming surface to intimidate foes on the battlefield. This helmet also features functional properties, including adjustable straps for maximum comfort, a sturdy leather chin strap and a detachable face guard for extra protection. Whether used for re-enactment purposes or simply as a collectible piece of history, the Viking War Helmet is sure to be an impressive addition to any display.",
       "thumbnail": "https://cdnb.artstation.com/p/assets/images/images/065/870/485/small/caption-full-render5.jpg?1691444721",
       "images": {
         "rendered": "https://cdna.artstation.com/p/assets/images/images/065/870/484/small/caption-full-render4.jpg?1691444715",
-        "wireframe": "https://cdnb.artstation.com/p/assets/images/images/065/870/491/small/caption-wireframe.jpg?1691444736",
+        "rendered2": "https://cdnb.artstation.com/p/assets/images/images/065/870/481/small/caption-full-render3.jpg?1691444707=crop",
+        "topology": "https://cdnb.artstation.com/p/assets/images/images/095/721/507/small/caption-topolo.jpg?1769350237=crop",
         "uv": "https://cdna.artstation.com/p/assets/images/images/065/870/496/small/caption-uv-02.jpg?1691444748"
       },
           "glb": "/assets/models/project-1-viking-helmet.glb",
         "startDate": "2024-01-01",
         "completedAt": "2024-01-15",
       "specs": {
-        "polyCount": 2500,
-        "vertexCount": 800,
-        "texelDensity": "512 px/m",
-        "materialSlots": 3,
+        "polyCount": 1000,
+        "vertexCount": 300,
+        "texelDensity": "1024 px/m",
+        "materialSlots": 1,
         "textureResolution": "4K",
         "fileSize": "45 MB"
       ,
@@ -243,23 +312,24 @@
       "process": "Started with concept sketches, blocked out basic shapes in Blender, refined topology for game-ready mesh, created high-poly for baking, textured in Substance Painter with custom smart materials."
     },
     {
-      "id": "2",
+      "id": "4",
       "title": "Old Decaying Skull",
       "description": "Custom 3D model of a decayed skull from 12 reference images. Sculpted high frequency details in ZBrush, retopologized in Blender for optimal game performance, hand painted wear and tear details in Substance Painter.",
       "thumbnail": "https://cdna.artstation.com/p/assets/video_clips/images/048/963/706/small/caption-thumb.jpg?1651367430=crop",
       "images": {
-        "rendered": "https://cdnb.artstation.com/p/assets/images/images/048/770/383/small/caption-side.jpg?1650905520=crop",
-        "wireframe": "https://cdna.artstation.com/p/assets/images/images/048/776/512/small/caption-1.jpg?1650914871=crop",
-        "uv": "https://cdnb.artstation.com/p/assets/images/images/048/770/329/small/caption-front-full.jpg?1650905441=crop"
+        "rendered": "https://cdna.artstation.com/p/assets/images/images/048/770/258/small/caption-close-up.jpg?1650905339=crop",
+        "rendered2": "https://cdna.artstation.com/p/assets/images/images/048/776/512/small/caption-1.jpg?1650914871=crop",
+        "topology": "https://cdnb.artstation.com/p/assets/images/images/095/720/983/small/caption-topo.jpg?1769348863=crop",
+        "uv": "https://cdnb.artstation.com/p/assets/images/images/095/720/981/small/caption-uv.jpg?1769348861=crop"
       },
         "glb": "/assets/models/project-2-old-decaying-skull.glb",
       "startDate": "2024-02-01",
-      "completedAt": "2024-02-20",
+      "completedAt": "2024-02-2",
       "specs": {
-        "polyCount": 3200,
-        "vertexCount": 3100,
+        "polyCount": 1500,
+        "vertexCount": 700,
         "texelDensity": "1024 px/m",
-        "materialSlots": 2,
+        "materialSlots": 1,
         "textureResolution": "4K",
         "fileSize": "28 MB"
       ,
@@ -272,26 +342,27 @@
       },
       "software": ["ZBrush", "3Ds Max", "Substance Painter", "Vray"],
       "category": "Props",
-      "createdAt": "2024-02-20",
+      "createdAt": "2024-02-2",
       "process": "Sculpted wood grain details in ZBrush, retopologized in Blender for optimal game performance, hand-painted wear and tear details in Substance Painter."
     },
     {
-      "id": "3",
+      "id": "5",
       "title": "Water Drum",
       "description": "The Water Drum is a meticulously crafted and highly detailed game-ready prop, created using industry-leading software such as 3ds Max and Substance 3D Painter. Its purpose is to enrich the visual appeal of game environments, whether they are being developed in Unity, Unreal Engine, or any other engine. Its realistic design, with texturing and lighting that has been optimized for game engines, makes it perfect for virtual worlds of any genre. Its versatility makes the Water Drum an easy fit into any project.",
       "thumbnail": "https://cdnb.artstation.com/p/marketplace/presentation_assets/002/919/435/large/file.jpg?1691515244",
       "images": {
-        "rendered": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/430/large/file.jpg?1691515139",
-        "wireframe": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/434/large/file.jpg?1691515224",
+        "rendered": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/432/large/file.jpg?1691515188=crop",
+        "rendered2": "https://cdna.artstation.com/p/marketplace/presentation_assets/002/919/436/large/file.jpg?1691515260=crop",
+        "topology": "https://cdnb.artstation.com/p/marketplace/presentation_assets/005/124/931/large/file.jpg?1769350576=crop",
         "uv": "https://cdnb.artstation.com/p/marketplace/presentation_assets/002/919/429/large/file.jpg?1691515122"
       },
         "glb": "/assets/models/project-3-cyberpunk-vending-machine.glb",
       "startDate": "2024-02-25",
-      "completedAt": "2024-03-10",
+      "completedAt": "2024-02-26",
       "specs": {
         "polyCount": 1000,
         "vertexCount": 500,
-        "texelDensity": "768 px/m",
+        "texelDensity": "1024 px/m",
         "materialSlots": 2,
         "textureResolution": "4K",
         "fileSize": "15 MB"
@@ -305,32 +376,33 @@
       },
       "software": ["3Ds Max", "Substance Painter", "Vray"],
       "category": "Props",
-      "createdAt": "2024-03-10",
+      "createdAt": "2024-02-26",
       "process": "Hard-surface modeled in 3ds max no boolean operations, created custom decals and holographic materials, added emissive maps effects."
     },
     
     {
-      "id": "4",
+      "id": "6",
       "title": "Gas Cylinder and Cooking Pot",
       "description": "Gas Cylinder: This game prop model is a highly detailed 3D representation of a worn-out and old gas cylinder. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The model features realistic markings and embellishments that bring it to life. Cooking Pot: This game prop model is a 3D representation of a worn-out and old cooking pot. Textured with meticulous attention to detail, the weathered and distressed appearance gives it a sense of history. The pot's handle and lid are functional and can be moved and posed for added realism. The model features realistic markings and embellishments that bring it to life.",
       "thumbnail": "https://cdna.artstation.com/p/assets/images/images/065/847/998/small/caption-gascylinder-arnoldpsd.jpg?1691400463=crop",
       "images": {
         "rendered": "https://cdna.artstation.com/p/assets/images/images/065/847/974/small/caption-gascylinder-arnold-view2.jpg?1691400429=crop",
-        "wireframe": "https://cdna.artstation.com/p/assets/images/images/065/847/990/small/caption-gascylinder-arnold-view2-nomat.jpg?1691400452=crop",
+        "rendered2": "https://cdna.artstation.com/p/assets/images/images/065/848/004/small/caption-pot.jpg?1691400472=crop",
+        "topology": "https://cdna.artstation.com/p/assets/images/images/095/721/936/small/caption-gass-topolo.jpg?1769351112=crop",
         "uv": "https://cdna.artstation.com/p/assets/images/images/065/848/004/small/caption-pot.jpg?1691400472=crop"
       },
         "glb": "/assets/models/project-3-cyberpunk-vending-machine.glb",
       "startDate": "2024-03-01",
-      "completedAt": "2024-03-10",
+      "completedAt": "2024-03-3",
       "specs": {
-        "polyCount": 1900,
+        "polyCount": 700,
         "vertexCount": 200,
-        "texelDensity": "768 px/m",
-        "materialSlots": 4,
+        "texelDensity": "1024 px/m",
+        "materialSlots": 1,
         "textureResolution": "4K",
         "fileSize": "62 MB"
       ,
-        "status": "In Development",
+        "status": "Completed",
         "location": "Shenzen, China",
         "area": "N/A",
         "type": "Props",
@@ -339,7 +411,7 @@
       },
       "software": ["3Ds Max", "Substance Painter", "Vray"],
       "category": "Props",
-      "createdAt": "2024-03-10",
+      "createdAt": "2024-03-1",
       "process": "Hard-surface modeled in Blender using boolean operations, created custom decals and holographic materials, added emissive maps for neon lighting effects."
     }
     
