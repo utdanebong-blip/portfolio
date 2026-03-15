@@ -5,8 +5,8 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { path: '/', label: 'Home', icon: Home, accent: 'primary' },
+  { path: '/models', label: 'Models', icon: Library, accent: 'neon-cyan' },
   { path: '/gallery', label: 'Gallery', icon: Image, accent: 'neon-orange' },
-  { path: '/ai-render-enhancer', label: 'Enhancer', icon: Sparkles, accent: 'neon-green' },
   { path: '/about', label: 'About', icon: User, accent: 'accent' },
   { path: '/blog', label: 'Blog', icon: BookOpen, accent: 'neon-cyan' },
   { path: '/contact', label: 'Contact', icon: Mail, accent: 'primary' },

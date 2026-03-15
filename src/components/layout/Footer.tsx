@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, ExternalLink, Mail, MapPin, Sparkles, Download } from 'lucide-react';
+import { Github, Linkedin, Twitter, ExternalLink, Mail, MapPin, Sparkles } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -7,6 +7,7 @@ export function Footer() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+    { name: 'Models', path: '/models' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
@@ -91,27 +92,7 @@ export function Footer() {
               </nav>
             </div>
 
-            {/* Enhancer Promo */}
-            <div className="lg:col-span-3 space-y-4">
-              <div className="flex items-center gap-2">
-                <Sparkles size={14} className="text-primary" />
-                <h4 className="font-display text-sm text-foreground uppercase tracking-widest">Free Tool</h4>
-              </div>
-              
-              <Link to="/ai-render-enhancer" className="group block">
-                <div className="p-4 rounded-2xl border border-border/50 bg-gradient-to-br from-primary/5 to-neon-cyan/5 hover:border-primary/30 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-3">
-                    <img src={`${import.meta.env.BASE_URL}assets/archviz-enhancer-logo.png`} alt="Archviz Enhancer" className="h-10" />
-                  </div>
-                  <p className="text-sm text-foreground font-medium mb-1">Render Enhancer</p>
-                  <p className="text-xs text-muted-foreground mb-3">Enhance your archviz renders with all features enabled</p>
-                  <div className="flex items-center gap-2 text-primary text-xs font-mono">
-                    <Download size={12} />
-                    <span>Download Free</span>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            {/* Enhancer Promo removed */}
 
             {/* Social & Connect */}
             <div className="lg:col-span-3 space-y-6">

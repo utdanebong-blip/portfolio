@@ -11,10 +11,9 @@ import ScrollToTop from "@/components/ScrollToTop";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const Models = lazy(() => import("./pages/Models"));
 const ArchvizProjectDetail = lazy(() => import("./pages/ArchvizProjectDetail"));
 const ProductDetailViz = lazy(() => import("./pages/ProductDetailViz"));
-const AIRenderEnhancer = lazy(() => import("./pages/AIRenderEnhancer"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -35,9 +34,10 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/gallery/:id" element={<ProjectDetail />} />
+            <Route path="/models" element={<Models />} />
+            
             <Route path="/productviz/:id" element={<ProductDetailViz />} />
-            <Route path="/ai-render-enhancer" element={<AIRenderEnhancer />} />
+            
             <Route path="/archviz/:id" element={<ArchvizProjectDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />

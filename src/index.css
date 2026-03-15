@@ -216,6 +216,22 @@
       box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 40px hsl(var(--primary) / 0.4);
     }
   }
+
+  /* Slow breathing animation for subtle pulsing */
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.9925);
+      opacity: 0.96;
+    }
+  }
+
+  .animate-breathe {
+    animation: breathe 6s ease-in-out infinite;
+  }
 }
 
 /* Custom scrollbar */

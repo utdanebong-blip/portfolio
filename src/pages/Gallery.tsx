@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { Layout } from '@/components/layout';
 import { useProjects, useArchvizProjects, useProductVizProjects } from '@/hooks/usePortfolioData';
-import { ProjectTimeline } from '@/components/gallery/ProjectTimeline';
 import { 
-  Box, 
   Play, 
   Film, 
   MapPin, 
@@ -14,9 +12,6 @@ import {
   Eye,
   Layers,
   Palette,
-  Triangle,
-  Grid3X3,
-  LayoutGrid,
   Package,
   Briefcase,
   Star,
@@ -63,12 +58,9 @@ const showreelVideos = [
   }
 ];
 
-type TabType = 'props' | 'productviz' | 'archviz' | 'showreel';
-
 export default function Gallery() {
-  const [activeTab, setActiveTab] = useState<TabType>('props');
-  const [propsLayout, setPropsLayout] = useState<'grid' | 'masonry'>('grid');
-  const [showTimeline, setShowTimeline] = useState(false);
+  type TabType = 'productviz' | 'archviz' | 'showreel';
+  const [activeTab, setActiveTab] = useState<TabType>('productviz');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
   const { projects } = useProjects();
@@ -94,7 +86,6 @@ export default function Gallery() {
   }, []);
 
   const tabs = [
-    { id: 'props' as TabType, label: 'Game Props', icon: Box, count: projects.length, color: 'primary' },
     { id: 'productviz' as TabType, label: 'Product Viz', icon: Package, count: productVizProjects.length, color: 'amber' },
     { id: 'archviz' as TabType, label: 'Arch Viz', icon: Building2, count: archvizProjects.length, color: 'accent' },
     { id: 'showreel' as TabType, label: 'Showreel', icon: Film, count: showreelVideos.length, color: 'rose' }
@@ -235,201 +226,10 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Content Section */}
+          {/* Content Section */}
       <section className="pb-16 md:pb-32 relative">
         <div className="container mx-auto px-4">
           
-          {/* Props Tab */}
-          {activeTab === 'props' && (
-            <div className="animate-fade-in space-y-6 md:space-y-8">
-              {/* Section Header - Bento style */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="md:col-span-2 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-2xl border border-border/30 relative overflow-hidden">
-                  {/* Background decoration */}
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-                  
-                  <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/30">
-                        <Box className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-                      </div>
-                      <div>
-                        <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-1">Game-Ready Props</h2>
-                        <p className="text-sm text-muted-foreground flex items-center gap-2">
-                          <Zap className="w-4 h-4 text-primary" />
-                          {projects.length} optimized assets ready for production
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2 self-end md:self-auto">
-                      <button 
-                        onClick={() => setShowTimeline(!showTimeline)}
-                        className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-300 text-sm font-medium ${
-                          showTimeline 
-                            ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25' 
-                            : 'bg-card/50 border border-border/30 text-muted-foreground hover:text-foreground hover:border-primary/30'
-                        }`}
-                      >
-                        <Calendar className="w-4 h-4" />
-                        <span className="hidden sm:inline">Timeline</span>
-                      </button>
-                      <div className="h-8 w-px bg-border/30" />
-                      <div className="flex items-center bg-card/50 border border-border/30 rounded-xl p-1">
-                        <button 
-                          onClick={() => setPropsLayout('grid')}
-                          className={`p-2 rounded-lg transition-all duration-300 ${
-                            propsLayout === 'grid' 
-                              ? 'bg-primary text-primary-foreground' 
-                              : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          <Grid3X3 className="w-4 h-4" />
-                        </button>
-                        <button 
-                          onClick={() => setPropsLayout('masonry')}
-                          className={`p-2 rounded-lg transition-all duration-300 ${
-                            propsLayout === 'masonry' 
-                              ? 'bg-primary text-primary-foreground' 
-                              : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          <LayoutGrid className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Quick stats */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 md:p-5 rounded-2xl bg-card/30 backdrop-blur-xl border border-border/30 text-center">
-                    <Triangle className="w-5 h-5 text-primary mx-auto mb-2" />
-                    <div className="font-mono text-lg md:text-xl font-bold text-foreground">
-                      {Math.round(projects.reduce((acc, p) => acc + p.specs.polyCount, 0) / 1000)}K
-                    </div>
-                    <div className="text-xs text-muted-foreground">Avg. Tris</div>
-                  </div>
-                  <div className="p-4 md:p-5 rounded-2xl bg-card/30 backdrop-blur-xl border border-border/30 text-center">
-                    <Palette className="w-5 h-5 text-primary mx-auto mb-2" />
-                    <div className="font-mono text-lg md:text-xl font-bold text-foreground">4K</div>
-                    <div className="text-xs text-muted-foreground">Textures</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Timeline */}
-              {showTimeline && (
-                <div className="animate-fade-in">
-                  <ProjectTimeline projects={projects} />
-                </div>
-              )}
-
-              {/* Props Grid - Enhanced cards */}
-              <div className={`grid gap-4 md:gap-6 ${
-                propsLayout === 'grid' 
-                  ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
-                  : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-              }`}>
-                {projects.map((project, index) => (
-                  <Link
-                    key={project.id}
-                    to={`/gallery/${project.id}`}
-                    className={`group relative rounded-2xl md:rounded-3xl overflow-hidden bg-card/40 backdrop-blur-2xl border border-border/30 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in ${
-                      propsLayout === 'masonry' && index === 0 ? 'sm:col-span-2 sm:row-span-2' : ''
-                    }`}
-                    style={{ animationDelay: `${index * 0.05}s` }}
-                  >
-                    {/* Image Container */}
-                    <div className={`overflow-hidden relative ${
-                      propsLayout === 'masonry' && index === 0 ? 'aspect-square sm:aspect-[4/3]' : 'aspect-square'
-                    }`}>
-                      <img 
-                        src={project.thumbnail} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                      />
-                      
-                      {/* Gradient overlays */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      
-                      {/* Top HUD */}
-                      <div className="absolute top-3 md:top-4 left-3 md:left-4 right-3 md:right-4 flex items-center justify-between">
-                        <span className="px-3 py-1.5 rounded-full text-[10px] md:text-xs font-mono bg-card/80 backdrop-blur-xl border border-border/50 text-primary uppercase tracking-wider">
-                          {project.category}
-                        </span>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 backdrop-blur-xl border border-emerald-500/30">
-                          <div className="relative">
-                            <div className="w-2 h-2 bg-emerald-400 rounded-full" />
-                            <div className="absolute inset-0 w-2 h-2 bg-emerald-400 rounded-full animate-ping" />
-                          </div>
-                          <span className="text-[10px] md:text-xs font-mono text-emerald-400">READY</span>
-                        </div>
-                      </div>
-
-                      {/* View Button */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <div className="w-14 h-14 md:w-18 md:h-18 rounded-2xl bg-primary/90 backdrop-blur-xl flex items-center justify-center shadow-2xl shadow-primary/40 scale-75 group-hover:scale-100 transition-transform duration-300">
-                          <Eye className="w-6 h-6 md:w-7 md:h-7 text-primary-foreground" />
-                        </div>
-                      </div>
-                      
-                      {/* Corner accents */}
-                      <div className="absolute top-2 left-2 w-6 h-6 md:w-8 md:h-8 border-t-2 border-l-2 border-primary/40 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute top-2 right-2 w-6 h-6 md:w-8 md:h-8 border-t-2 border-r-2 border-primary/40 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute bottom-2 left-2 w-6 h-6 md:w-8 md:h-8 border-b-2 border-l-2 border-primary/40 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute bottom-2 right-2 w-6 h-6 md:w-8 md:h-8 border-b-2 border-r-2 border-primary/40 rounded-br-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="p-4 md:p-6">
-                      <h3 className="font-display text-base md:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-1">
-                        {project.title}
-                      </h3>
-                      <p className="font-body text-xs md:text-sm text-muted-foreground line-clamp-2 mb-4">
-                        {project.description}
-                      </p>
-                      
-                      {/* Stats Grid - Horizontal pills */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 rounded-full border border-primary/20">
-                          <Triangle className="w-3 h-3 text-primary" />
-                          <span className="text-[10px] md:text-xs font-mono text-primary font-bold">
-                            {(project.specs.polyCount / 1000).toFixed(0)}K
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-muted/50 rounded-full border border-border/30">
-                          <Layers className="w-3 h-3 text-muted-foreground" />
-                          <span className="text-[10px] md:text-xs font-mono text-muted-foreground">
-                            {project.specs.materialSlots} mats
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-muted/50 rounded-full border border-border/30">
-                          <Palette className="w-3 h-3 text-muted-foreground" />
-                          <span className="text-[10px] md:text-xs font-mono text-muted-foreground">
-                            {project.specs.textureResolution}
-                          </span>
-                        </div>
-                      </div>
-                      
-                      {/* Software Tags */}
-                      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border/20">
-                        {project.software.slice(0, 3).map((sw) => (
-                          <span 
-                            key={sw} 
-                            className="text-[9px] md:text-[10px] font-mono text-muted-foreground bg-muted/30 px-2 py-1 rounded-md"
-                          >
-                            {sw}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* ProductViz Tab */}
           {activeTab === 'productviz' && (

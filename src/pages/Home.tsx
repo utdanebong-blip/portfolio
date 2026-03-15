@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, MapPin, Briefcase, Package, Star, ArrowUpRight, BookOpen, Play, Code2, Target, SplitSquareHorizontal, Check, Crown, Cpu } from 'lucide-react';
+import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, MapPin, Briefcase, Package, Star, ArrowUpRight, BookOpen, Play, Code2, Target, SplitSquareHorizontal, Check, Crown, Cpu, Building, BoxIcon, MousePointer, MousePointer2, BoxSelect, LucideBuilding2, Boxes } from 'lucide-react';
 import { projects, plugins, posts, archvizProjects, productVizProjects, showreel } from '@/hooks/usePortfolioData';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import useInView from '@/hooks/useInView';
@@ -9,8 +9,7 @@ import { cn } from '@/lib/utils';
 import ShowreelVideoSection from '@/components/ShowreelVideoSection';
 import ArchvizVideoSection from '@/components/ArchvizVideoSection';
 import ProductVizVideoSection from '@/components/ProductVizVideoSection';
-import Blog from './Blog';
-import BlogPost from './BlogPost';
+
 
 function HeroText() {
   const { ref, inView } = useInView();
@@ -274,7 +273,32 @@ function FadeIn({ children, delay = 0 }: { children: any; delay?: number }) {
     </div>
   );
 }
-// Demo books for the section
+
+// Small presentational component for specialty pill with reveal animation
+function SpecialtyPill({ item, index }: { item: { icon: any; label: string; color?: string }; index: number }) {
+  const { revealedCount, breathing } = useSpecialtyRevealContext();
+  const shown = index < revealedCount;
+  const Icon = item.icon;
+  return (
+    <div
+      className={`group flex items-center gap-3 px-5 py-3 rounded-2xl bg-card/50 border border-border/50 transition-all duration-500 cursor-default backdrop-blur-sm ${shown ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95'}` + (breathing && shown ? ' animate-breathe' : '')}
+      style={{ transitionDelay: `${index * 70}ms` }}
+    >
+      <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+        <Icon size={18} className="text-primary" />
+      </div>
+      <span className="font-mono text-sm tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">{item.label}</span>
+    </div>
+  );
+}
+
+// tiny context shim to avoid prop drilling for simple state
+import React from 'react';
+const SpecialtyRevealContext = React.createContext({ revealedCount: 0, breathing: false });
+function useSpecialtyRevealContext() {
+  return React.useContext(SpecialtyRevealContext);
+}
+// Blog Preview section
 const featuredBooks = [
   {
     id: '1',
@@ -296,7 +320,7 @@ const featuredBooks = [
   },
 ];
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
+  const featuredProjects = productVizProjects.slice(0, 3);
   const latestPosts = posts.slice(0, 3);
   const featuredArchviz = archvizProjects.slice(0, 2);
   const featuredProductViz = productVizProjects.slice(0, 3);
@@ -318,6 +342,27 @@ export default function Home() {
       window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('resize', handleResize);
     };
+  }, []);
+
+  // Specialties reveal + breathing animation
+  const specialties = [
+    { icon: Gamepad2, label: 'Game Props', color: 'primary' },
+    { icon: LucideBuilding2, label: 'Archviz', color: 'accent' },
+    { icon: Boxes, label: 'Product Viz', color: 'neon-orange' },
+    { icon: MousePointer2, label: 'Interactive 3D', color: 'neon-orange' },
+  ];
+  const [revealedCount, setRevealedCount] = useState(0);
+  const [breathing, setBreathing] = useState(false);
+
+  useEffect(() => {
+    const timers: number[] = [];
+    specialties.forEach((_, i) => {
+      timers.push(window.setTimeout(() => setRevealedCount((v) => Math.max(v, i + 1)), i * 160));
+    });
+    // enable breathing after all items revealed
+    timers.push(window.setTimeout(() => setBreathing(true), specialties.length * 160 + 220));
+    return () => timers.forEach((t) => clearTimeout(t));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -398,9 +443,9 @@ export default function Home() {
               {/* Main Title with Neon Effect */}
               <div className="space-y-4 mb-8">
                 <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground leading-[0.85]">
-                  <span className="block">DIGITAL</span>
+                  <span className="block">VISUAL</span>
                   <span className="block text-primary text-glow-green relative">
-                    ARTISAN
+                    ENGINEER
                     <span className="absolute -inset-1 blur-2xl bg-primary/30 -z-10 rounded-lg" />
                   </span>
                 </h1>
@@ -408,29 +453,21 @@ export default function Home() {
 
               {/* Subtitle with Typing Effect */}
               <p className="font-body text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-                Crafting <span className="text-foreground font-medium">immersive 3D experiences</span> — from game-ready assets to photorealistic architectural visions.
+                Crafting <span className="text-foreground font-medium">immersive 3D experiences</span>  from game-ready assets to photorealistic architectural visions.
               </p>
 
-              {/* Specialty Tags with Neon Borders */}
-              <div className="flex flex-wrap gap-4 mb-12">
-                {[
-                  { icon: Gamepad2, label: 'Game Props', color: 'primary' },
-                  { icon: Building2, label: 'Archviz', color: 'accent' },
-                  { icon: Package, label: 'Product Viz', color: 'neon-orange' },
-                ].map((item) => (
-                  <div 
-                    key={item.label}
-                    className="group flex items-center gap-3 px-5 py-3 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-500 cursor-default backdrop-blur-sm"
-                  >
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <item.icon size={18} className="text-primary" />
-                    </div>
-                    <span className="font-mono text-sm tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              {/* Specialty Tags with Neon Borders - staged reveal + breathing */}
+              {
+                // define specialties once so timing uses same order
+              }
+              <SpecialtyRevealContext.Provider value={{ revealedCount, breathing }}>
+                <div className={`flex flex-wrap gap-4 mb-12 ${breathing ? 'animate-breathe' : ''}`}>
+                  {/* We'll render items from `specialties` with staged reveal */}
+                  {specialties.map((item, index) => (
+                    <SpecialtyPill key={item.label} item={item} index={index} />
+                  ))}
+                </div>
+              </SpecialtyRevealContext.Provider>
 
               {/* CTA Buttons with Glow */}
               <div className="flex flex-col sm:flex-row gap-4">
@@ -453,10 +490,10 @@ export default function Home() {
 
             {/* Right Visual - 5 columns */}
             <div className="hidden lg:flex lg:col-span-5 justify-center items-center relative">
-              <div className="relative w-full aspect-square max-w-[500px]">
+              <div className="relative w-full aspect-square max-w-[620px]">
                 {/* Central Orb */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-64 h-64">
+                  <div className="relative w-80 h-80">
                     {/* Outer Ring */}
                     <div className="absolute inset-0 rounded-full border border-primary/30 animate-[spin_30s_linear_infinite]">
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full shadow-lg shadow-primary/50" />
@@ -473,7 +510,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating Project Cards */}
-                {featuredProjects.slice(0, 3).map((project, index) => {
+                {featuredProjects.map((project, index) => {
                   const positions = [
                     { top: '5%', left: '0%', rotate: '-8deg' },
                     { top: '55%', right: '-5%', rotate: '5deg' },
@@ -481,9 +518,9 @@ export default function Home() {
                   ];
                   const pos = positions[index];
                   return (
-                    <Link
+                      <Link
                       key={project.id}
-                      to={`/gallery/${project.id}`}
+                      to={`/productviz/${project.id}`}
                       className="absolute group cursor-pointer animate-float"
                       style={{
                         ...pos,
@@ -491,7 +528,7 @@ export default function Home() {
                         transform: `rotate(${pos.rotate})`,
                       }}
                     >
-                      <div className="w-36 h-28 rounded-xl overflow-hidden border-2 border-border/50 bg-card shadow-2xl group-hover:scale-110 scale:2x group-hover:border-primary/50 group-hover:shadow-primary/20 transition-all duration-500">
+                      <div className="w-48 h-36 rounded-xl overflow-hidden border-2 border-border/50 bg-card shadow-2xl group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-primary/20 transition-all duration-500">
                         <img
                           src={project.thumbnail}
                           alt={project.title}
@@ -520,13 +557,10 @@ export default function Home() {
                 </div>
               </div>
       </section>
-     <AIEnhancerPromoSection /> 
-    {/* Skills Section - Glowing Cards */}
-      <SkillsSection />
       
 
-      {/* Blog Display - Artistic Shelf */}
-          <div className="relative">
+        {/* Blog Display - Artistic Shelf */}
+          <section className="relative py-12 md:py-0">
             {/* Shelf decoration */}
             <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-r from-violet-500/10 via-violet-500/20 to-violet-500/10 rounded-full blur-xl" />
             
@@ -580,7 +614,7 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
-          </div>
+          </section>
 
           
            
@@ -706,46 +740,6 @@ export default function Home() {
       {/* Scroll pause logic: pause downward scroll when user is near the video library and media aren't loaded yet */}
       <ScrollPauseHandler productRef={productRef} videoLibRef={videoLibRef} videosLoaded={videosLoaded} setVideosLoaded={setVideosLoaded} />
 
-    
-      
-
-      {/* Tools & Resources */}
-      <section className="py-24 bg-card/20 border-t border-border/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="font-mono text-xs text-primary tracking-widest uppercase mb-4 block">Free Resources</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Tools & <span className="text-primary">Plugins</span>
-            </h2>
-            <p className="font-body text-muted-foreground max-w-lg mx-auto">
-              Open-source utilities crafted to streamline your creative workflow
-            </p>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-            {plugins.map((plugin, index) => (
-              <div
-                key={plugin.id}
-                className="w-full sm:w-[48%] lg:w-[23%] max-w-[360px] mx-auto"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="group bg-card border border-border/50 rounded-xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 animate-fade-in h-full">
-                  <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">{plugin.icon}</div>
-                  <span className="text-xs font-mono text-primary/80 bg-primary/10 px-3 py-1 rounded-full">{plugin.category}</span>
-                  <h3 className="font-display text-lg font-semibold mt-4 mb-2 text-foreground">{plugin.name}</h3>
-                  <p className="font-body text-muted-foreground text-sm leading-relaxed mb-5 line-clamp-2">{plugin.description}</p>
-                  <a href={plugin.downloadUrl} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" size="sm" className="w-full gap-2 border-border/50 hover:border-primary/50">
-                      <Download size={14} /> Download Free
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section - Dramatic */}
       <section className="py-32 md:py-40 relative overflow-hidden">
         {/* Background Art */}
@@ -846,143 +840,8 @@ function SkillsSection(): JSX.Element {
           ))}
         </div>
       </div>
+      
     </section>
-  );
-}
-// AI Render Enhancer Promo Section
-function AIEnhancerPromoSection() {
-  return (
-    <section className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-neon-cyan/5 to-primary/5" />
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-neon-cyan/10 rounded-full blur-[120px]" />
-        <div className="absolute inset-0 grid-pattern opacity-20" />
-      </div>
-
-      <div className="container mx-auto px-4 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Sparkles size={14} className="text-primary animate-pulse" />
-              <span className="font-mono text-xs text-primary tracking-widest uppercase">New App Release</span>
-            </div>
-
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Archviz
-              <span className="block text-primary text-glow-green">Render Enhancer</span>
-            </h2>
-
-            <p className="font-body text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
-              Transform your architectural renders with GPU-powered enhancement. 
-              Non-destructive processing, GPU acceleration, and batch capabilities — 
-              all in one powerful tool.
-            </p>
-
-            {/* Feature Pills */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              {[
-                { icon: SplitSquareHorizontal, label: 'VFB Comparison' },
-                { icon: Cpu, label: 'GPU Accelerated' },
-                { icon: Layers, label: 'Batch Processing' },
-              ].map((feature) => (
-                <div
-                  key={feature.label}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm"
-                >
-                  <feature.icon size={16} className="text-primary" />
-                  <span className="font-mono text-xs text-foreground">{feature.label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Free Badge */}
-            <div className="flex items-center gap-4 mb-8">
-              <div className="text-center">
-                <p className="font-display text-4xl font-bold text-neon-green">$0</p>
-                <p className="font-mono text-xs text-muted-foreground">Free for testing</p>
-              </div>
-              <div className="h-12 w-px bg-border/50" />
-              <div className="flex items-center gap-2">
-                <Check size={18} className="text-neon-green" />
-                <span className="text-sm text-muted-foreground">All features unlocked</span>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/ai-render-enhancer">
-                <Button size="lg" className="w-full sm:w-auto font-display gap-3 px-8 py-6 text-base rounded-2xl glow-green group">
-                  <Download size={18} className="group-hover:animate-bounce" />
-                  Try for Free
-                </Button>
-              </Link>
-              <Link to="/ai-render-enhancer">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto font-display gap-3 px-8 py-6 text-base rounded-2xl border-2 border-border/50 hover:border-primary/50">
-                  Learn More
-                  <ArrowRight size={18} />
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Visual - Feature Preview Card */}
-          <div className="relative">
-            <div className="relative bg-card/50 border border-border/50 rounded-3xl p-8 backdrop-blur-xl overflow-hidden">
-              {/* Corner Accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/20 to-transparent" />
-              
-              {/* Comparison Demo */}
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/30 bg-muted/30 mb-6">
-                {/* Background photo (replace URL with your image) */}
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/comparison-bg.png`}
-                  alt="comparison background"
-                  className="absolute inset-0 w-full h-full object-cover z-0"
-                />
-                {/* Dimming overlay to keep text readable */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-5" />
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center relative z-10">
-                    
-                    <p className="font-mono text-xs text-muted-foreground">Enhanced / Original</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature Checkmarks */}
-              <div className="space-y-3">
-                {[
-                  'GPU-powered enhancement preserves details',
-                  'Process hundreds of images in batch',
-                  'Add text & image watermarks easily',
-                  'History fallback easily',
-                  'CPU fallback easily'
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-neon-green/20 flex items-center justify-center flex-shrink-0">
-                      <Check size={12} className="text-neon-green" />
-                    </div>
-                    <span className="font-body text-sm text-muted-foreground">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Floating Badge */}
-              <div className="absolute -top-3 -right-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-mono text-xs shadow-lg shadow-primary/30 rotate-3">
-                NEW
-              </div>
-            </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border border-primary/20 rounded-full" />
-            <div className="absolute -top-6 -left-6 w-12 h-12 bg-primary/10 rounded-xl rotate-12" />
-          </div>
-        </div>
-      </div>
-    </section>
+    
   );
 }
