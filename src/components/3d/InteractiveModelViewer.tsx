@@ -221,12 +221,6 @@ export function InteractiveModelViewer({ modelUrl, title, className = '', compac
 
   return (
     <div className={`relative bg-card/30 rounded-3xl border border-border/30 overflow-hidden backdrop-blur-sm ${className}`}>
-      {/* Title bar */}
-      {title && (
-        <div className="absolute top-0 left-0 right-0 z-10 px-6 py-4 bg-gradient-to-b from-background/80 to-transparent">
-          <h3 className="font-display text-lg font-bold text-foreground">{title}</h3>
-        </div>
-      )}
 
       {/* Left controls */}
       <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
@@ -235,9 +229,6 @@ export function InteractiveModelViewer({ modelUrl, title, className = '', compac
         </Button>
         <Button size="sm" variant={wireframe ? "default" : "secondary"} onClick={() => setWireframe(!wireframe)} className="bg-card/80 backdrop-blur-sm border border-border/50" title="Wireframe">
           <Layers size={14} />
-        </Button>
-        <Button size="sm" variant={exploded ? "default" : "secondary"} onClick={() => setExploded(!exploded)} className="bg-card/80 backdrop-blur-sm border border-border/50" title="Exploded View">
-          <ZoomIn size={14} />
         </Button>
         <div className="relative">
           <Button size="sm" variant={selectedColor ? "default" : "secondary"} onClick={() => setShowColorPicker(!showColorPicker)} className="bg-card/80 backdrop-blur-sm border border-border/50" title="Change Color">

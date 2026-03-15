@@ -279,31 +279,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Try AI Enhancer CTA */}
-      <section className="py-12 px-4 relative">
-        <div className="container mx-auto">
-          <Link to="/ai-render-enhancer">
-            <div className="group relative bg-gradient-to-r from-primary/10 via-neon-cyan/10 to-primary/10 border border-primary/30 rounded-3xl p-8 hover:border-primary/50 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-neon-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center">
-                    <Sparkles className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl font-bold text-foreground">Try AI Render Enhancer</h3>
-                    <p className="text-muted-foreground">Free tool to enhance your archviz renders with AI</p>
-                  </div>
-                </div>
-                <Button className="gap-2 bg-primary hover:bg-primary/90">
-                  Try It Free <ArrowRight size={18} />
-                </Button>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-
       {/* Section Toggle */}
       <section className="py-8">
         <div className="container mx-auto px-4">

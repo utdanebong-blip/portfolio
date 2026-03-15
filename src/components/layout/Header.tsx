@@ -1,12 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import { Menu, X, Home, User, Image, Mail, BookOpen, Layers } from 'lucide-react';
+import { Menu, X, Home, User, Image, Mail, BookOpen, Layers, MousePointer2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 
 const navItems = [
   { path: '/', label: 'Home', icon: Home },
-  { path: '/models', label: 'Models', icon: Layers },
+  { path: '/models', label: '3DMI', icon: MousePointer2 },
   { path: '/gallery', label: 'Gallery', icon: Image },
   { path: '/about', label: 'About', icon: User },
   { path: '/blog', label: 'Blog', icon: BookOpen },

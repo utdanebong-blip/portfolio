@@ -3,12 +3,12 @@ import { Layout } from '@/components/layout';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Box, Sparkles, Download, Calendar, Clock, ChevronRight, Palette, Layers, Lightbulb, GraduationCap, Gamepad2, Zap, Building2, MapPin, Briefcase, Package, Star, ArrowUpRight, BookOpen, Play, Code2, Target, SplitSquareHorizontal, Check, Crown, Cpu, Building, BoxIcon, MousePointer, MousePointer2, BoxSelect, LucideBuilding2, Boxes } from 'lucide-react';
 import { projects, plugins, posts, archvizProjects, productVizProjects, showreel } from '@/hooks/usePortfolioData';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, lazy, Suspense, memo, useContext, createContext, RefObject } from 'react';
 import useInView from '@/hooks/useInView';
 import { cn } from '@/lib/utils';
-import ShowreelVideoSection from '@/components/ShowreelVideoSection';
-import ArchvizVideoSection from '@/components/ArchvizVideoSection';
-import ProductVizVideoSection from '@/components/ProductVizVideoSection';
+const ShowreelVideoSection = lazy(() => import('@/components/ShowreelVideoSection'));
+const ArchvizVideoSection = lazy(() => import('@/components/ArchvizVideoSection'));
+const ProductVizVideoSection = lazy(() => import('@/components/ProductVizVideoSection'));
 
 
 function HeroText() {
@@ -28,7 +28,7 @@ function HeroText() {
 }
 
 
-function ScrollPauseHandler({ productRef, videoLibRef, videosLoaded, setVideosLoaded }: { productRef: React.RefObject<HTMLElement | null>; videoLibRef: React.RefObject<HTMLElement | null>; videosLoaded: boolean; setVideosLoaded: (v: boolean) => void; }) {
+function ScrollPauseHandler({ productRef, videoLibRef, videosLoaded, setVideosLoaded }: { productRef: RefObject<HTMLElement | null>; videoLibRef: RefObject<HTMLElement | null>; videosLoaded: boolean; setVideosLoaded: (v: boolean) => void; }) {
   const wheelHandlerRef = useRef<((e: WheelEvent) => void) | null>(null);
   const touchStartRef = useRef<number | null>(null);
   const [isBlocking, setIsBlocking] = useState(false);
@@ -275,7 +275,7 @@ function FadeIn({ children, delay = 0 }: { children: any; delay?: number }) {
 }
 
 // Small presentational component for specialty pill with reveal animation
-function SpecialtyPill({ item, index }: { item: { icon: any; label: string; color?: string }; index: number }) {
+const SpecialtyPill = memo(function SpecialtyPill({ item, index }: { item: { icon: any; label: string; color?: string }; index: number }) {
   const { revealedCount, breathing } = useSpecialtyRevealContext();
   const shown = index < revealedCount;
   const Icon = item.icon;
@@ -290,13 +290,12 @@ function SpecialtyPill({ item, index }: { item: { icon: any; label: string; colo
       <span className="font-mono text-sm tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">{item.label}</span>
     </div>
   );
-}
+});
 
 // tiny context shim to avoid prop drilling for simple state
-import React from 'react';
-const SpecialtyRevealContext = React.createContext({ revealedCount: 0, breathing: false });
+const SpecialtyRevealContext = createContext({ revealedCount: 0, breathing: false });
 function useSpecialtyRevealContext() {
-  return React.useContext(SpecialtyRevealContext);
+  return useContext(SpecialtyRevealContext);
 }
 // Blog Preview section
 const featuredBooks = [
@@ -331,9 +330,23 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [viewport, setViewport] = useState({ w: typeof window !== 'undefined' ? window.innerWidth : 0, h: typeof window !== 'undefined' ? window.innerHeight : 0 });
 
+  // Throttle mousemove via requestAnimationFrame to avoid many re-renders
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const handleMove = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
+    const mouseRef = { x: 0, y: 0 };
+    const rafRef = { id: 0 as number | null };
+
+    const handleMove = (e: MouseEvent) => {
+      mouseRef.x = e.clientX;
+      mouseRef.y = e.clientY;
+      if (!rafRef.id) {
+        rafRef.id = window.requestAnimationFrame(() => {
+          setMousePos({ x: mouseRef.x, y: mouseRef.y });
+          rafRef.id = null;
+        });
+      }
+    };
+
     const handleResize = () => setViewport({ w: window.innerWidth, h: window.innerHeight });
     handleResize();
     window.addEventListener('mousemove', handleMove);
@@ -341,6 +354,7 @@ export default function Home() {
     return () => {
       window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('resize', handleResize);
+      if (rafRef.id) window.cancelAnimationFrame(rafRef.id);
     };
   }, []);
 
@@ -400,18 +414,23 @@ export default function Home() {
 
         {/* Floating Particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-primary/50 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${10 + Math.random() * 10}s`,
-              }}
-            />
-          ))}
+          {
+            (() => {
+              const count = viewport.w < 768 ? 8 : 20;
+              return Array.from({ length: count }).map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-1 h-1 bg-primary/50 rounded-full animate-float"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 5}s`,
+                    animationDuration: `${10 + Math.random() * 10}s`,
+                  }}
+                />
+              ));
+            })()
+          }
         </div>
 
         {/* Geometric Shapes */}
@@ -532,6 +551,7 @@ export default function Home() {
                         <img
                           src={project.thumbnail}
                           alt={project.title}
+                          loading="lazy"
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
@@ -584,6 +604,7 @@ export default function Home() {
                       <img
                         src={book.cover}
                         alt={book.title}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />

@@ -31,8 +31,8 @@ if (typeof window !== 'undefined') {
 
 createRoot(document.getElementById("root")!).render(<App />);
 
-// Register service worker to cache video files for subsequent playback
-if ('serviceWorker' in navigator) {
+// Register service worker only in production to avoid stale cached assets during dev
+if (import.meta.env && import.meta.env.PROD && 'serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
 		navigator.serviceWorker.register('/sw.js').catch(() => {
 			// ignore registration failures
